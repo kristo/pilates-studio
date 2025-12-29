@@ -1,4 +1,3 @@
 baseURL = 'https://kristo.github.io/pilates-studio/'
 languageCode = 'pl-pl'
 title = 'Total Training - Fitness & Pilates Studio'
-canonifyURLs = true
