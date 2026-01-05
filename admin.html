@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Lista Oczekujących</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#2c3e50',
+            accent: '#ff6b6b',
+            softGray: '#f8f9fa',
+            lightPink: '#fff5f5'
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-gray-100">
+  
+  <!-- Header -->
+  <header class="bg-primary shadow-lg">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <h1 class="text-2xl font-bold text-white">Lista Oczekujących - Admin Panel</h1>
+      <p class="text-gray-300 text-sm mt-1">Total Training Fitness & Pilates Studio</p>
+    </div>
+  </header>
+
+  <!-- Login (jeśli nie zalogowany) -->
+  <div id="loginSection" class="max-w-md mx-auto mt-20 bg-white p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold text-primary mb-6">Logowanie</h2>
+    <form id="loginForm">
+      <div class="mb-4">
+        <label class="block text-gray-700 font-semibold mb-2">Hasło</label>
+        <input 
+          type="password" 
+          id="password" 
+          class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent"
+          placeholder="Wprowadź hasło"
+        >
+      </div>
+      <button 
+        type="submit"
+        class="w-full bg-accent text-white py-3 rounded-lg font-semibold hover:bg-opacity-90 transition"
+      >
+        Zaloguj
+      </button>
+      <p id="loginError" class="text-red-500 text-sm mt-2 hidden">Nieprawidłowe hasło</p>
+    </form>
+  </div>
+
+  <!-- Main Content (po zalogowaniu) -->
+  <div id="mainContent" class="hidden">
+    
+    <!-- Stats -->
+    <div class="max-w-7xl mx-auto px-6 py-8">
+      <div class="grid md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-gray-500 text-sm font-semibold">Łącznie na liście</div>
+          <div class="text-3xl font-bold text-primary mt-2" id="totalCount">0</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-gray-500 text-sm font-semibold">Nowe (ostatnie 7 dni)</div>
+          <div class="text-3xl font-bold text-accent mt-2" id="newCount">0</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-gray-500 text-sm font-semibold">Wysłane powiadomienia</div>
+          <div class="text-3xl font-bold text-green-600 mt-2" id="sentCount">0</div>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <div class="text-gray-500 text-sm font-semibold">Najpopularniejsza godzina</div>
+          <div class="text-2xl font-bold text-primary mt-2" id="popularHour">-</div>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="bg-white p-6 rounded-lg shadow mb-6">
+        <h3 class="text-lg font-bold text-primary mb-4">Filtry</h3>
+        <div class="grid md:grid-cols-3 gap-4">
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Godzina</label>
+            <select id="hourFilter" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="">Wszystkie</option>
+              <option value="07:00">7:00</option>
+              <option value="08:00">8:00</option>
+              <option value="09:00">9:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+              <option value="19:00">19:00</option>
+              <option value="20:00">20:00</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Szukaj</label>
+            <input 
+              type="text" 
+              id="searchInput"
+              placeholder="Imię, nazwisko lub email"
+              class="w-full px-4 py-2 border border-gray-300 rounded-lg"
+            >
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-2">&nbsp;</label>
+            <button 
+              onclick="exportToCSV()"
+              class="w-full bg-primary text-white py-2 rounded-lg font-semibold hover:bg-opacity-90"
+            >
+              📥 Eksportuj CSV
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <div class="bg-white rounded-lg shadow overflow-hidden">
+        <table class="w-full">
+          <thead class="bg-primary text-white">
+            <tr>
+              <th class="px-6 py-3 text-left">Imię i Nazwisko</th>
+              <th class="px-6 py-3 text-left">Email</th>
+              <th class="px-6 py-3 text-left">Preferowane godziny</th>
+              <th class="px-6 py-3 text-left">Data zapisu</th>
+              <th class="px-6 py-3 text-left">Powiadomienia</th>
+              <th class="px-6 py-3 text-center">Akcje</th>
+            </tr>
+          </thead>
+          <tbody id="waitlistTable">
+            <!-- Dane będą wczytane przez JavaScript -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Send Notification Modal -->
+      <div id="notifyModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white p-8 rounded-lg shadow-2xl max-w-md w-full">
+          <h3 class="text-2xl font-bold text-primary mb-4">Wyślij powiadomienie</h3>
+          <div class="mb-4">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Data zajęć</label>
+            <input type="date" id="notifyDate" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+          </div>
+          <div class="mb-6">
+            <label class="block text-sm font-semibold text-gray-700 mb-2">Godzina</label>
+            <select id="notifyHour" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
+              <option value="07:00">7:00</option>
+              <option value="08:00">8:00</option>
+              <option value="09:00">9:00</option>
+              <option value="10:00">10:00</option>
+              <option value="11:00">11:00</option>
+              <option value="12:00">12:00</option>
+              <option value="13:00">13:00</option>
+              <option value="16:00">16:00</option>
+              <option value="17:00">17:00</option>
+              <option value="18:00">18:00</option>
+              <option value="19:00">19:00</option>
+              <option value="20:00">20:00</option>
+            </select>
+          </div>
+          <div class="flex gap-3">
+            <button 
+              onclick="closeNotifyModal()"
+              class="flex-1 bg-gray-300 text-gray-700 py-2 rounded-lg font-semibold hover:bg-gray-400"
+            >
+              Anuluj
+            </button>
+            <button 
+              onclick="sendNotifications()"
+              class="flex-1 bg-accent text-white py-2 rounded-lg font-semibold hover:bg-opacity-90"
+            >
+              Wyślij
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Mock data - w rzeczywistości pobierz z API
+    let waitlistData = [
+      {
+        id: 1,
+        firstName: 'Jan',
+        lastName: 'Kowalski',
+        email: 'jan@example.com',
+        hours: ['09:00', '10:00', '17:00'],
+        createdAt: '2026-01-01T10:00:00Z',
+        notificationsSent: 2
+      },
+      {
+        id: 2,
+        firstName: 'Anna',
+        lastName: 'Nowak',
+        email: 'anna@example.com',
+        hours: ['08:00', '16:00'],
+        createdAt: '2026-01-03T14:30:00Z',
+        notificationsSent: 0
+      },
+      // Dodaj więcej danych tutaj lub pobierz z API
+    ];
+
+    // Login
+    const ADMIN_PASSWORD = 'totaltraining2026'; // ZMIEŃ TO!
+    
+    document.getElementById('loginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      
+      if (password === ADMIN_PASSWORD) {
+        document.getElementById('loginSection').classList.add('hidden');
+        document.getElementById('mainContent').classList.remove('hidden');
+        loadData();
+      } else {
+        document.getElementById('loginError').classList.remove('hidden');
+      }
+    });
+
+    // Load data
+    function loadData() {
+      // W rzeczywistości: fetch('/api/waitlist')
+      updateStats();
+      renderTable(waitlistData);
+    }
+
+    // Update stats
+    function updateStats() {
+      document.getElementById('totalCount').textContent = waitlistData.length;
+      
+      const sevenDaysAgo = new Date();
+      sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+      const newEntries = waitlistData.filter(e => new Date(e.createdAt) > sevenDaysAgo);
+      document.getElementById('newCount').textContent = newEntries.length;
+      
+      const totalSent = waitlistData.reduce((sum, e) => sum + e.notificationsSent, 0);
+      document.getElementById('sentCount').textContent = totalSent;
+      
+      const hourCount = {};
+      waitlistData.forEach(e => {
+        e.hours.forEach(h => {
+          hourCount[h] = (hourCount[h] || 0) + 1;
+        });
+      });
+      const popularHour = Object.keys(hourCount).reduce((a, b) => 
+        hourCount[a] > hourCount[b] ? a : b, '');
+      document.getElementById('popularHour').textContent = popularHour || '-';
+    }
+
+    // Render table
+    function renderTable(data) {
+      const tbody = document.getElementById('waitlistTable');
+      tbody.innerHTML = data.map(entry => `
+        <tr class="border-b hover:bg-gray-50">
+          <td class="px-6 py-4">${entry.firstName} ${entry.lastName}</td>
+          <td class="px-6 py-4">${entry.email}</td>
+          <td class="px-6 py-4">
+            <div class="flex flex-wrap gap-1">
+              ${entry.hours.map(h => `<span class="bg-accent bg-opacity-20 text-accent px-2 py-1 rounded text-xs">${h}</span>`).join('')}
+            </div>
+          </td>
+          <td class="px-6 py-4">${new Date(entry.createdAt).toLocaleDateString('pl-PL')}</td>
+          <td class="px-6 py-4">${entry.notificationsSent}</td>
+          <td class="px-6 py-4 text-center">
+            <button 
+              onclick="removeFromList(${entry.id})"
+              class="text-red-600 hover:text-red-800 font-semibold text-sm"
+            >
+              Usuń
+            </button>
+          </td>
+        </tr>
+      `).join('');
+    }
+
+    // Filters
+    document.getElementById('hourFilter').addEventListener('change', applyFilters);
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+
+    function applyFilters() {
+      const hour = document.getElementById('hourFilter').value;
+      const search = document.getElementById('searchInput').value.toLowerCase();
+      
+      let filtered = waitlistData;
+      
+      if (hour) {
+        filtered = filtered.filter(e => e.hours.includes(hour));
+      }
+      
+      if (search) {
+        filtered = filtered.filter(e => 
+          e.firstName.toLowerCase().includes(search) ||
+          e.lastName.toLowerCase().includes(search) ||
+          e.email.toLowerCase().includes(search)
+        );
+      }
+      
+      renderTable(filtered);
+    }
+
+    // Export to CSV
+    function exportToCSV() {
+      const csv = [
+        ['Imię', 'Nazwisko', 'Email', 'Godziny', 'Data zapisu', 'Powiadomienia'],
+        ...waitlistData.map(e => [
+          e.firstName,
+          e.lastName,
+          e.email,
+          e.hours.join(', '),
+          new Date(e.createdAt).toLocaleDateString('pl-PL'),
+          e.notificationsSent
+        ])
+      ].map(row => row.join(',')).join('\n');
+      
+      const blob = new Blob([csv], { type: 'text/csv' });
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `waitlist-${new Date().toISOString().split('T')[0]}.csv`;
+      a.click();
+    }
+
+    // Remove from list
+    function removeFromList(id) {
+      if (confirm('Czy na pewno chcesz usunąć tę osobę z listy?')) {
+        // W rzeczywistości: fetch(`/api/waitlist/${id}`, { method: 'DELETE' })
+        waitlistData = waitlistData.filter(e => e.id !== id);
+        loadData();
+        alert('Usunięto z listy');
+      }
+    }
+
+    // Notify modal
+    function openNotifyModal() {
+      document.getElementById('notifyModal').classList.remove('hidden');
+    }
+
+    function closeNotifyModal() {
+      document.getElementById('notifyModal').classList.add('hidden');
+    }
+
+    function sendNotifications() {
+      const date = document.getElementById('notifyDate').value;
+      const hour = document.getElementById('notifyHour').value;
+      
+      if (!date || !hour) {
+        alert('Wypełnij wszystkie pola');
+        return;
+      }
+      
+      // W rzeczywistości: fetch('/api/notify-available-slot', { method: 'POST', body: ... })
+      const interested = waitlistData.filter(e => e.hours.includes(hour));
+      
+      alert(`Wysłano powiadomienia do ${interested.length} osób`);
+      closeNotifyModal();
+    }
+
+    // Add button to send notifications
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('#mainContent .max-w-7xl');
+      if (header) {
+        const btn = document.createElement('button');
+        btn.textContent = '📧 Wyślij powiadomienia';
+        btn.className = 'mt-4 bg-accent text-white px-6 py-3 rounded-lg font-semibold hover:bg-opacity-90';
+        btn.onclick = openNotifyModal;
+        header.querySelector('.grid').after(btn);
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -20,6 +20,7 @@
     <nav class="hidden md:flex space-x-10">
       <a href="#zajecia" class="text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
       <a href="#instruktor" class="text-lg text-white hover:text-accent transition font-medium">O nas</a>
+      <a href="#lista-oczekujacych" class="text-lg text-white hover:text-accent transition font-medium">Lista oczekujących</a>
       <a href="#kontakt" class="text-lg text-white hover:text-accent transition font-medium">Kontakt</a>
     </nav>
   </div>
@@ -265,6 +266,189 @@
 </section>
 
 
+<section id="lista-oczekujacych" class="py-32 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-5xl md:text-6xl font-bold text-primary text-center mb-6">Lista Oczekujących</h2>
+    <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-12">
+      Wszystkie terminy zajęte? Zapisz się na listę oczekujących i otrzymaj powiadomienie, gdy ktoś odwoła zajęcia w systemie Fitssey.
+    </p>
+
+    <div class="bg-softGray p-8 md:p-12 rounded-2xl shadow-lg">
+      <form id="waitlistForm" class="space-y-6">
+        
+        <div class="grid md:grid-cols-2 gap-6">
+          <div>
+            <label for="firstName" class="block text-lg font-semibold text-primary mb-2">Imię *</label>
+            <input 
+              type="text" 
+              id="firstName" 
+              name="firstName" 
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
+              placeholder="Twoje imię"
+            >
+          </div>
+          <div>
+            <label for="lastName" class="block text-lg font-semibold text-primary mb-2">Nazwisko *</label>
+            <input 
+              type="text" 
+              id="lastName" 
+              name="lastName" 
+              required
+              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
+              placeholder="Twoje nazwisko"
+            >
+          </div>
+        </div>
+
+        
+        <div>
+          <label for="email" class="block text-lg font-semibold text-primary mb-2">Email *</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            required
+            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
+            placeholder="twoj@email.com"
+          >
+        </div>
+
+        
+        <div>
+          <label class="block text-lg font-semibold text-primary mb-3">Preferowane dni tygodnia *</label>
+          <p class="text-gray-600 mb-4">Wybierz dni, w których chcesz otrzymywać powiadomienia</p>
+          
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="dowolny" class="sr-only" id="day-any">
+              <span class="text-sm font-medium">Dowolny dzień</span>
+            </label>
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="poniedziałek" class="sr-only">
+              <span class="text-sm font-medium">Poniedziałek</span>
+            </label>
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="wtorek" class="sr-only">
+              <span class="text-sm font-medium">Wtorek</span>
+            </label>
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="środa" class="sr-only">
+              <span class="text-sm font-medium">Środa</span>
+            </label>
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="czwartek" class="sr-only">
+              <span class="text-sm font-medium">Czwartek</span>
+            </label>
+            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+              <input type="checkbox" name="days" value="piątek" class="sr-only">
+              <span class="text-sm font-medium">Piątek</span>
+            </label>
+          </div>
+          <p class="text-sm text-gray-500 mt-3">Możesz wybrać wiele dni lub "Dowolny dzień" dla wszystkich dni roboczych (Pn-Pt)</p>
+        </div>
+
+        
+        <div>
+          <label class="block text-lg font-semibold text-primary mb-3">Preferowane godziny *</label>
+          <p class="text-gray-600 mb-4">Wybierz godziny, w których chcesz otrzymywać powiadomienia o wolnych miejscach</p>
+          
+          <div class="space-y-4">
+            
+            <div>
+              <p class="font-semibold text-gray-700 mb-2">Przedpołudnie (7:00 - 13:00)</p>
+              <div class="grid grid-cols-4 md:grid-cols-7 gap-2">
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="07:00" class="sr-only">
+                  <span class="text-sm font-medium">7:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="08:00" class="sr-only">
+                  <span class="text-sm font-medium">8:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="09:00" class="sr-only">
+                  <span class="text-sm font-medium">9:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="10:00" class="sr-only">
+                  <span class="text-sm font-medium">10:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="11:00" class="sr-only">
+                  <span class="text-sm font-medium">11:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="12:00" class="sr-only">
+                  <span class="text-sm font-medium">12:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="13:00" class="sr-only">
+                  <span class="text-sm font-medium">13:00</span>
+                </label>
+              </div>
+            </div>
+
+            
+            <div>
+              <p class="font-semibold text-gray-700 mb-2">Popołudnie (16:00 - 20:00)</p>
+              <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="16:00" class="sr-only">
+                  <span class="text-sm font-medium">16:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="17:00" class="sr-only">
+                  <span class="text-sm font-medium">17:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="18:00" class="sr-only">
+                  <span class="text-sm font-medium">18:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="19:00" class="sr-only">
+                  <span class="text-sm font-medium">19:00</span>
+                </label>
+                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
+                  <input type="checkbox" name="hours" value="20:00" class="sr-only">
+                  <span class="text-sm font-medium">20:00</span>
+                </label>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-500 mt-3">Możesz wybrać wiele godzin</p>
+        </div>
+
+        
+        <div class="pt-4">
+          <button 
+            type="submit" 
+            class="w-full px-8 py-4 bg-accent text-white text-lg font-bold rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+          >
+            Zapisz się na listę oczekujących
+          </button>
+          <p class="text-sm text-gray-500 mt-4 text-center">
+            Zapisując się, zgadzasz się na przetwarzanie danych osobowych w celu wysyłania powiadomień o wolnych miejscach na zajęciach.
+          </p>
+        </div>
+
+        
+        <div id="successMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded">
+          <p class="font-bold">Dziękujemy za zapis!</p>
+          <p>Powiadomimy Cię emailem, gdy zwolni się miejsce w wybranych godzinach.</p>
+        </div>
+
+        
+        <div id="errorMessage" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded">
+          <p class="font-bold">Wystąpił błąd</p>
+          <p>Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
 <section id="kontakt" class="py-32 md:py-40 bg-primary text-white text-center">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-5xl md:text-7xl font-bold mb-8">Gotowy na Start?</h2>
@@ -289,5 +473,8 @@
 
 
 
+  
+  
+  <script src="/js/waitlist.js"></script>
 </body>
 </html>
