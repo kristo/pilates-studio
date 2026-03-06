@@ -12,6 +12,7 @@
     <!-- Desktop nav -->
     <nav class="hidden md:flex space-x-10">
       <a href="#zajecia" class="text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
+      <a href="#cennik" class="text-lg text-white hover:text-accent transition font-medium">Cennik</a>
       <a href="#instruktor" class="text-lg text-white hover:text-accent transition font-medium">O nas</a>
       <a href="#lista-oczekujacych" class="text-lg text-white hover:text-accent transition font-medium">Lista oczekujących</a>
       <a href="#kontakt" class="text-lg text-white hover:text-accent transition font-medium">Kontakt</a>
@@ -29,6 +30,7 @@
   <!-- Mobile nav dropdown -->
   <nav id="mobileMenu" class="hidden md:hidden bg-primary border-t border-white/10 px-6 pb-6 pt-4 space-y-4">
     <a href="#zajecia" class="block text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
+    <a href="#cennik" class="block text-lg text-white hover:text-accent transition font-medium">Cennik</a>
     <a href="#instruktor" class="block text-lg text-white hover:text-accent transition font-medium">O nas</a>
     <a href="#lista-oczekujacych" class="block text-lg text-white hover:text-accent transition font-medium">Lista oczekujących</a>
     <a href="#kontakt" class="block text-lg text-white hover:text-accent transition font-medium">Kontakt</a>
@@ -219,8 +221,61 @@
   </div>
 </section>
 
+<!-- CENNIK -->
+<section id="cennik" class="py-32 bg-white">
+  <div class="max-w-7xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Cennik</h2>
+    <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
+      Wybierz karnet dopasowany do Twoich potrzeb. Wszystkie ceny podane w złotych polskich (PLN).
+    </p>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+      <!-- Karnet x1 -->
+      <div class="bg-softGray p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 border-t-4 border-accent text-center">
+        <h3 class="text-2xl font-bold text-primary mb-2">Karnet x1</h3>
+        <p class="text-5xl font-bold text-accent my-6">59 <span class="text-xl">PLN</span></p>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">Pojedyncze wejście na zajęcia grupowe (max. 3 osoby na sali).</p>
+        <ul class="text-gray-600 text-left space-y-2 mb-8">
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>1 wejście</li>
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Ważny 1 miesiąc od zakupu</li>
+        </ul>
+        <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="inline-block w-full px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Kup karnet</a>
+      </div>
+
+      <!-- Karnet x5 -->
+      <div class="bg-softGray p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 border-t-4 border-primary text-center relative">
+        <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white text-sm font-bold px-4 py-1 rounded-full">Popularny</span>
+        <h3 class="text-2xl font-bold text-primary mb-2">Karnet x5</h3>
+        <p class="text-5xl font-bold text-accent my-6">259 <span class="text-xl">PLN</span></p>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">5 wejść na zajęcia grupowe (max. 3 osoby na sali).</p>
+        <ul class="text-gray-600 text-left space-y-2 mb-8">
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>5 wejść</li>
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Ważny 1 miesiąc od zakupu</li>
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Oszczędzasz 36 PLN</li>
+        </ul>
+        <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="inline-block w-full px-8 py-3 bg-primary text-white font-bold rounded-full hover:bg-gray-800 transition-all">Kup karnet</a>
+      </div>
+
+      <!-- Trening personalny -->
+      <div class="bg-softGray p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 border-t-4 border-accent text-center">
+        <h3 class="text-2xl font-bold text-primary mb-2">Trening personalny</h3>
+        <p class="text-3xl font-bold text-accent my-6">Zapytaj o cenę</p>
+        <p class="text-gray-600 text-lg leading-relaxed mb-6">Indywidualny trening dopasowany do Twoich celów i potrzeb.</p>
+        <ul class="text-gray-600 text-left space-y-2 mb-8">
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Plan treningowy</li>
+          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Indywidualne podejście</li>
+        </ul>
+        <a href="#lista-oczekujacych" class="inline-block w-full px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Zapisz się</a>
+      </div>
+    </div>
+
+    <p class="text-center text-gray-500 text-sm mt-8">Płatności obsługiwane przez Paynow (mBank S.A.). Waluta: PLN (złoty polski).</p>
+    <p class="text-center text-gray-500 text-sm mt-2">Karnet aktywowany jest automatycznie po zaksięgowaniu płatności. Rezerwacja zajęć odbywa się przez system <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Fitssey</a>.</p>
+  </div>
+</section>
+
 <!-- INSTRUCTORS -->
-<section id="instruktor" class="py-32 bg-white">
+<section id="instruktor" class="py-32 bg-softGray">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">O nas</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
@@ -271,7 +326,7 @@
 </section>
 
 <!-- LOCATION -->
-<section class="py-32 bg-softGray">
+<section class="py-32 bg-white">
   <div class="max-w-7xl mx-auto px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Lokalizacja</h2>
     <p class="text-center text-gray-600 text-xl max-w-2xl mx-auto mb-12">
@@ -363,7 +418,7 @@
 </section>
 
 <!-- WAITLIST -->
-<section id="lista-oczekujacych" class="py-32 bg-white">
+<section id="lista-oczekujacych" class="py-32 bg-softGray">
   <div class="max-w-4xl mx-auto px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Treningi Personalne</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-12">
@@ -561,16 +616,201 @@
   </div>
 </section>
 
+<!-- REGULAMIN -->
+<section id="regulamin" class="py-24 bg-white">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-center mb-12">Regulamin</h2>
+    <div class="prose prose-lg max-w-none text-gray-700 space-y-8">
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§1. Postanowienia ogólne</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Niniejszy regulamin określa zasady korzystania z usług oferowanych przez Pure Shape Studio Małgorzata Pilińska-Babula, z siedzibą przy ul. Granicznej 121D, 32-087 Bibice, NIP: 6782974830, REGON: 382489195 (dalej: „Studio").</li>
+          <li>Zajęcia prowadzone są w lokalu przy ul. Kościuszki 11A, Bibice.</li>
+          <li>Zakup karnetu lub pojedynczego wejścia oznacza akceptację niniejszego regulaminu.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§2. Usługi i ceny</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Studio oferuje zajęcia grupowe (fitness, pilates, joga, stretching, mobility, trening funkcjonalny, trening siłowy) oraz treningi personalne.</li>
+          <li>Aktualne ceny podane są w sekcji <a href="#cennik" class="text-accent hover:underline">Cennik</a> oraz w systemie rezerwacyjnym Fitssey. Wszystkie ceny podane są w złotych polskich (PLN) i zawierają podatek VAT.</li>
+          <li>Płatności realizowane są za pośrednictwem systemu Paynow (mBank S.A.) lub bezpośrednio w systemie Fitssey.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§3. Zakup i aktywacja karnetów</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Karnety można zakupić online przez system <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Fitssey</a>.</li>
+          <li>Karnet aktywowany jest automatycznie po zaksięgowaniu płatności.</li>
+          <li>Karnet jest ważny przez 1 miesiąc od daty zakupu i obejmuje liczbę wejść określoną w opisie karnetu.</li>
+          <li>Niewykorzystane wejścia w ramach karnetu nie przechodzą na kolejny okres i nie podlegają zwrotowi.</li>
+          <li>Rezerwacja zajęć odbywa się za pośrednictwem systemu Fitssey.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§4. Odwoływanie i zmiana rezerwacji</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Odwołanie rezerwacji jest możliwe nie później niż 12 godzin przed planowanym rozpoczęciem zajęć.</li>
+          <li>W przypadku odwołania rezerwacji w terminie krótszym niż 12 godzin, wejście zostaje uznane za wykorzystane.</li>
+          <li>Studio zastrzega sobie prawo do odwołania zajęć z przyczyn niezależnych od Studia, o czym poinformuje uczestników z odpowiednim wyprzedzeniem.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§5. Zwroty</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Zakupione karnety i pojedyncze wejścia nie podlegają zwrotowi.</li>
+          <li>W przypadku odwołania zajęć przez Studio, niewykorzystane wejście zostaje przywrócone na konto klienta w systemie Fitssey.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§6. Reklamacje</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Reklamacje dotyczące świadczonych usług można składać drogą mailową na adres: <a href="mailto:gosia.pilinska@gmail.com" class="text-accent hover:underline">gosia.pilinska@gmail.com</a> lub telefonicznie pod numerem <a href="tel:+48698190880" class="text-accent hover:underline">698 190 880</a>.</li>
+          <li>Reklamacja powinna zawierać: imię i nazwisko klienta, opis problemu oraz oczekiwany sposób rozwiązania.</li>
+          <li>Reklamacje rozpatrywane są w terminie 14 dni roboczych od daty ich otrzymania.</li>
+          <li>Odpowiedź na reklamację zostanie przesłana na adres e-mail wskazany przez klienta.</li>
+        </ol>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§7. Postanowienia końcowe</h3>
+        <ol class="list-decimal list-inside space-y-2">
+          <li>Studio zastrzega sobie prawo do zmiany regulaminu. Aktualna wersja regulaminu dostępna jest na stronie pure-shape.pl.</li>
+          <li>W sprawach nieuregulowanych niniejszym regulaminem zastosowanie mają przepisy prawa polskiego.</li>
+          <li>Regulamin obowiązuje od dnia 6 marca 2026 r.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- POLITYKA PRYWATNOŚCI -->
+<section id="prywatnosc" class="py-24 bg-softGray">
+  <div class="max-w-4xl mx-auto px-6">
+    <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-primary text-center mb-12">Polityka Prywatności</h2>
+    <div class="prose prose-lg max-w-none text-gray-700 space-y-8">
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§1. Administrator danych</h3>
+        <p>Administratorem danych osobowych jest Pure Shape Studio Małgorzata Pilińska-Babula, ul. Graniczna 121D, 32-087 Bibice, NIP: 6782974830, REGON: 382489195. Kontakt: <a href="mailto:gosia.pilinska@gmail.com" class="text-accent hover:underline">gosia.pilinska@gmail.com</a>, tel. <a href="tel:+48698190880" class="text-accent hover:underline">698 190 880</a>.</p>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§2. Zakres zbieranych danych</h3>
+        <p>Zbieramy następujące dane osobowe:</p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          <li>Imię i nazwisko — w celu identyfikacji klienta i realizacji usług.</li>
+          <li>Adres e-mail — w celu komunikacji, wysyłania potwierdzeń rezerwacji i powiadomień.</li>
+          <li>Numer telefonu — w celu kontaktu w sprawach związanych z rezerwacjami.</li>
+          <li>Preferencje dotyczące zajęć (dni, godziny) — w celu dopasowania oferty.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§3. Cele przetwarzania danych</h3>
+        <p>Dane osobowe przetwarzane są w celu:</p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          <li>Realizacji usług (rezerwacja zajęć, obsługa karnetów) — na podstawie art. 6 ust. 1 lit. b RODO.</li>
+          <li>Prowadzenia listy oczekujących i wysyłania powiadomień — na podstawie art. 6 ust. 1 lit. a RODO (zgoda).</li>
+          <li>Wypełnienia obowiązków prawnych (rachunkowość, podatki) — na podstawie art. 6 ust. 1 lit. c RODO.</li>
+          <li>Obsługi reklamacji i dochodzenia roszczeń — na podstawie art. 6 ust. 1 lit. f RODO (prawnie uzasadniony interes).</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§4. Okres przechowywania danych</h3>
+        <p>Dane osobowe przechowywane są przez okres niezbędny do realizacji celów, dla których zostały zebrane, nie dłużej niż:</p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          <li>Dane klientów — przez okres korzystania z usług oraz 5 lat od ostatniej transakcji (obowiązki podatkowe).</li>
+          <li>Dane z listy oczekujących — do momentu wycofania zgody lub 12 miesięcy od zapisu.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§5. Prawa użytkownika</h3>
+        <p>Każdej osobie, której dane dotyczą, przysługuje prawo do:</p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          <li>Dostępu do swoich danych osobowych.</li>
+          <li>Sprostowania (poprawienia) danych.</li>
+          <li>Usunięcia danych („prawo do bycia zapomnianym").</li>
+          <li>Ograniczenia przetwarzania.</li>
+          <li>Przenoszenia danych.</li>
+          <li>Wniesienia sprzeciwu wobec przetwarzania.</li>
+          <li>Cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania dokonanego przed cofnięciem).</li>
+          <li>Wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.</li>
+        </ul>
+        <p class="mt-2">W celu realizacji powyższych praw prosimy o kontakt: <a href="mailto:gosia.pilinska@gmail.com" class="text-accent hover:underline">gosia.pilinska@gmail.com</a>.</p>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§6. Odbiorcy danych</h3>
+        <p>Dane mogą być udostępniane następującym podmiotom:</p>
+        <ul class="list-disc list-inside space-y-1 mt-2">
+          <li>Fitssey — system rezerwacji i zarządzania zajęciami.</li>
+          <li>Paynow (mBank S.A.) — obsługa płatności online.</li>
+          <li>Google (Google Sheets) — przechowywanie danych z listy oczekujących.</li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§7. Pliki cookies</h3>
+        <p>Strona pure-shape.pl nie wykorzystuje plików cookies do śledzenia użytkowników. System rezerwacyjny Fitssey stosuje własne pliki cookies — szczegóły w <a href="https://fitssey.com/pl/legal/cookies-policy" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">polityce cookies Fitssey</a>.</p>
+      </div>
+
+      <div>
+        <h3 class="text-2xl font-bold text-primary mb-4">§8. Postanowienia końcowe</h3>
+        <p>Polityka prywatności obowiązuje od dnia 6 marca 2026 r. Administrator zastrzega sobie prawo do jej zmiany. Aktualna wersja dostępna jest na stronie pure-shape.pl.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
-<footer class="py-16 bg-lightPink text-center text-gray-700">
-  <div class="text-2xl font-light mb-4">
-    <span class="font-bold">Pure Shape Studio</span>
+<footer class="py-16 bg-lightPink text-gray-700">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-3 gap-10 mb-10">
+      <!-- Company info -->
+      <div>
+        <h4 class="text-xl font-bold text-primary mb-4">Pure Shape Studio</h4>
+        <p class="font-semibold">Pure Shape Studio Małgorzata Pilińska-Babula</p>
+        <p class="mt-2">ul. Graniczna 121D</p>
+        <p>32-087 Bibice</p>
+        <p class="mt-2">NIP: 6782974830</p>
+        <p>REGON: 382489195</p>
+      </div>
+      <!-- Contact -->
+      <div>
+        <h4 class="text-xl font-bold text-primary mb-4">Kontakt</h4>
+        <p>Miejsce zajęć: ul. Kościuszki 11A, Bibice</p>
+        <p class="mt-2"><a href="tel:+48698190880" class="text-accent hover:text-primary transition-colors">698 190 880</a></p>
+        <p class="mt-1"><a href="mailto:gosia.pilinska@gmail.com" class="text-accent hover:text-primary transition-colors">gosia.pilinska@gmail.com</a></p>
+        <div class="mt-4">
+          <p>Pon - Pt: 7:00 - 21:00</p>
+          <p>Sobota: 9:00 - 15:00</p>
+        </div>
+      </div>
+      <!-- Links -->
+      <div>
+        <h4 class="text-xl font-bold text-primary mb-4">Informacje</h4>
+        <ul class="space-y-2">
+          <li><a href="#cennik" class="text-gray-600 hover:text-accent transition-colors">Cennik</a></li>
+          <li><a href="#regulamin" class="text-gray-600 hover:text-accent transition-colors">Regulamin</a></li>
+          <li><a href="#prywatnosc" class="text-gray-600 hover:text-accent transition-colors">Polityka prywatności</a></li>
+          <li><a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-accent transition-colors">Rezerwacja przez Fitssey</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
+      <p>© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. Wszelkie prawa zastrzeżone.</p>
+      <p class="mt-1">Płatności online obsługiwane przez Paynow (mBank S.A.). Waluta: PLN.</p>
+    </div>
   </div>
-  <div class="text-gray-600 mb-4">
-    <p class="font-semibold">Pure Shape Studio Małgorzata Pilińska-Babula</p>
-    <p>NIP: 6782974830 | REGON: 382489195</p>
-  </div>
-  <p class="text-gray-600">© 2025 Wszelkie prawa zastrzeżone</p>
 </footer>
 
 <!-- Mobile menu toggle script -->
