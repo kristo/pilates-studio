@@ -1,0 +1,24 @@
+{
+  "name": "total-training-waitlist-backend",
+  "version": "1.0.0",
+  "description": "Backend for waitlist management with email notifications",
+  "main": "backend-example.js",
+  "scripts": {
+    "start": "node backend-example.js",
+    "dev": "nodemon backend-example.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["waitlist", "email", "notifications"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "mongoose": "^8.0.0",
+    "nodemailer": "^6.9.7",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
