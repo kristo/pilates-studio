@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 70" fill="none">
+  <!-- PP Monogram -->
+  <g>
+    <!-- Circle - upper portion, large -->
+    <circle cx="25" cy="22" r="18" stroke="white" stroke-width="1.8" fill="none"/>
+    
+    <!-- Left P stem - starts at top of circle, extends far below -->
+    <line x1="14" y1="5" x2="14" y2="68" stroke="white" stroke-width="1.8"/>
+    
+    <!-- Left P bowl - small elegant curve inside top of circle -->
+    <path d="M14 5 C20 5, 27 5, 27 10 C27 16, 20 17, 14 17" stroke="white" stroke-width="1.8" fill="none"/>
+    
+    <!-- Right P stem - slightly to right, starts lower -->
+    <line x1="21" y1="12" x2="21" y2="68" stroke="white" stroke-width="1.8"/>
+    
+    <!-- Right P bowl - large curve following inside of circle's right arc -->
+    <path d="M21 12 C28 12, 37 14, 39 22 C41 30, 35 37, 21 37" stroke="white" stroke-width="1.8" fill="none"/>
+  </g>
+  
+  <!-- PURE SHAPE text - vertically centered -->
+  <text x="58" y="30" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="4" fill="white">PURE SHAPE</text>
+  
+  <!-- Decorative lines + STUDIO -->
+  <line x1="58" y1="47" x2="80" y2="47" stroke="white" stroke-width="1"/>
+  <text x="86" y="51" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="12" font-weight="400" letter-spacing="7" fill="white">STUDIO</text>
+  <line x1="157" y1="47" x2="179" y2="47" stroke="white" stroke-width="1"/>
+</svg>
