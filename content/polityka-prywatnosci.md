@@ -53,6 +53,7 @@ W celu realizacji powyższych praw prosimy o kontakt: [gosia.pilinska@gmail.com]
 Dane mogą być udostępniane następującym podmiotom:
 
 - Fitssey — system rezerwacji i zarządzania zajęciami.
+- Autopay S.A. — obsługa płatności kartami online.
 - Paynow (mBank S.A.) — obsługa płatności online.
 - Google (Google Sheets) — przechowywanie danych z listy oczekujących.
 
