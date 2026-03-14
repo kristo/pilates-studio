@@ -1,0 +1,660 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grafik tygodniowy | Pure Shape Studio</title>
+  <style>
+    :root {
+      --bg: #f7f2ee;
+      --card: #ffffff;
+      --ink: #1f2230;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #d8607b;
+      --gosia: #ffd6de;
+      --klaudia: #d8f0ff;
+      --dorota: #e4f7dd;
+      --olivia: #efe1ff;
+      --ania: #ffecc8;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Avenir Next", "Segoe UI", Roboto, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% -20%, #ffe7ee 0%, transparent 40%),
+        radial-gradient(circle at 100% 0%, #ffe9d6 0%, transparent 35%),
+        var(--bg);
+      line-height: 1.4;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #1f2230, #31384f);
+      color: #fff;
+      border-radius: 18px;
+      padding: 24px;
+      box-shadow: 0 20px 40px rgba(20, 24, 40, 0.2);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: clamp(28px, 4vw, 48px);
+      letter-spacing: 0.02em;
+    }
+
+    .hero p {
+      margin: 0;
+      color: #d7deff;
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      padding: 10px 16px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #fff;
+      color: #1f2230;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .panel {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 16px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 20px rgba(30, 36, 60, 0.06);
+    }
+
+    .panel h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .chip {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s, opacity 0.2s;
+      user-select: none;
+    }
+
+    .chip:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .chip.active {
+      border-color: var(--ink);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    }
+
+    .chip.dimmed {
+      opacity: 0.35;
+    }
+
+    .chip-reset {
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-weight: 700;
+      font-size: 13px;
+      border: 2px dashed var(--line);
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+      display: none;
+      transition: border-color 0.15s;
+    }
+
+    .chip-reset:hover {
+      border-color: var(--ink);
+      color: var(--ink);
+    }
+
+    .chip-reset.visible {
+      display: inline-block;
+    }
+
+    .i-gosia { background: var(--gosia); }
+    .i-klaudia { background: var(--klaudia); }
+    .i-dorota { background: var(--dorota); }
+    .i-olivia { background: var(--olivia); }
+    .i-ania { background: var(--ania); }
+
+    .day {
+      margin-bottom: 16px;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .day.hidden-day {
+      display: none;
+    }
+
+    .day h3 {
+      margin: 0;
+      padding: 12px 14px;
+      background: #f4f6fb;
+      border-bottom: 1px solid var(--line);
+      font-size: 17px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      table-layout: fixed;
+    }
+
+    col.col-start { width: 11%; }
+    col.col-end   { width: 14%; }
+    col.col-room  { width: 10%; }
+    col.col-class { width: 40%; }
+    col.col-instr { width: 25%; }
+
+    th, td {
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      padding: 9px 10px;
+      vertical-align: middle;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    thead th {
+      background: #fafafa;
+      font-size: 12px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    tbody tr:last-child td { border-bottom: 0; }
+
+    tbody tr {
+      transition: opacity 0.2s;
+    }
+
+    tbody tr.filtered-out {
+      display: none;
+    }
+
+    .class-name {
+      font-weight: 700;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .instructor-pill {
+      display: inline-block;
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .filter-info {
+      display: none;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      box-shadow: 0 4px 12px rgba(30, 36, 60, 0.04);
+    }
+
+    .filter-info.visible {
+      display: flex;
+    }
+
+    .filter-info strong {
+      font-size: 15px;
+    }
+
+    .filter-count {
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 640px) {
+      col.col-room  { width: 0; }
+      .hide-mobile { display: none; }
+      col.col-start { width: 14%; }
+      col.col-end   { width: 16%; }
+      col.col-class { width: 42%; }
+      col.col-instr { width: 28%; }
+      table { font-size: 13px; }
+      th, td { padding: 8px 6px; }
+    }
+
+    @media print {
+      @page {
+        size: A4 landscape;
+        margin: 12mm 10mm;
+      }
+      body { background: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .wrap { max-width: none; padding: 0; }
+      .hero {
+        box-shadow: none;
+        border-radius: 0;
+        background: #1f2230 !important;
+        color: #fff !important;
+        padding: 14px 16px;
+        margin-bottom: 10px;
+      }
+      .hero h1 { font-size: 22px; }
+      .hero p { font-size: 11px; }
+      .toolbar { display: none !important; }
+      .filter-info { display: none !important; }
+      .panel {
+        box-shadow: none;
+        border-radius: 0;
+        border: 1px solid #ccc;
+        padding: 8px 10px;
+        margin-bottom: 8px;
+        break-inside: avoid;
+      }
+      .panel h2 { font-size: 14px; margin-bottom: 6px; }
+      .chip { font-size: 11px; padding: 4px 8px; }
+      .chip-reset { display: none !important; }
+      .legend-panel { break-after: avoid; }
+      .day {
+        break-inside: avoid;
+        border-radius: 0;
+        margin-bottom: 8px;
+        border: 1px solid #bbb;
+        display: block !important;
+      }
+      .day h3 {
+        background: #eee !important;
+        font-size: 14px;
+        padding: 6px 10px;
+      }
+      table { font-size: 11px; }
+      th, td { padding: 4px 6px; }
+      thead th { font-size: 10px; background: #f5f5f5 !important; }
+      .instructor-pill { font-size: 10px; padding: 2px 7px; }
+      .i-gosia { background: var(--gosia) !important; }
+      .i-klaudia { background: var(--klaudia) !important; }
+      .i-dorota { background: var(--dorota) !important; }
+      .i-olivia { background: var(--olivia) !important; }
+      .i-ania { background: var(--ania) !important; }
+      .hide-mobile { display: none; }
+      tbody tr.filtered-out { display: table-row !important; }
+      .day.hidden-day { display: block !important; }
+      .print-footer {
+        display: block !important;
+        text-align: center;
+        font-size: 9px;
+        color: #999;
+        margin-top: 6px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <section class="hero">
+      <h1>Grafik Tygodniowy</h1>
+      <p>Pure Shape Studio • ul. Ko&#347;ciuszki 11A, Bibice</p>
+      <div class="toolbar">
+        <button class="btn primary" onclick="window.print()">Eksport PDF</button>
+        <button class="btn" onclick="window.print()">Drukuj</button>
+      </div>
+    </section>
+
+    <section class="panel legend-panel">
+      <h2>Instruktorki <span style="font-weight:400;font-size:14px;color:var(--muted)">&mdash; kliknij, aby filtrowa&#263;</span></h2>
+      <ul class="legend" id="legendList">
+        <li class="chip i-gosia" data-instructor="Gosia" onclick="filterByInstructor('Gosia')">Gosia</li>
+        <li class="chip i-klaudia" data-instructor="Klaudia" onclick="filterByInstructor('Klaudia')">Klaudia</li>
+        <li class="chip i-dorota" data-instructor="Dorota" onclick="filterByInstructor('Dorota')">Dorota</li>
+        <li class="chip i-olivia" data-instructor="Olivia" onclick="filterByInstructor('Olivia')">Olivia</li>
+        <li class="chip i-ania" data-instructor="Ania" onclick="filterByInstructor('Ania')">Ania</li>
+        <li><button class="chip-reset" id="resetFilter" onclick="clearFilter()">Poka&#380; wszystkie</button></li>
+      </ul>
+    </section>
+
+    <div class="filter-info" id="filterInfo">
+      <span>Zaj&#281;cia: <strong id="filterName"></strong></span>
+      <span class="filter-count" id="filterCount"></span>
+    </div>
+
+    <section id="schedule"></section>
+    <p class="print-footer" style="display:none">Pure Shape Studio • ul. Ko&#347;ciuszki 11A, Bibice • tel. 698 190 880 • pure-shape.pl</p>
+  </div>
+
+  <script>
+    const normalizeClass = raw => {
+      const key = raw
+        .replace(/&gt;/g, "&")
+        .replace(/\s+/g, " ")
+        .trim()
+        .toLowerCase();
+
+      const map = {
+        "refomer flow": "Reformer Flow",
+        "reformer flow": "Reformer Flow",
+        "pilates flow": "Pilates Flow",
+        "pilates": "Pilates Flow",
+        "power pilates": "Power Pilates",
+        "barre": "Barre Flow",
+        "barre flow": "Barre Flow",
+        "good morning joga": "Good Morning Joga",
+        "vinyasa joga flow": "Vinyasa Joga Flow",
+        "joga vinyasa flow": "Vinyasa Joga Flow",
+        "yin joga good night": "Yin Joga Good Night",
+        "joga dla kr\u0119gos\u0142upa": "Joga dla Kr\u0119gos\u0142upa",
+        "zdrowy kr\u0119gos\u0142up": "Zdrowy Kr\u0119gos\u0142up",
+        "stretching & mobility": "Stretch & Mobility",
+        "strong core": "Strong Core",
+        "power booty&legs": "Power Booty & Legs",
+        "power booty & legs": "Power Booty & Legs",
+        "power booty&gtutes": "Power Booty & Legs",
+        "trening personalny": "Trening Personalny",
+        "reformer personal": "Reformer Personalny",
+        "reformer personalny": "Reformer Personalny",
+        "reformer trening personalny": "Reformer Personalny",
+        "reformer strong core": "Reformer Strong Core",
+        "reformer basic": "Reformer Basic",
+        "reformer equipments": "Reformer Equipment",
+        "pilates equipments": "Pilates Equipment",
+        "reformer booty&legs": "Reformer Booty & Legs",
+        "reformer trening mi\u0119\u015bni dna miednicy": "Reformer Mi\u0119\u015bnie Dna Miednicy",
+        "reformer trening dna miednicy": "Reformer Mi\u0119\u015bnie Dna Miednicy",
+        "reformer mi\u0119\u015bnie dna miednicy": "Reformer Mi\u0119\u015bnie Dna Miednicy",
+        "reformer mi\u0119snie dna miednicy": "Reformer Mi\u0119\u015bnie Dna Miednicy"
+      };
+
+      return map[key] || raw.trim().replace(/\s+/g, " ");
+    };
+
+    const normalizeRoom = room => {
+      const r = room.trim().toLowerCase();
+      if (r === "g\u00f3ra") return "G\u00f3ra";
+      if (r === "d\u00f3\u0142") return "D\u00f3\u0142";
+      return room;
+    };
+
+    const parseMinutes = hhmm => {
+      const [h, m] = hhmm.split(":").map(Number);
+      return h * 60 + m;
+    };
+
+    const formatMinutes = total => {
+      const h = Math.floor(total / 60) % 24;
+      const m = total % 60;
+      return String(h).padStart(2, "0") + ":" + String(m).padStart(2, "0");
+    };
+
+    const instructorClass = name => "i-" + name.toLowerCase();
+
+    const scheduleData = {
+      "Poniedzia\u0142ek": [
+        ["07:00", "G\u00f3ra", "reformer personal", "Gosia", 50],
+        ["08:00", "G\u00f3ra", "Refomer flow", "Gosia", 50],
+        ["08:30", "d\u00f3\u0142", "power pilates", "Klaudia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["09:30", "G\u00f3ra", "reformer flow", "Klaudia", 50],
+        ["10:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["11:30", "d\u00f3\u0142", "Joga dla kr\u0119gos\u0142upa", "Dorota", 60],
+        ["16:50", "D\u00f3\u0142", "Vinyasa joga flow", "Dorota", 60],
+        ["18:00", "G\u00f3ra", "Reformer strong core", "Olivia", 50],
+        ["18:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["19:00", "G\u00f3ra", "Reformer basic", "Olivia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["20:00", "G\u00f3ra", "reformer trening mi\u0119\u015bni dna miednicy", "Olivia", 50],
+        ["20:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55]
+      ],
+      "Wtorek": [
+        ["08:30", "D\u00f3\u0142", "Good Morning Joga", "Dorota", 60],
+        ["09:00", "G\u00f3ra", "Reformer Flow", "Gosia", 50],
+        ["10:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["10:00", "G\u00f3ra", "Reformer basic", "Olivia", 50],
+        ["11:00", "G\u00f3ra", "reformer personalny", "Gosia", 50],
+        ["11:00", "D\u00f3\u0142", "Pilates equipments", "Olivia", 50],
+        ["12:00", "g\u00f3ra", "Reformer strong core", "Gosia", 50],
+        ["17:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["18:00", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["20:00", "G\u00f3ra", "reformer booty&legs", "Gosia", 50]
+      ],
+      "\u015aroda": [
+        ["08:30", "G\u00f3ra", "reformer personalny", "Gosia", 50],
+        ["08:30", "d\u00f3\u0142", "Pilates", "Klaudia", 50],
+        ["09:30", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
+        ["09:30", "G\u00f3ra", "reformer basic", "Klaudia", 50],
+        ["10:30", "G\u00f3ra", "reformer equipments", "Klaudia", 50],
+        ["10:30", "d\u00f3\u0142", "trening personalny", "Gosia", 55],
+        ["12:00", "D\u00f3\u0142", "reformer booty&legs", "Gosia", 50],
+        ["16:15", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60],
+        ["17:30", "G\u00f3ra", "Reformer flow", "Gosia", 50],
+        ["17:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
+        ["18:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
+        ["19:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
+        ["20:30", "D\u00f3\u0142", "Power booty&legs", "Ania", 50]
+      ],
+      "Czwartek": [
+        ["07:30", "G\u00f3ra", "Reformer Trening personalny", "Gosia", 50],
+        ["08:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["08:30", "G\u00f3ra", "reformer flow", "Klaudia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["09:30", "G\u00f3ra", "reformer strong core", "Klaudia", 50],
+        ["10:30", "D\u00f3\u0142", "Joga  dla Kr\u0119gos\u0142upa", "Dorota", 60],
+        ["16:50", "D\u00f3\u0142", "Joga Vinyasa Flow", "Dorota", 60],
+        ["18:00", "G\u00f3ra", "reformer basic", "Olivia", 50],
+        ["18:00", "D\u00f3\u0142", "Barre", "Gosia", 50],
+        ["19:00", "G\u00f3ra", "reformer equipments", "Olivia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["20:00", "G\u00f3ra", "reformer flow", "Olivia", 50],
+        ["20:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55]
+      ],
+      "Pi\u0105tek": [
+        ["08:30", "D\u00f3\u0142", "Good Morning Joga", "Dorota", 60],
+        ["08:30", "G\u00f3ra", "reformer flow", "Olivia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["09:30", "G\u00f3ra", "reformer basic", "Olivia", 50],
+        ["10:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
+        ["10:30", "g\u00f3ra", "reformer trening dna miednicy", "Olivia", 50],
+        ["12:00", "D\u00f3\u0142", "Power Booty&gtutes", "Gosia", 50],
+        ["17:00", "G\u00f3ra", "reformer Trening personalny", "Gosia", 50],
+        ["17:00", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
+        ["18:00", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
+        ["19:00", "D\u00f3\u0142", "Strong Core", "Ania", 50],
+        ["19:15", "G\u00f3ra", "reformer flow", "Klaudia", 50],
+        ["20:00", "D\u00f3\u0142", "Stretching & Mobility", "Ania", 50],
+        ["20:15", "G\u00f3ra", "reformer booty&legs", "Klaudia", 50],
+        ["21:00", "D\u00f3\u0142", "Yin Joga good night", "Dorota", 60]
+      ],
+      "Sobota": [
+        ["09:00", "G\u00f3ra", "reformer Trening personalny", "Gosia", 50],
+        ["09:00", "D\u00f3\u0142", "Pilates flow", "Klaudia", 50],
+        ["10:00", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
+        ["10:00", "G\u00f3ra", "reformer flow", "Klaudia", 50],
+        ["12:00", "D\u00f3\u0142", "Vinyasa joga Flow", "Dorota", 60],
+        ["16:00", "D\u00f3\u0142", "Zdrowy kr\u0119gos\u0142up", "Olivia", 50],
+        ["17:00", "G\u00f3ra", "Reformer booty&legs", "Olivia", 50],
+        ["18:00", "G\u00f3ra", "reformer Mi\u0119\u015bnie dna miednicy", "Olivia", 50]
+      ],
+      "Niedziela": [
+        ["09:00", "D\u00f3\u0142", "pilates flow", "Olivia", 50],
+        ["10:00", "G\u00f3ra", "reformer mi\u0119snie dna miednicy", "Olivia", 50],
+        ["11:00", "G\u00f3ra", "reformer flow", "Olivia", 50],
+        ["19:30", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60]
+      ]
+    };
+
+    /* --- Normalize schedule --- */
+    const schedule = Object.fromEntries(
+      Object.entries(scheduleData).map(([day, entries]) => {
+        const normalized = entries.map(row => {
+          const [startRaw, roomRaw, classRaw, instructorRaw, durationRaw] = row;
+          const start = startRaw.length === 4 ? "0" + startRaw : startRaw;
+          const room = normalizeRoom(roomRaw);
+          const className = normalizeClass(classRaw);
+          const instructor = instructorRaw.trim();
+          const duration = Number(durationRaw);
+          const end = formatMinutes(parseMinutes(start) + duration);
+          return { start, end, room, className, instructor, duration };
+        });
+        normalized.sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
+        return [day, normalized];
+      })
+    );
+
+    /* --- Render --- */
+    const scheduleRoot = document.getElementById("schedule");
+
+    const dayHtml = (day, entries) => {
+      const rows = entries.map(e =>
+        `<tr data-instructor="${e.instructor}">
+          <td><strong>${e.start}</strong></td>
+          <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
+          <td class="hide-mobile">${e.room}</td>
+          <td><span class="class-name">${e.className}</span></td>
+          <td><span class="instructor-pill ${instructorClass(e.instructor)}">${e.instructor}</span></td>
+        </tr>`
+      ).join("");
+
+      return `
+        <article class="day" data-day="${day}">
+          <h3>${day}</h3>
+          <table>
+            <colgroup>
+              <col class="col-start">
+              <col class="col-end">
+              <col class="col-room hide-mobile">
+              <col class="col-class">
+              <col class="col-instr">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Start</th>
+                <th>Koniec</th>
+                <th class="hide-mobile">Sala</th>
+                <th>Zaj\u0119cia</th>
+                <th>Instruktorka</th>
+              </tr>
+            </thead>
+            <tbody>${rows}</tbody>
+          </table>
+        </article>
+      `;
+    };
+
+    scheduleRoot.innerHTML = Object.entries(schedule).map(([day, entries]) => dayHtml(day, entries)).join("");
+
+    /* --- Instructor filter --- */
+    let activeFilter = null;
+
+    function filterByInstructor(name) {
+      if (activeFilter === name) {
+        clearFilter();
+        return;
+      }
+      activeFilter = name;
+
+      document.querySelectorAll("#legendList .chip").forEach(chip => {
+        if (chip.dataset.instructor === name) {
+          chip.classList.add("active");
+          chip.classList.remove("dimmed");
+        } else {
+          chip.classList.remove("active");
+          chip.classList.add("dimmed");
+        }
+      });
+
+      document.getElementById("resetFilter").classList.add("visible");
+
+      let total = 0;
+      document.querySelectorAll(".day").forEach(dayEl => {
+        const rows = dayEl.querySelectorAll("tbody tr");
+        let visibleInDay = 0;
+        rows.forEach(row => {
+          if (row.dataset.instructor === name) {
+            row.classList.remove("filtered-out");
+            visibleInDay++;
+            total++;
+          } else {
+            row.classList.add("filtered-out");
+          }
+        });
+        dayEl.classList.toggle("hidden-day", visibleInDay === 0);
+      });
+
+      const info = document.getElementById("filterInfo");
+      info.classList.add("visible");
+      document.getElementById("filterName").textContent = name;
+      document.getElementById("filterCount").textContent = total + " zaj\u0119\u0107 w tygodniu";
+    }
+
+    function clearFilter() {
+      activeFilter = null;
+
+      document.querySelectorAll("#legendList .chip").forEach(chip => {
+        chip.classList.remove("active", "dimmed");
+      });
+
+      document.getElementById("resetFilter").classList.remove("visible");
+      document.getElementById("filterInfo").classList.remove("visible");
+
+      document.querySelectorAll(".day").forEach(dayEl => {
+        dayEl.classList.remove("hidden-day");
+        dayEl.querySelectorAll("tbody tr").forEach(row => {
+          row.classList.remove("filtered-out");
+        });
+      });
+    }
+  </script>
+</body>
+</html>
