@@ -248,6 +248,7 @@
 
   const colors = { Gosia:"#ffd6de", Klaudia:"#d8f0ff", Dorota:"#e4f7dd", Olivia:"#efe1ff", Ania:"#ffecc8" };
   const dayNames = ["Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"];
+  const personalClasses = new Set(["Trening Personalny","Reformer Personalny"]);
 
   function pad(n){ return String(n).padStart(2,"0"); }
   function addMin(h,m,dur){ const t=h*60+m+dur; return [Math.floor(t/60)%24, t%60]; }
@@ -260,6 +261,7 @@
       const dow = d.getDay();
       const entries = week[dow] || [];
       for(const e of entries){
+        if(personalClasses.has(e[2])) continue;
         const [hh,mm] = e[0].split(":").map(Number);
         const when = new Date(d); when.setHours(hh,mm,0,0);
         if(when <= now) continue;

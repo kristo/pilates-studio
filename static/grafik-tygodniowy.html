@@ -295,6 +295,7 @@
       .hero h1 { font-size: 22px; }
       .hero p { font-size: 11px; }
       .toolbar { display: none !important; }
+      .type-toggles { display: none !important; }
       .filter-info { display: none !important; }
       .panel {
         box-shadow: none;
@@ -340,18 +341,132 @@
         margin-top: 6px;
       }
     }
+
+    /* Type filter toggles */
+    .type-toggles {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .type-btn {
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-weight: 700;
+      font-size: 13px;
+      cursor: pointer;
+      background: transparent;
+      color: rgba(255,255,255,0.7);
+      transition: all 0.2s;
+    }
+
+    .type-btn:hover {
+      border-color: rgba(255,255,255,0.6);
+      color: #fff;
+    }
+
+    .type-btn.active {
+      background: #fff;
+      color: #1f2230;
+      border-color: #fff;
+    }
+
+    .type-btn .type-count {
+      display: inline-block;
+      margin-left: 4px;
+      font-weight: 400;
+      opacity: 0.7;
+    }
+
+    /* Free slot row */
+    tr.free-slot-row td {
+      background: #f0fdf4;
+      border-bottom-color: #bbf7d0;
+    }
+
+    tr.free-slot-row .class-name {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    .slot-badge {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .slot-badge.free {
+      background: #dcfce7;
+      color: #16a34a;
+    }
+
+    .book-link {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 8px;
+      padding: 2px 10px;
+      border: 1.5px solid var(--accent);
+      border-radius: 999px;
+      transition: all 0.15s;
+    }
+
+    .book-link:hover {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .free-slots-note {
+      display: none;
+      padding: 14px 18px;
+      background: #f0fdf4;
+      border: 1px solid #bbf7d0;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      color: #15803d;
+    }
+
+    .free-slots-note.visible {
+      display: block;
+    }
+
+    @media print {
+      tr.free-slot-row.filtered-out { display: none !important; }
+      .slot-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+      .free-slots-note { display: none !important; }
+    }
   </style>
 </head>
 <body>
   <div class="wrap">
     <section class="hero">
       <h1>Grafik Tygodniowy</h1>
-      <p>Pure Shape Studio • ul. Ko&#347;ciuszki 11A, Bibice</p>
+      <p>Pure Shape Studio &bull; ul. Ko&#347;ciuszki 11A, Bibice</p>
       <div class="toolbar">
         <button class="btn primary" onclick="window.print()">Eksport PDF</button>
         <button class="btn" onclick="window.print()">Drukuj</button>
       </div>
+      <div class="type-toggles">
+        <button class="type-btn active" id="btnGroup" onclick="setTypeFilter('group')">Zaj&#281;cia grupowe <span class="type-count" id="countGroup"></span></button>
+        <button class="type-btn" id="btnFreeSlots" onclick="setTypeFilter('free')">Wolne sloty <span class="type-count" id="countFree"></span></button>
+        <button class="type-btn" id="btnAll" onclick="setTypeFilter('all')">Wszystkie</button>
+      </div>
     </section>
+
+    <div class="free-slots-note" id="freeSlotsNote">
+      &#128161; Poni&#380;ej widoczne s&#261; wolne okna, kiedy sala nie jest zaj&#281;ta (przerwa 13:00&ndash;16:00). Um&#243;w trening personalny &mdash; kliknij &bdquo;Um&#243;w si&#281;&rdquo; lub zadzwo&#324;: <a href="tel:+48698190880" style="color:#16a34a;font-weight:700">698 190 880</a>
+    </div>
 
     <section class="panel legend-panel">
       <h2>Instruktorki <span style="font-weight:400;font-size:14px;color:var(--muted)">&mdash; kliknij, aby filtrowa&#263;</span></h2>
@@ -365,13 +480,18 @@
       </ul>
     </section>
 
+    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;font-size:13px;color:var(--muted)">
+      <span style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#e0e7ff"></span> <strong>G&#243;ra</strong> &mdash; sala reformer</span>
+      <span style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#fef3c7"></span> <strong>D&#243;&#322;</strong> &mdash; sala og&#243;lna</span>
+    </div>
+
     <div class="filter-info" id="filterInfo">
       <span>Zaj&#281;cia: <strong id="filterName"></strong></span>
       <span class="filter-count" id="filterCount"></span>
     </div>
 
     <section id="schedule"></section>
-    <p class="print-footer" style="display:none">Pure Shape Studio • ul. Ko&#347;ciuszki 11A, Bibice • tel. 698 190 880 • pure-shape.pl</p>
+    <p class="print-footer" style="display:none">Pure Shape Studio &bull; ul. Ko&#347;ciuszki 11A, Bibice &bull; tel. 698 190 880 &bull; pure-shape.pl</p>
   </div>
 
   <script>
@@ -534,6 +654,9 @@
       ]
     };
 
+    const personalClasses = new Set(["Trening Personalny", "Reformer Personalny"]);
+    const SLOT_DURATION = 55; // min
+
     /* --- Normalize schedule --- */
     const schedule = Object.fromEntries(
       Object.entries(scheduleData).map(([day, entries]) => {
@@ -545,54 +668,166 @@
           const instructor = instructorRaw.trim();
           const duration = Number(durationRaw);
           const end = formatMinutes(parseMinutes(start) + duration);
-          return { start, end, room, className, instructor, duration };
+          const type = personalClasses.has(className) ? "personal" : "group";
+          return { start, end, room, className, instructor, duration, type };
         });
         normalized.sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
         return [day, normalized];
       })
     );
 
+    /* --- Compute free slots (room-based, break 13-16) --- */
+    function computeFreeSlots() {
+      const BREAK_START = 13 * 60;
+      const BREAK_END = 16 * 60;
+      const rooms = ["G\u00f3ra", "D\u00f3\u0142"];
+
+      const freeSlots = {};
+
+      for (const [day, entries] of Object.entries(schedule)) {
+        freeSlots[day] = [];
+
+        for (const room of rooms) {
+          const roomClasses = entries
+            .filter(e => e.room === room)
+            .sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
+
+          if (roomClasses.length < 2) continue;
+
+          for (let i = 0; i < roomClasses.length - 1; i++) {
+            const gapStart = parseMinutes(roomClasses[i].end);
+            const gapEnd = parseMinutes(roomClasses[i + 1].start);
+
+            const segments = [];
+            if (gapStart >= BREAK_END || gapEnd <= BREAK_START) {
+              segments.push([gapStart, gapEnd]);
+            } else if (gapStart >= BREAK_START && gapEnd <= BREAK_END) {
+              // entirely within break - skip
+            } else if (gapStart < BREAK_START && gapEnd > BREAK_END) {
+              segments.push([gapStart, BREAK_START]);
+              segments.push([BREAK_END, gapEnd]);
+            } else if (gapStart < BREAK_START) {
+              segments.push([gapStart, BREAK_START]);
+            } else {
+              segments.push([BREAK_END, gapEnd]);
+            }
+
+            for (const [segStart, segEnd] of segments) {
+              if (segEnd - segStart < SLOT_DURATION) continue;
+              let slotStart = segStart;
+              while (slotStart + SLOT_DURATION <= segEnd) {
+                freeSlots[day].push({
+                  start: formatMinutes(slotStart),
+                  end: formatMinutes(slotStart + SLOT_DURATION),
+                  room: room,
+                  className: "Wolny slot",
+                  instructor: "",
+                  duration: SLOT_DURATION,
+                  type: "free-slot"
+                });
+                slotStart += 60;
+              }
+            }
+          }
+        }
+
+        freeSlots[day].sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
+      }
+
+      return freeSlots;
+    }
+
+    const freeSlots = computeFreeSlots();
+
+    // Count totals
+    let totalGroup = 0;
+    let totalFree = 0;
+    for (const entries of Object.values(schedule)) {
+      totalGroup += entries.filter(e => e.type === "group").length;
+    }
+    for (const slots of Object.values(freeSlots)) {
+      totalFree += slots.length;
+    }
+
     /* --- Render --- */
     const scheduleRoot = document.getElementById("schedule");
 
-    const dayHtml = (day, entries) => {
-      const rows = entries.map(e =>
-        `<tr data-instructor="${e.instructor}">
-          <td><strong>${e.start}</strong></td>
-          <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
-          <td class="hide-mobile">${e.room}</td>
-          <td><span class="class-name">${e.className}</span></td>
-          <td><span class="instructor-pill ${instructorClass(e.instructor)}">${e.instructor}</span></td>
-        </tr>`
-      ).join("");
-
-      return `
-        <article class="day" data-day="${day}">
-          <h3>${day}</h3>
-          <table>
-            <colgroup>
-              <col class="col-start">
-              <col class="col-end">
-              <col class="col-room hide-mobile">
-              <col class="col-class">
-              <col class="col-instr">
-            </colgroup>
-            <thead>
-              <tr>
-                <th>Start</th>
-                <th>Koniec</th>
-                <th class="hide-mobile">Sala</th>
-                <th>Zaj\u0119cia</th>
-                <th>Instruktorka</th>
-              </tr>
-            </thead>
-            <tbody>${rows}</tbody>
-          </table>
-        </article>
-      `;
+    const groupRowHtml = e => {
+      return `<tr data-instructor="${e.instructor}" data-type="group">
+        <td><strong>${e.start}</strong></td>
+        <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
+        <td class="hide-mobile">${e.room}</td>
+        <td><span class="class-name">${e.className}</span></td>
+        <td><span class="instructor-pill ${instructorClass(e.instructor)}">${e.instructor}</span></td>
+      </tr>`;
     };
 
-    scheduleRoot.innerHTML = Object.entries(schedule).map(([day, entries]) => dayHtml(day, entries)).join("");
+    const freeRowHtml = e => {
+      return `<tr data-type="free-slot" class="free-slot-row">
+        <td><strong>${e.start}</strong></td>
+        <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
+        <td class="hide-mobile">${e.room}</td>
+        <td>
+          <span class="class-name">Wolny slot</span>
+          <span class="slot-badge free">dost\u0119pny</span>
+          <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="book-link">Um\u00f3w si\u0119 \u2192</a>
+        </td>
+        <td></td>
+      </tr>`;
+    };
+
+    const dayOrder = ["Poniedzia\u0142ek", "Wtorek", "\u015aroda", "Czwartek", "Pi\u0105tek", "Sobota", "Niedziela"];
+
+    function renderSchedule() {
+      const html = dayOrder.map(day => {
+        const groupEntries = (schedule[day] || []).filter(e => e.type === "group");
+        const freeEntries = freeSlots[day] || [];
+
+        // Build all rows — group first, then free slots
+        const groupRows = groupEntries.map(groupRowHtml).join("");
+        const freeRows = freeEntries.map(freeRowHtml).join("");
+
+        // Merge and sort all entries by start time for the "all" view
+        const allEntries = [
+          ...groupEntries.map(e => ({ ...e, rowType: "group" })),
+          ...freeEntries.map(e => ({ ...e, rowType: "free-slot" }))
+        ].sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
+
+        const allRows = allEntries.map(e =>
+          e.rowType === "group" ? groupRowHtml(e) : freeRowHtml(e)
+        ).join("");
+
+        // We render ALL rows (sorted) and use CSS to filter them
+        return `
+          <article class="day" data-day="${day}">
+            <h3>${day}</h3>
+            <table>
+              <colgroup>
+                <col class="col-start">
+                <col class="col-end">
+                <col class="col-room hide-mobile">
+                <col class="col-class">
+                <col class="col-instr">
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>Start</th>
+                  <th>Koniec</th>
+                  <th class="hide-mobile">Sala</th>
+                  <th>Zaj\u0119cia</th>
+                  <th>Instruktorka</th>
+                </tr>
+              </thead>
+              <tbody>${allRows}</tbody>
+            </table>
+          </article>
+        `;
+      }).join("");
+
+      scheduleRoot.innerHTML = html;
+    }
+
+    renderSchedule();
 
     /* --- Instructor filter --- */
     let activeFilter = null;
@@ -615,27 +850,15 @@
       });
 
       document.getElementById("resetFilter").classList.add("visible");
+      applyFilters();
 
       let total = 0;
-      document.querySelectorAll(".day").forEach(dayEl => {
-        const rows = dayEl.querySelectorAll("tbody tr");
-        let visibleInDay = 0;
-        rows.forEach(row => {
-          if (row.dataset.instructor === name) {
-            row.classList.remove("filtered-out");
-            visibleInDay++;
-            total++;
-          } else {
-            row.classList.add("filtered-out");
-          }
-        });
-        dayEl.classList.toggle("hidden-day", visibleInDay === 0);
-      });
+      document.querySelectorAll(".day tbody tr:not(.filtered-out)").forEach(() => total++);
 
       const info = document.getElementById("filterInfo");
       info.classList.add("visible");
       document.getElementById("filterName").textContent = name;
-      document.getElementById("filterCount").textContent = total + " zaj\u0119\u0107 w tygodniu";
+      document.getElementById("filterCount").textContent = total + " pozycji w tygodniu";
     }
 
     function clearFilter() {
@@ -648,13 +871,65 @@
       document.getElementById("resetFilter").classList.remove("visible");
       document.getElementById("filterInfo").classList.remove("visible");
 
-      document.querySelectorAll(".day").forEach(dayEl => {
-        dayEl.classList.remove("hidden-day");
-        dayEl.querySelectorAll("tbody tr").forEach(row => {
-          row.classList.remove("filtered-out");
-        });
-      });
+      applyFilters();
     }
+
+    /* --- Type filter --- */
+    let activeTypeFilter = "group";
+
+    function setTypeFilter(type) {
+      activeTypeFilter = type;
+      document.getElementById("btnGroup").classList.toggle("active", type === "group");
+      document.getElementById("btnFreeSlots").classList.toggle("active", type === "free");
+      document.getElementById("btnAll").classList.toggle("active", type === "all");
+
+      // Show/hide free slots note
+      document.getElementById("freeSlotsNote").classList.toggle("visible", type === "free");
+
+      // Reset instructor filter when switching type
+      if (activeFilter) {
+        activeFilter = null;
+        document.querySelectorAll("#legendList .chip").forEach(chip => {
+          chip.classList.remove("active", "dimmed");
+        });
+        document.getElementById("resetFilter").classList.remove("visible");
+        document.getElementById("filterInfo").classList.remove("visible");
+      }
+      applyFilters();
+    }
+
+    function applyFilters() {
+      document.querySelectorAll(".day").forEach(dayEl => {
+        const rows = dayEl.querySelectorAll("tbody tr");
+        let visibleInDay = 0;
+        rows.forEach(row => {
+          const rowType = row.dataset.type;
+          const rowInstructor = row.dataset.instructor;
+          let show = true;
+
+          // Type filter
+          if (activeTypeFilter === "group" && rowType !== "group") show = false;
+          if (activeTypeFilter === "free" && rowType !== "free-slot") show = false;
+
+          // Instructor filter
+          if (show && activeFilter && rowType !== "free-slot" && rowInstructor !== activeFilter) show = false;
+
+          row.classList.toggle("filtered-out", !show);
+          if (show) visibleInDay++;
+        });
+        dayEl.classList.toggle("hidden-day", visibleInDay === 0);
+      });
+
+      updateCounts();
+    }
+
+    function updateCounts() {
+      document.getElementById("countGroup").textContent = "(" + totalGroup + ")";
+      document.getElementById("countFree").textContent = "(" + totalFree + ")";
+    }
+
+    // Initialize
+    setTypeFilter("group");
   </script>
 </body>
 </html>
