@@ -245,6 +245,7 @@
 
   const avatars = {
     Gosia:  "{{ "images/gosia.jpg" | relURL }}",
+    Klaudia: "{{ "images/klaudia.jpeg" | relURL }}",
     Olivia: "{{ "images/olivia.jpeg" | relURL }}",
     Dorota: "{{ "images/DorotaW.jpg" | relURL }}",
     Ania:   "{{ "images/anna.jpg" | relURL }}"
@@ -457,6 +458,22 @@
             Specjalizuje się w pracy z kobietami od pierwszej miesiączki, przez ciążę i połóg, aż po menopauzę. W treningu stawia na precyzję, stabilizację i świadomą pracę mięśni głębokich.
           </p>
           <button type="button" data-bio-toggle="bio-olivia" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
+        </div>
+      </div>
+
+      <!-- Instructor 5 -->
+      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
+        <img src="{{ "images/klaudia.jpeg" | relURL }}" class="w-full h-64 object-cover object-bottom" alt="Klaudia Pyszniak">
+        <div class="p-6">
+          <h3 class="text-2xl font-bold text-primary mb-3">Klaudia Pyszniak</h3>
+          <p class="text-gray-600 font-semibold mb-3">Instruktorka pilatesu &bull; certyfikacja Balanced Body</p>
+          <p class="text-gray-600 leading-relaxed">
+            Prowadzi energetyczne, dynamiczne treningi, a także zajęcia z klasycznymi zasadami pilatesu — pełne precyzji i kontroli.
+          </p>
+          <p id="bio-klaudia" class="hidden text-gray-600 leading-relaxed mt-4">
+            W trakcie kompletnej certyfikacji Balanced Body, łączy klasyczne fundamenty metody z nowoczesnym podejściem do treningu. Stale rozwija swoje umiejętności, szukając nowych inspiracji — jej zajęcia wzmacniają ciało, poprawiają sprawność i sprawiają, że czujesz się lepiej.
+          </p>
+          <button type="button" data-bio-toggle="bio-klaudia" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
         </div>
       </div>
     </div>
@@ -845,8 +862,8 @@
 
   const scheduleEntries = [
     { day: 'Poniedziałek', time: '08:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Poniedziałek', time: '08:30', room: 'Pilates Mata', className: 'Power Pilates', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
-    { day: 'Poniedziałek', time: '09:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Poniedziałek', time: '08:30', room: 'Pilates Mata', className: 'Power Pilates', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
+    { day: 'Poniedziałek', time: '09:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Poniedziałek', time: '11:30', room: 'Pilates Mata', className: 'Joga dla Kręgosłupa', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Poniedziałek', time: '16:50', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Poniedziałek', time: '18:00', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
@@ -861,17 +878,17 @@
     { day: 'Wtorek', time: '18:00', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
     { day: 'Wtorek', time: '20:00', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
 
-    { day: 'Środa', time: '08:30', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Środa', time: '08:30', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Środa', time: '09:30', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Środa', time: '09:30', room: 'Reformer', className: 'Reformer Basic', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
-    { day: 'Środa', time: '10:30', room: 'Reformer', className: 'Reformer Equipment', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Środa', time: '09:30', room: 'Reformer', className: 'Reformer Basic', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
+    { day: 'Środa', time: '10:30', room: 'Reformer', className: 'Reformer Equipment', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Środa', time: '12:00', room: 'Pilates Mata', className: 'Reformer Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
     { day: 'Środa', time: '16:15', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Środa', time: '17:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
     { day: 'Środa', time: '20:30', room: 'Pilates Mata', className: 'Power Booty & Legs', instructor: 'Ania', image: '{{ "images/anna.jpg" | relURL }}', initial: 'A' },
 
-    { day: 'Czwartek', time: '08:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
-    { day: 'Czwartek', time: '09:30', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Czwartek', time: '08:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
+    { day: 'Czwartek', time: '09:30', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Czwartek', time: '10:30', room: 'Pilates Mata', className: 'Joga dla Kręgosłupa', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Czwartek', time: '16:50', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Czwartek', time: '18:00', room: 'Reformer', className: 'Reformer Basic', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
@@ -885,14 +902,14 @@
     { day: 'Piątek', time: '10:30', room: 'Reformer', className: 'Reformer Mięśnie Dna Miednicy', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
     { day: 'Piątek', time: '12:00', room: 'Pilates Mata', className: 'Power Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
     { day: 'Piątek', time: '19:00', room: 'Pilates Mata', className: 'Strong Core', instructor: 'Ania', image: '{{ "images/anna.jpg" | relURL }}', initial: 'A' },
-    { day: 'Piątek', time: '19:15', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Piątek', time: '19:15', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Piątek', time: '20:00', room: 'Pilates Mata', className: 'Stretch & Mobility', instructor: 'Ania', image: '{{ "images/anna.jpg" | relURL }}', initial: 'A' },
-    { day: 'Piątek', time: '20:15', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Piątek', time: '20:15', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Piątek', time: '21:00', room: 'Pilates Mata', className: 'Yin Joga Good Night', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
 
-    { day: 'Sobota', time: '09:00', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Sobota', time: '09:00', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Sobota', time: '10:00', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Sobota', time: '10:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpg" | relURL }}', initial: 'K' },
+    { day: 'Sobota', time: '10:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
     { day: 'Sobota', time: '12:00', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
     { day: 'Sobota', time: '16:00', room: 'Pilates Mata', className: 'Zdrowy Kręgosłup', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
     { day: 'Sobota', time: '17:00', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
