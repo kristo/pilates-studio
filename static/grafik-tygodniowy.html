@@ -446,6 +446,41 @@
       .slot-badge { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
       .free-slots-note { display: none !important; }
     }
+
+    /* Room pills */
+    .room-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+    .room-gora {
+      background: #e0e7ff;
+      color: #3730a3;
+    }
+    .room-dol {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    /* Personal / zajęte row */
+    tr.personal-row td {
+      background: #fef2f2;
+      border-bottom-color: #fecaca;
+      color: #9ca3af;
+    }
+    tr.personal-row .class-name {
+      color: #9ca3af;
+      font-weight: 600;
+    }
+    .slot-badge.busy {
+      background: #fee2e2;
+      color: #dc2626;
+    }
   </style>
 </head>
 <body>
@@ -481,9 +516,10 @@
       </ul>
     </section>
 
-    <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px;font-size:13px;color:var(--muted)">
-      <span style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#e0e7ff"></span> <strong>G&#243;ra</strong> &mdash; sala reformer</span>
-      <span style="display:inline-flex;align-items:center;gap:5px"><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#fef3c7"></span> <strong>D&#243;&#322;</strong> &mdash; sala og&#243;lna</span>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;font-size:13px;color:var(--muted);align-items:center">
+      <span style="font-weight:600;color:var(--ink)">Sale:</span>
+      <span class="room-pill room-gora">&#11014;&#65039; G&#243;ra &mdash; reformer</span>
+      <span class="room-pill room-dol">&#11015;&#65039; D&#243;&#322; &mdash; og&#243;lna</span>
     </div>
 
     <div class="filter-info" id="filterInfo">
@@ -559,6 +595,13 @@
     };
 
     const instructorClass = name => "i-" + name.toLowerCase();
+
+    const roomPill = room => {
+      if (room === "G\u00f3ra") return '<span class="room-pill room-gora">\u2b06\ufe0f G\u00f3ra</span>';
+      if (room === "D\u00f3\u0142") return '<span class="room-pill room-dol">\u2b07\ufe0f D\u00f3\u0142</span>';
+      return room;
+    };
+
 
     const scheduleData = {
       "Poniedzia\u0142ek": [
@@ -757,7 +800,7 @@
       return `<tr data-instructor="${e.instructor}" data-type="group">
         <td><strong>${e.start}</strong></td>
         <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
-        <td class="hide-mobile">${e.room}</td>
+        <td class="hide-mobile">${roomPill(e.room)}</td>
         <td><span class="class-name">${e.className}</span></td>
         <td><span class="instructor-pill ${instructorClass(e.instructor)}">${e.instructor}</span></td>
       </tr>`;
@@ -767,7 +810,7 @@
       return `<tr data-type="free-slot" class="free-slot-row">
         <td><strong>${e.start}</strong></td>
         <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
-        <td class="hide-mobile">${e.room}</td>
+        <td class="hide-mobile">${roomPill(e.room)}</td>
         <td>
           <span class="class-name">Wolny slot</span>
           <span class="slot-badge free">dost\u0119pny</span>
@@ -777,26 +820,37 @@
       </tr>`;
     };
 
+    const personalRowHtml = e => {
+      const label = e.className === "Reformer Personalny" ? "Reformer Personalny" : "Trening Personalny";
+      return `<tr data-instructor="${e.instructor}" data-type="personal" class="personal-row">
+        <td><strong>${e.start}</strong></td>
+        <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
+        <td class="hide-mobile">${roomPill(e.room)}</td>
+        <td><span class="class-name">${label}</span> <span class="slot-badge busy">zaj\u0119te</span></td>
+        <td><span class="instructor-pill ${instructorClass(e.instructor)}">${e.instructor}</span></td>
+      </tr>`;
+    };
+
     const dayOrder = ["Poniedzia\u0142ek", "Wtorek", "\u015aroda", "Czwartek", "Pi\u0105tek", "Sobota", "Niedziela"];
 
     function renderSchedule() {
       const html = dayOrder.map(day => {
         const groupEntries = (schedule[day] || []).filter(e => e.type === "group");
+        const personalEntries = (schedule[day] || []).filter(e => e.type === "personal");
         const freeEntries = freeSlots[day] || [];
 
-        // Build all rows — group first, then free slots
-        const groupRows = groupEntries.map(groupRowHtml).join("");
-        const freeRows = freeEntries.map(freeRowHtml).join("");
-
-        // Merge and sort all entries by start time for the "all" view
+        // Merge and sort all entries by start time
         const allEntries = [
           ...groupEntries.map(e => ({ ...e, rowType: "group" })),
+          ...personalEntries.map(e => ({ ...e, rowType: "personal" })),
           ...freeEntries.map(e => ({ ...e, rowType: "free-slot" }))
         ].sort((a, b) => parseMinutes(a.start) - parseMinutes(b.start));
 
-        const allRows = allEntries.map(e =>
-          e.rowType === "group" ? groupRowHtml(e) : freeRowHtml(e)
-        ).join("");
+        const allRows = allEntries.map(e => {
+          if (e.rowType === "group") return groupRowHtml(e);
+          if (e.rowType === "personal") return personalRowHtml(e);
+          return freeRowHtml(e);
+        }).join("");
 
         // We render ALL rows (sorted) and use CSS to filter them
         return `
@@ -840,6 +894,10 @@
       }
       activeFilter = name;
 
+      // Deactivate type toggles (instructor view overrides)
+      document.querySelectorAll(".type-btn").forEach(b => b.classList.remove("active"));
+      document.getElementById("freeSlotsNote").classList.remove("visible");
+
       document.querySelectorAll("#legendList .chip").forEach(chip => {
         if (chip.dataset.instructor === name) {
           chip.classList.add("active");
@@ -853,13 +911,19 @@
       document.getElementById("resetFilter").classList.add("visible");
       applyFilters();
 
-      let total = 0;
-      document.querySelectorAll(".day tbody tr:not(.filtered-out)").forEach(() => total++);
+      let totalGroup = 0;
+      let totalPersonal = 0;
+      document.querySelectorAll(".day tbody tr:not(.filtered-out)").forEach(row => {
+        if (row.dataset.type === "personal") totalPersonal++;
+        else totalGroup++;
+      });
 
       const info = document.getElementById("filterInfo");
       info.classList.add("visible");
       document.getElementById("filterName").textContent = name;
-      document.getElementById("filterCount").textContent = total + " pozycji w tygodniu";
+      const parts = [totalGroup + " grupowych"];
+      if (totalPersonal > 0) parts.push(totalPersonal + " personalnych (zaj\u0119te)");
+      document.getElementById("filterCount").textContent = parts.join(", ");
     }
 
     function clearFilter() {
@@ -871,6 +935,11 @@
 
       document.getElementById("resetFilter").classList.remove("visible");
       document.getElementById("filterInfo").classList.remove("visible");
+
+      // Restore type filter button state
+      document.getElementById("btnGroup").classList.toggle("active", activeTypeFilter === "group");
+      document.getElementById("btnFreeSlots").classList.toggle("active", activeTypeFilter === "free");
+      document.getElementById("btnAll").classList.toggle("active", activeTypeFilter === "all");
 
       applyFilters();
     }
@@ -908,12 +977,18 @@
           const rowInstructor = row.dataset.instructor;
           let show = true;
 
-          // Type filter
-          if (activeTypeFilter === "group" && rowType !== "group") show = false;
-          if (activeTypeFilter === "free" && rowType !== "free-slot") show = false;
-
-          // Instructor filter
-          if (show && activeFilter && rowType !== "free-slot" && rowInstructor !== activeFilter) show = false;
+          if (activeFilter) {
+            // Instructor view: show group + personal for that person, hide free slots
+            if (rowType === "free-slot") {
+              show = false;
+            } else if (rowInstructor !== activeFilter) {
+              show = false;
+            }
+          } else {
+            // Normal type filter
+            if (activeTypeFilter === "group" && rowType !== "group") show = false;
+            if (activeTypeFilter === "free" && rowType !== "free-slot") show = false;
+          }
 
           row.classList.toggle("filtered-out", !show);
           if (show) visibleInDay++;
