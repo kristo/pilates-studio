@@ -40,7 +40,7 @@ url: "/regulamin/"
 
 1. Karnety można zakupić online przez system [Fitssey](https://app.fitssey.com/total-training/frontoffice/pricing/classes).
 2. Karnet aktywowany jest automatycznie po zaksięgowaniu płatności.
-3. Karnet jest ważny przez 1 miesiąc od daty zakupu i obejmuje liczbę wejść określoną w opisie karnetu.
+3. Karnet jest ważny przez 1 miesiąc od daty pierwszej wizyty i obejmuje liczbę wejść określoną w opisie karnetu.
 4. Niewykorzystane wejścia w ramach karnetu nie przechodzą na kolejny okres i nie podlegają zwrotowi.
 5. Rezerwacja zajęć odbywa się za pośrednictwem systemu Fitssey.
 
