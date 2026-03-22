@@ -481,6 +481,43 @@
       background: #fee2e2;
       color: #dc2626;
     }
+
+    /* Room filter buttons */
+    .room-filter-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 3px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border-color 0.15s, transform 0.15s, box-shadow 0.15s;
+    }
+    .room-filter-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .room-filter-btn.active {
+      border-color: var(--ink);
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+    }
+    .room-gora-btn { background: #e0e7ff; color: #3730a3; }
+    .room-dol-btn  { background: #fef3c7; color: #92400e; }
+    .room-filter-reset {
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 12px;
+      border-radius: 999px;
+      border: 2px dashed var(--line);
+      background: transparent;
+      cursor: pointer;
+      color: var(--muted);
+      transition: border-color 0.15s;
+    }
+    .room-filter-reset:hover { border-color: var(--ink); color: var(--ink); }
   </style>
 </head>
 <body>
@@ -516,10 +553,11 @@
       </ul>
     </section>
 
-    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;font-size:13px;color:var(--muted);align-items:center">
-      <span style="font-weight:600;color:var(--ink)">Sale:</span>
-      <span class="room-pill room-gora">&#11014;&#65039; G&#243;ra &mdash; reformer</span>
-      <span class="room-pill room-dol">&#11015;&#65039; D&#243;&#322; &mdash; og&#243;lna</span>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:20px;align-items:center">
+      <span style="font-weight:600;font-size:13px;color:var(--ink)">Sala:</span>
+      <button class="room-filter-btn room-gora-btn" id="btnRoomGora" onclick="setRoomFilter('G\u00f3ra')">&#11014;&#65039; G&#243;ra &mdash; reformer</button>
+      <button class="room-filter-btn room-dol-btn" id="btnRoomDol" onclick="setRoomFilter('D\u00f3\u0142')">&#11015;&#65039; D&#243;&#322; &mdash; og&#243;lna</button>
+      <button class="room-filter-reset" id="btnRoomAll" onclick="clearRoomFilter()" style="display:none">Poka&#380; obie sale</button>
     </div>
 
     <div class="filter-info" id="filterInfo">
@@ -605,95 +643,95 @@
 
     const scheduleData = {
       "Poniedzia\u0142ek": [
-        ["07:00", "G\u00f3ra", "reformer personal", "Gosia", 50],
-        ["08:00", "G\u00f3ra", "Refomer flow", "Gosia", 50],
-        ["08:30", "d\u00f3\u0142", "power pilates", "Klaudia", 50],
-        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["09:30", "G\u00f3ra", "reformer flow", "Klaudia", 50],
-        ["10:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["11:30", "d\u00f3\u0142", "Joga dla kr\u0119gos\u0142upa", "Dorota", 60],
-        ["16:50", "D\u00f3\u0142", "Vinyasa joga flow", "Dorota", 60],
-        ["18:00", "G\u00f3ra", "Reformer strong core", "Olivia", 50],
-        ["18:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["19:00", "G\u00f3ra", "Reformer basic", "Olivia", 50],
-        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["20:00", "G\u00f3ra", "reformer trening mi\u0119\u015bni dna miednicy", "Olivia", 50],
-        ["20:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55]
+        ["08:30", "D\u00f3\u0142", "Power Pilates", "Klaudia", 50],
+        ["08:30", "G\u00f3ra", "Reformer Strong Core", "Gosia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["09:30", "G\u00f3ra", "Reformer Flow", "Klaudia", 50],
+        ["10:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["11:00", "D\u00f3\u0142", "Joga dla Kr\u0119gos\u0142upa", "Dorota", 60],
+        ["16:50", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60],
+        ["17:30", "G\u00f3ra", "Reformer Flow", "Olivia", 50],
+        ["18:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["18:30", "G\u00f3ra", "Reformer Basic", "Olivia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["19:30", "G\u00f3ra", "Reformer Basic", "Olivia", 50],
+        ["20:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55]
       ],
       "Wtorek": [
+        ["08:00", "G\u00f3ra", "Reformer Flow", "Gosia", 50],
         ["08:30", "D\u00f3\u0142", "Good Morning Joga", "Dorota", 60],
         ["09:00", "G\u00f3ra", "Reformer Flow", "Gosia", 50],
-        ["10:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["10:00", "G\u00f3ra", "Reformer basic", "Olivia", 50],
-        ["11:00", "G\u00f3ra", "reformer personalny", "Gosia", 50],
-        ["11:00", "D\u00f3\u0142", "Pilates equipments", "Olivia", 50],
-        ["12:00", "g\u00f3ra", "Reformer strong core", "Gosia", 50],
-        ["17:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["18:00", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
-        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["20:00", "G\u00f3ra", "reformer booty&legs", "Gosia", 50]
+        ["10:00", "G\u00f3ra", "Reformer Flow", "Olivia", 50],
+        ["10:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["11:00", "D\u00f3\u0142", "Pilates Equipment", "Olivia", 50],
+        ["17:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["18:00", "D\u00f3\u0142", "Barre Flow", "Gosia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["20:00", "G\u00f3ra", "Reformer Booty & Legs", "Gosia", 50]
       ],
       "\u015aroda": [
-        ["08:30", "G\u00f3ra", "reformer personalny", "Gosia", 50],
-        ["08:30", "d\u00f3\u0142", "Pilates", "Klaudia", 50],
-        ["09:30", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
-        ["09:30", "G\u00f3ra", "reformer basic", "Klaudia", 50],
-        ["10:30", "G\u00f3ra", "reformer equipments", "Klaudia", 50],
-        ["10:30", "d\u00f3\u0142", "trening personalny", "Gosia", 55],
-        ["12:00", "G\u00f3ra", "reformer booty&legs", "Gosia", 50],
+        ["08:30", "D\u00f3\u0142", "Pilates Flow", "Klaudia", 50],
+        ["08:30", "G\u00f3ra", "Reformer Personalny", "Gosia", 50],
+        ["09:30", "D\u00f3\u0142", "Barre Flow", "Gosia", 50],
+        ["09:30", "G\u00f3ra", "Reformer Basic", "Klaudia", 50],
+        ["10:30", "G\u00f3ra", "Reformer Equipment", "Klaudia", 50],
+        ["10:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["12:00", "G\u00f3ra", "Reformer Booty & Legs", "Gosia", 50],
         ["16:15", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60],
-        ["17:30", "G\u00f3ra", "Reformer flow", "Gosia", 50],
-        ["17:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
-        ["18:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
-        ["19:30", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
-        ["20:30", "D\u00f3\u0142", "Power booty&legs", "Ania", 50]
+        ["17:30", "G\u00f3ra", "Reformer Strong Core", "Olivia", 50],
+        ["17:30", "D\u00f3\u0142", "Trening Personalny", "Ania", 55],
+        ["18:30", "G\u00f3ra", "Reformer Mi\u0119\u015bnie Dna Miednicy", "Olivia", 50],
+        ["18:30", "D\u00f3\u0142", "Trening Personalny", "Ania", 55],
+        ["19:30", "G\u00f3ra", "Reformer for Men's", "Olivia", 50],
+        ["19:30", "D\u00f3\u0142", "Trening Personalny", "Ania", 55],
+        ["20:30", "D\u00f3\u0142", "Power Booty & Legs", "Ania", 50]
       ],
       "Czwartek": [
-        ["07:30", "G\u00f3ra", "Reformer Trening personalny", "Gosia", 50],
-        ["08:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["08:30", "G\u00f3ra", "reformer flow", "Klaudia", 50],
-        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["09:30", "G\u00f3ra", "reformer strong core", "Klaudia", 50],
-        ["10:30", "D\u00f3\u0142", "Joga  dla Kr\u0119gos\u0142upa", "Dorota", 60],
-        ["16:50", "D\u00f3\u0142", "Joga Vinyasa Flow", "Dorota", 60],
-        ["18:00", "G\u00f3ra", "reformer basic", "Olivia", 50],
-        ["18:00", "D\u00f3\u0142", "Barre", "Gosia", 50],
-        ["19:00", "G\u00f3ra", "reformer equipments", "Olivia", 50],
-        ["19:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["20:00", "G\u00f3ra", "reformer flow", "Olivia", 50],
-        ["20:00", "D\u00f3\u0142", "Trening personalny", "Gosia", 55]
+        ["07:30", "G\u00f3ra", "Reformer Personalny", "Gosia", 50],
+        ["08:30", "G\u00f3ra", "Reformer Flow", "Klaudia", 50],
+        ["08:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["09:30", "D\u00f3\u0142", "Power Pilates", "Klaudia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["11:00", "D\u00f3\u0142", "Joga dla Kr\u0119gos\u0142upa", "Dorota", 60],
+        ["16:50", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60],
+        ["17:30", "G\u00f3ra", "Reformer Equipment", "Olivia", 50],
+        ["18:00", "D\u00f3\u0142", "Barre Flow", "Gosia", 50],
+        ["18:30", "G\u00f3ra", "Reformer Basic", "Olivia", 50],
+        ["19:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["19:30", "G\u00f3ra", "Reformer Basic", "Olivia", 50],
+        ["20:00", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55]
       ],
       "Pi\u0105tek": [
         ["08:30", "D\u00f3\u0142", "Good Morning Joga", "Dorota", 60],
-        ["08:30", "G\u00f3ra", "reformer flow", "Olivia", 50],
-        ["09:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["09:30", "G\u00f3ra", "reformer basic", "Olivia", 50],
-        ["10:30", "D\u00f3\u0142", "Trening personalny", "Gosia", 55],
-        ["10:30", "g\u00f3ra", "reformer trening dna miednicy", "Olivia", 50],
-        ["12:00", "D\u00f3\u0142", "Power Booty&gtutes", "Gosia", 50],
-        ["17:00", "G\u00f3ra", "reformer Trening personalny", "Gosia", 50],
-        ["17:00", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
-        ["18:00", "D\u00f3\u0142", "Trening personalny", "Ania", 55],
-        ["19:00", "D\u00f3\u0142", "Strong Core", "Ania", 50],
-        ["19:15", "G\u00f3ra", "reformer flow", "Klaudia", 50],
-        ["20:00", "D\u00f3\u0142", "Stretching & Mobility", "Ania", 50],
-        ["20:15", "G\u00f3ra", "reformer booty&legs", "Klaudia", 50],
-        ["21:00", "D\u00f3\u0142", "Yin Joga good night", "Dorota", 60]
+        ["08:30", "G\u00f3ra", "Reformer Strong Core", "Olivia", 50],
+        ["08:30", "G\u00f3ra", "Reformer Flow", "Olivia", 50],
+        ["09:30", "G\u00f3ra", "Reformer Basic", "Olivia", 50],
+        ["09:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["10:30", "D\u00f3\u0142", "Pilates Equipment", "Olivia", 50],
+        ["10:30", "G\u00f3ra", "Reformer Mi\u0119\u015bnie Dna Miednicy", "Olivia", 50],
+        ["10:30", "D\u00f3\u0142", "Trening Personalny", "Gosia", 55],
+        ["13:00", "D\u00f3\u0142", "Power Booty & Legs", "Gosia", 50],
+        ["17:00", "G\u00f3ra", "Reformer Personalny", "Gosia", 50],
+        ["17:00", "D\u00f3\u0142", "Trening Personalny", "Ania", 55],
+        ["18:00", "D\u00f3\u0142", "Trening Personalny", "Ania", 55],
+        ["19:15", "G\u00f3ra", "Reformer Flow", "Klaudia", 50],
+        ["20:00", "D\u00f3\u0142", "Stretch & Mobility", "Ania", 50],
+        ["20:15", "G\u00f3ra", "Reformer Booty & Legs", "Klaudia", 50],
+        ["21:00", "D\u00f3\u0142", "Yin Joga Good Night", "Dorota", 60]
       ],
       "Sobota": [
-        ["09:00", "G\u00f3ra", "reformer Trening personalny", "Gosia", 50],
-        ["09:00", "D\u00f3\u0142", "Pilates flow", "Klaudia", 50],
-        ["10:00", "D\u00f3\u0142", "Barre flow", "Gosia", 50],
-        ["10:00", "G\u00f3ra", "reformer flow", "Klaudia", 50],
-        ["12:00", "D\u00f3\u0142", "Vinyasa joga Flow", "Dorota", 60],
-        ["16:00", "D\u00f3\u0142", "Zdrowy kr\u0119gos\u0142up", "Olivia", 50],
-        ["17:00", "G\u00f3ra", "Reformer booty&legs", "Olivia", 50],
-        ["18:00", "G\u00f3ra", "reformer Mi\u0119\u015bnie dna miednicy", "Olivia", 50]
+        ["09:00", "G\u00f3ra", "Reformer Personalny", "Gosia", 50],
+        ["09:00", "D\u00f3\u0142", "Pilates Flow", "Klaudia", 50],
+        ["10:00", "D\u00f3\u0142", "Barre Flow", "Gosia", 50],
+        ["10:00", "G\u00f3ra", "Reformer Flow", "Klaudia", 50],
+        ["12:00", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60],
+        ["16:30", "D\u00f3\u0142", "Zdrowy Kr\u0119gos\u0142up", "Olivia", 50],
+        ["17:00", "G\u00f3ra", "Reformer Booty & Legs", "Olivia", 50]
       ],
       "Niedziela": [
-        ["09:00", "D\u00f3\u0142", "pilates flow", "Olivia", 50],
-        ["10:00", "G\u00f3ra", "reformer mi\u0119snie dna miednicy", "Olivia", 50],
-        ["11:00", "G\u00f3ra", "reformer flow", "Olivia", 50],
+        ["09:30", "D\u00f3\u0142", "Pilates Equipment", "Olivia", 50],
+        ["10:30", "G\u00f3ra", "Reformer Mi\u0119\u015bnie Dna Miednicy", "Olivia", 50],
+        ["11:30", "G\u00f3ra", "Reformer Strong Core", "Olivia", 50],
         ["19:30", "D\u00f3\u0142", "Vinyasa Joga Flow", "Dorota", 60]
       ]
     };
@@ -797,7 +835,7 @@
     const scheduleRoot = document.getElementById("schedule");
 
     const groupRowHtml = e => {
-      return `<tr data-instructor="${e.instructor}" data-type="group">
+      return `<tr data-instructor="${e.instructor}" data-type="group" data-room="${e.room}">
         <td><strong>${e.start}</strong></td>
         <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
         <td class="hide-mobile">${roomPill(e.room)}</td>
@@ -807,7 +845,7 @@
     };
 
     const freeRowHtml = e => {
-      return `<tr data-type="free-slot" class="free-slot-row">
+      return `<tr data-type="free-slot" data-room="${e.room}" class="free-slot-row">
         <td><strong>${e.start}</strong></td>
         <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
         <td class="hide-mobile">${roomPill(e.room)}</td>
@@ -822,7 +860,7 @@
 
     const personalRowHtml = e => {
       const label = e.className === "Reformer Personalny" ? "Reformer Personalny" : "Trening Personalny";
-      return `<tr data-instructor="${e.instructor}" data-type="personal" class="personal-row">
+      return `<tr data-instructor="${e.instructor}" data-type="personal" data-room="${e.room}" class="personal-row">
         <td><strong>${e.start}</strong></td>
         <td>${e.end} <span class="muted">${e.duration}\u2019</span></td>
         <td class="hide-mobile">${roomPill(e.room)}</td>
@@ -884,6 +922,29 @@
 
     renderSchedule();
 
+    /* --- Room filter --- */
+    let activeRoomFilter = null;
+
+    function setRoomFilter(room) {
+      if (activeRoomFilter === room) {
+        clearRoomFilter();
+        return;
+      }
+      activeRoomFilter = room;
+      document.getElementById("btnRoomGora").classList.toggle("active", room === "G\u00f3ra");
+      document.getElementById("btnRoomDol").classList.toggle("active", room === "D\u00f3\u0142");
+      document.getElementById("btnRoomAll").style.display = "inline-block";
+      applyFilters();
+    }
+
+    function clearRoomFilter() {
+      activeRoomFilter = null;
+      document.getElementById("btnRoomGora").classList.remove("active");
+      document.getElementById("btnRoomDol").classList.remove("active");
+      document.getElementById("btnRoomAll").style.display = "none";
+      applyFilters();
+    }
+
     /* --- Instructor filter --- */
     let activeFilter = null;
 
@@ -944,9 +1005,6 @@
       applyFilters();
     }
 
-    /* --- Type filter --- */
-    let activeTypeFilter = "group";
-
     function setTypeFilter(type) {
       activeTypeFilter = type;
       document.getElementById("btnGroup").classList.toggle("active", type === "group");
@@ -968,6 +1026,9 @@
       applyFilters();
     }
 
+    /* --- Type filter --- */
+    let activeTypeFilter = "group";
+
     function applyFilters() {
       document.querySelectorAll(".day").forEach(dayEl => {
         const rows = dayEl.querySelectorAll("tbody tr");
@@ -975,6 +1036,7 @@
         rows.forEach(row => {
           const rowType = row.dataset.type;
           const rowInstructor = row.dataset.instructor;
+          const rowRoom = row.dataset.room;
           let show = true;
 
           if (activeFilter) {
@@ -988,6 +1050,11 @@
             // Normal type filter
             if (activeTypeFilter === "group" && rowType !== "group") show = false;
             if (activeTypeFilter === "free" && rowType !== "free-slot") show = false;
+          }
+
+          // Room filter (applied on top of other filters)
+          if (show && activeRoomFilter && rowRoom !== activeRoomFilter) {
+            show = false;
           }
 
           row.classList.toggle("filtered-out", !show);
