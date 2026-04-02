@@ -1,11 +1,11 @@
 {{ define "main" }}
 <!-- HEADER -->
 <header class="bg-primary shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
     <div class="flex items-center">
-      <img src="{{ "images/logo-icon.svg" | relURL }}" alt="Pure Shape Studio" class="h-10 md:h-12">
-      <div class="ml-5 leading-tight">
-        <span class="text-white font-bold text-lg md:text-xl tracking-widest">PURE SHAPE</span>
+      <img src="{{ "images/logo-icon.svg" | relURL }}" alt="Pure Shape Studio" class="h-9 sm:h-10 md:h-12">
+      <div class="ml-3 sm:ml-5 leading-tight">
+        <span class="text-white font-bold text-base sm:text-lg md:text-xl tracking-widest">PURE SHAPE</span>
         <div class="flex items-center gap-2 mt-0.5">
           <span class="h-px flex-1 bg-white/60"></span>
           <span class="text-white text-[10px] md:text-xs tracking-[0.3em] font-light">STUDIO</span>
@@ -45,7 +45,7 @@
     </button>
   </div>
   <!-- Mobile nav dropdown -->
-  <nav id="mobileMenu" class="hidden md:hidden bg-primary border-t border-white/10 px-6 pb-6 pt-4 space-y-4">
+  <nav id="mobileMenu" class="hidden md:hidden bg-primary border-t border-white/10 px-4 sm:px-6 pb-6 pt-4 space-y-4">
     <a href="#zajecia" class="block text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
     <a href="#grafik" class="block text-lg text-white hover:text-accent transition font-medium">Grafik</a>
     <a href="#cennik" class="block text-lg text-white hover:text-accent transition font-medium">Cennik</a>
@@ -69,81 +69,78 @@
 
 <!-- HERO -->
 <section class="relative bg-lightPink">
-  <div class="max-w-7xl mx-auto px-6 py-32 md:py-40 grid md:grid-cols-2 gap-16 items-center">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20 md:py-32 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
     <div>
-      <h1 class="text-4xl sm:text-5xl md:text-7xl font-bold text-primary leading-tight tracking-tight">
+      <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold text-primary leading-tight tracking-tight">
         Studio Fitness&Pilates<br>dla Siły<br>i Równowagi
       </h1>
-      <p class="mt-6 md:mt-8 text-lg md:text-2xl text-gray-700 leading-relaxed">
+      <p class="mt-5 md:mt-8 text-base sm:text-lg md:text-2xl text-gray-700 leading-relaxed">
         Kameralne studio w Bibicach z&nbsp;reformerami i&nbsp;salą ćwiczeń. Małe grupy, indywidualne podejście i&nbsp;atmosfera, do&nbsp;której chce się wracać.
       </p>
-      <div class="inline-block mt-8 px-6 py-3 bg-accent text-white text-base md:text-lg font-bold rounded-full shadow-lg">
-        🎉 Startujemy 1 kwietnia!
-      </div>
       <div class="flex flex-col sm:flex-row gap-4 mt-8">
-        <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-primary text-white text-lg font-semibold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl text-center">
+        <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-10 py-3 sm:py-4 bg-primary text-white text-base sm:text-lg font-semibold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl text-center">
           Zarezerwuj przez Fitssey
         </a>
-        <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-accent text-white text-lg font-semibold rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl text-center">
+        <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-10 py-3 sm:py-4 bg-accent text-white text-base sm:text-lg font-semibold rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl text-center">
           Kup karnet
         </a>
       </div>
     </div>
     <div>
-      <img src="{{ "images/reformer.jpg" | relURL }}" class="rounded-2xl shadow-lg" alt="Studio Pilates">
+      <img src="{{ "images/DSC_3409.jpg" | relURL }}" class="rounded-2xl shadow-lg w-full max-w-[520px] mx-auto" alt="Studio Pilates">
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="py-14 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="text-center mb-16">
-      <h2 class="text-5xl md:text-6xl font-bold text-primary">Studio Stworzone<br>dla Ciebie</h2>
-      <p class="mt-8 text-gray-600 text-xl md:text-2xl leading-relaxed max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary">Studio Stworzone<br>dla Ciebie</h2>
+      <p class="mt-5 sm:mt-8 text-base sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
         Nasze studio Fitness&Pilates oferuje indywidualną uwagę, nowoczesne reformery Balanced Body i spokojną atmosferę.
       </p>
     </div>
     
     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <img src="{{ "images/DSC_3390.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
+      <img src="{{ "images/DSC_3393.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
+      <img src="{{ "images/DSC_3405.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
       <img src="{{ "images/studio1.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/studio2.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/PXL_20260306_144137653.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/studio4.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
     </div>
   </div>
 </section>
 
 <!-- CLASS TYPES -->
-<section id="zajecia" class="py-20 bg-softGray">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="zajecia" class="py-14 sm:py-20 bg-softGray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Rodzaje Zajęć</h2>
     <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto">Wybierz zajęcia odpowiednie dla Twojego poziomu i celów</p>
 
     <!-- REFORMER -->
     <h3 class="text-xl font-bold text-accent uppercase tracking-wide mt-16 mb-6 text-center">Reformer Balanced Body</h3>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Flow</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Płynna sesja na reformerze rozwijająca kontrolę ruchu, mobilność i koordynację. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Basic</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Podstawy pracy na reformerze — technika, oddech i bezpieczne wzorce ruchu. Idealne na start. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Strong Core</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Intensywna praca core na reformerze — wzmocnienie głębokich mięśni stabilizujących. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Booty &amp; Legs</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Trening na reformerze skupiony na pośladkach i nogach. Modeluje i wzmacnia dolną partię ciała. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Mięśnie Dna Miednicy</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Specjalistyczny trening na reformerze wzmacniający mięśnie dna miednicy. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Reformer Equipment</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Zajęcia na reformerze z dodatkowym sprzętem — nowe wyzwania i pełniejszy trening. 50 min.</p>
       </div>
@@ -152,27 +149,27 @@
     <!-- MATA -->
     <h3 class="text-xl font-bold text-accent uppercase tracking-wide mt-16 mb-6 text-center">Zajęcia na macie</h3>
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Pilates Flow</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Płynny trening Pilates na macie — wzmocnienie core, poprawa postawy i kontroli ciała. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Power Pilates</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Intensywniejsza wersja Pilates na macie — więcej siły, więcej wyzwań. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Pilates Equipment</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Pilates na macie z dodatkowymi akcesoriami — piłki, gumy, obciążniki. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Barre Flow</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Nowoczesny trening łączący fitness, balet i pilates. Ćwiczenia przy drążku. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Power Booty &amp; Legs</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Intensywny trening na pośladki i nogi — rzeźbi i wzmacnia dolne partie ciała. 50 min.</p>
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
+      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
         <h3 class="text-2xl font-bold text-primary mb-4">Strong Core</h3>
         <p class="text-gray-600 text-lg leading-relaxed">Trening głębokich mięśni brzucha i stabilizatorów — mocny środek ciała. 50 min.</p>
       </div>
@@ -209,117 +206,29 @@
   </div>
 </section>
 
-<!-- GRAFIK — 10 NAJBLIŻSZYCH ZAJĘĆ -->
-<section id="grafik" class="py-20 bg-softGray">
-  <div class="max-w-5xl mx-auto px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-4">Najbliższe zajęcia</h2>
-    <p class="text-center text-gray-600 text-lg md:text-xl leading-relaxed mb-4">
-      10 kolejnych zajęć z naszego grafiku. Pełny grafik tygodniowy znajdziesz poniżej.
+<!-- GRAFIK FITSSEY -->
+<section id="grafik" class="py-14 sm:py-20 bg-softGray">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6">
+    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-4">Grafik zajęć</h2>
+    <p class="text-center text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10">
+      Aktualny grafik pobierany bezpośrednio z Fitssey.
     </p>
-    <p class="text-center text-accent font-bold text-lg mb-12">Zajęcia startują 1 kwietnia 2026</p>
 
-    <div id="upcomingCards" class="space-y-3">
-      <p class="text-center text-gray-400 py-8">Ładowanie grafiku…</p>
+    <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6">
+      <lb-schedule-widget class="block w-full min-h-[520px] md:min-h-[680px]"></lb-schedule-widget>
     </div>
 
-    <div class="mt-10 text-center">
-      <a href="{{ "grafik-tygodniowy.html" | relURL }}" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-primary text-white text-lg font-bold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-        Otwórz pełny grafik tygodniowy
+    <div class="mt-8 text-center">
+      <a href="https://app.fitssey.com/total-training/frontoffice" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-primary text-white text-base md:text-lg font-bold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+        Otwórz grafik w Fitssey
       </a>
     </div>
   </div>
 </section>
 
-<script>
-(function(){
-  /* ── dane grafiku ── */
-  const week = {
-    1:[["07:00","Góra","Reformer Personalny","Gosia",50],["08:00","Góra","Reformer Flow","Gosia",50],["08:30","Dół","Power Pilates","Klaudia",50],["09:30","Dół","Trening Personalny","Gosia",55],["09:30","Góra","Reformer Flow","Klaudia",50],["10:30","Dół","Trening Personalny","Gosia",55],["11:30","Dół","Joga dla Kręgosłupa","Dorota",60],["16:50","Dół","Vinyasa Joga Flow","Dorota",60],["18:00","Góra","Reformer Strong Core","Olivia",50],["18:00","Dół","Trening Personalny","Gosia",55],["19:00","Góra","Reformer Basic","Olivia",50],["19:00","Dół","Trening Personalny","Gosia",55],["20:00","Góra","Reformer Mięśnie Dna Miednicy","Olivia",50],["20:00","Dół","Trening Personalny","Gosia",55]],
-    2:[["08:30","Dół","Good Morning Joga","Dorota",60],["09:00","Góra","Reformer Flow","Gosia",50],["10:00","Dół","Trening Personalny","Gosia",55],["10:00","Góra","Reformer Basic","Olivia",50],["11:00","Góra","Reformer Personalny","Gosia",50],["11:00","Dół","Pilates Equipment","Olivia",50],["12:00","Góra","Reformer Strong Core","Gosia",50],["17:00","Dół","Trening Personalny","Gosia",55],["18:00","Dół","Barre Flow","Gosia",50],["19:00","Dół","Trening Personalny","Gosia",55],["20:00","Góra","Reformer Booty & Legs","Gosia",50]],
-    3:[["08:30","Góra","Reformer Personalny","Gosia",50],["08:30","Dół","Pilates Flow","Klaudia",50],["09:30","Dół","Barre Flow","Gosia",50],["09:30","Góra","Reformer Basic","Klaudia",50],["10:30","Góra","Reformer Equipment","Klaudia",50],["10:30","Dół","Trening Personalny","Gosia",55],["12:00","Góra","Reformer Booty & Legs","Gosia",50],["16:15","Dół","Vinyasa Joga Flow","Dorota",60],["17:30","Góra","Reformer Flow","Gosia",50],["17:30","Dół","Trening Personalny","Ania",55],["18:30","Dół","Trening Personalny","Ania",55],["19:30","Dół","Trening Personalny","Ania",55],["20:30","Dół","Power Booty & Legs","Ania",50]],
-    4:[["07:30","Góra","Reformer Personalny","Gosia",50],["08:30","Dół","Trening Personalny","Gosia",55],["08:30","Góra","Reformer Flow","Klaudia",50],["09:30","Dół","Trening Personalny","Gosia",55],["09:30","Góra","Reformer Strong Core","Klaudia",50],["10:30","Dół","Joga dla Kręgosłupa","Dorota",60],["16:50","Dół","Vinyasa Joga Flow","Dorota",60],["18:00","Góra","Reformer Basic","Olivia",50],["18:00","Dół","Barre Flow","Gosia",50],["19:00","Góra","Reformer Equipment","Olivia",50],["19:00","Dół","Trening Personalny","Gosia",55],["20:00","Góra","Reformer Flow","Olivia",50],["20:00","Dół","Trening Personalny","Gosia",55]],
-    5:[["08:30","Dół","Good Morning Joga","Dorota",60],["08:30","Góra","Reformer Flow","Olivia",50],["09:30","Dół","Trening Personalny","Gosia",55],["09:30","Góra","Reformer Basic","Olivia",50],["10:30","Dół","Trening Personalny","Gosia",55],["10:30","Góra","Reformer Mięśnie Dna Miednicy","Olivia",50],["12:00","Dół","Power Booty & Legs","Gosia",50],["17:00","Góra","Reformer Personalny","Gosia",50],["17:00","Dół","Trening Personalny","Ania",55],["18:00","Dół","Trening Personalny","Ania",55],["19:00","Dół","Strong Core","Ania",50],["19:15","Góra","Reformer Flow","Klaudia",50],["20:00","Dół","Stretch & Mobility","Ania",50],["20:15","Góra","Reformer Booty & Legs","Klaudia",50],["21:00","Dół","Yin Joga Good Night","Dorota",60]],
-    6:[["09:00","Góra","Reformer Personalny","Gosia",50],["09:00","Dół","Pilates Flow","Klaudia",50],["10:00","Dół","Barre Flow","Gosia",50],["10:00","Góra","Reformer Flow","Klaudia",50],["12:00","Dół","Vinyasa Joga Flow","Dorota",60],["16:00","Dół","Zdrowy Kręgosłup","Olivia",50],["17:00","Góra","Reformer Booty & Legs","Olivia",50],["18:00","Góra","Reformer Mięśnie Dna Miednicy","Olivia",50]],
-    0:[["09:00","Dół","Pilates Flow","Olivia",50],["10:00","Góra","Reformer Mięśnie Dna Miednicy","Olivia",50],["11:00","Góra","Reformer Flow","Olivia",50],["19:30","Dół","Vinyasa Joga Flow","Dorota",60]]
-  };
-
-  const avatars = {
-    Gosia:  "{{ "images/gosia.jpg" | relURL }}",
-    Klaudia: "{{ "images/klaudia.jpeg" | relURL }}",
-    Olivia: "{{ "images/olivia.jpeg" | relURL }}",
-    Dorota: "{{ "images/DorotaW.jpg" | relURL }}",
-    Ania:   "{{ "images/anna.jpeg" | relURL }}"
-  };
-
-  const colors = { Gosia:"#ffd6de", Klaudia:"#d8f0ff", Dorota:"#e4f7dd", Olivia:"#efe1ff", Ania:"#ffecc8" };
-  const dayNames = ["Niedziela","Poniedziałek","Wtorek","Środa","Czwartek","Piątek","Sobota"];
-  const personalClasses = new Set(["Trening Personalny","Reformer Personalny"]);
-
-  function pad(n){ return String(n).padStart(2,"0"); }
-  function addMin(h,m,dur){ const t=h*60+m+dur; return [Math.floor(t/60)%24, t%60]; }
-
-  function getUpcoming(count){
-    const now = new Date();
-    const results = [];
-    for(let offset=0; offset<8 && results.length<count; offset++){
-      const d = new Date(now); d.setDate(d.getDate()+offset);
-      const dow = d.getDay();
-      const entries = week[dow] || [];
-      for(const e of entries){
-        if(personalClasses.has(e[2])) continue;
-        const [hh,mm] = e[0].split(":").map(Number);
-        const when = new Date(d); when.setHours(hh,mm,0,0);
-        if(when <= now) continue;
-        results.push({ date:new Date(d), dow, start:e[0], room:e[1], cls:e[2], instr:e[3], dur:e[4], when });
-        if(results.length >= count) break;
-      }
-    }
-    return results;
-  }
-
-  function renderCards(){
-    const items = getUpcoming(10);
-    const container = document.getElementById("upcomingCards");
-    if(!items.length){ container.innerHTML='<p class="text-center text-gray-400 py-8">Brak nadchodzących zajęć w tym tygodniu.</p>'; return; }
-
-    let lastLabel = "";
-    container.innerHTML = items.map(e => {
-      const [eh,em] = e.start.split(":").map(Number);
-      const [fh,fm] = addMin(eh,em,e.dur);
-      const endStr = pad(fh)+":"+pad(fm);
-      const dayLabel = dayNames[e.dow] + ", " + e.date.getDate() + "." + pad(e.date.getMonth()+1);
-      const showDay = dayLabel !== lastLabel;
-      lastLabel = dayLabel;
-
-      const av = avatars[e.instr]
-        ? '<img src="'+avatars[e.instr]+'" alt="'+e.instr+'" class="w-10 h-10 rounded-full object-cover border-2" style="border-color:'+colors[e.instr]+'">'
-        : '<span class="w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2" style="background:'+colors[e.instr]+';border-color:'+colors[e.instr]+'">'+e.instr[0]+'</span>';
-
-      const isReformer = e.cls.toLowerCase().startsWith("reformer");
-
-      return (showDay ? '<p class="text-xs font-bold text-gray-400 uppercase tracking-widest pt-4 pb-1">'+dayLabel+'</p>' : '')
-        + '<div class="flex items-center gap-4 bg-white rounded-xl px-4 py-3 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">'
-        + av
-        + '<div class="flex-1 min-w-0">'
-        + '<p class="font-bold text-primary leading-tight truncate">'+e.cls+'</p>'
-        + '<p class="text-sm text-gray-500">'+e.instr+'</p>'
-        + '</div>'
-        + '<div class="text-right flex-shrink-0">'
-        + '<p class="font-bold text-primary">'+e.start+' – '+endStr+'</p>'
-        + '<p class="text-xs text-gray-400">'+e.room+(isReformer?' · reformer':'')+'</p>'
-        + '</div>'
-        + '</div>';
-    }).join("");
-  }
-
-  if(document.readyState==="loading") document.addEventListener("DOMContentLoaded",renderCards);
-  else renderCards();
-})();
-</script>
-
 <!-- CENNIK -->
-<section id="cennik" class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="cennik" class="py-14 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Cennik</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
       Najczęściej wybierane opcje. Pełną ofertę sprawdzisz w Fitssey.
@@ -394,8 +303,8 @@
 </section>
 
 <!-- INSTRUCTORS -->
-<section id="instruktor" class="py-20 bg-softGray">
-  <div class="max-w-7xl mx-auto px-6">
+<section id="instruktor" class="py-14 sm:py-20 bg-softGray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">O nas</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
       Jesteśmy pasjonatkami ruchu i zdrowego stylu życia. Razem tworzymy przestrzeń, w której każdy znajdzie swoje miejsce.
@@ -493,8 +402,8 @@
 </section>
 
 <!-- LOCATION -->
-<section class="py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
+<section class="py-14 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Lokalizacja</h2>
     <p class="text-center text-gray-600 text-xl max-w-2xl mx-auto mb-12">
       Znajdziesz nas w spokojnej okolicy Zielonek
@@ -549,7 +458,7 @@
       </div>
 
 
-      <div class="rounded-2xl shadow-lg overflow-hidden h-[450px]">
+      <div class="rounded-2xl shadow-lg overflow-hidden h-[320px] sm:h-[420px] md:h-[450px]">
         <iframe 
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.3!2d19.934!3d50.121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKo%C5%9Bciuszki%2011A%2C%20Bibice!5e0!3m2!1spl!2spl"
           width="100%" 
@@ -566,12 +475,40 @@
 </section>
 
 <!-- WAITLIST -->
-<section id="lista-oczekujacych" class="py-20 bg-softGray">
-  <div class="max-w-4xl mx-auto px-6">
+<section id="lista-oczekujacych" class="py-14 sm:py-20 bg-softGray">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Treningi Personalne</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-12">
       Chcesz trenować indywidualnie? Zapisz się na listę oczekujących, a skontaktujemy się z Tobą, gdy pojawi się wolny termin.
     </p>
+
+    <div class="hidden bg-white p-4 sm:p-6 rounded-2xl shadow-lg mb-8 border border-gray-100">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+        <div>
+          <h3 class="text-xl sm:text-2xl font-bold text-primary">Możliwe najbliższe sloty personalne</h3>
+          <p class="text-sm sm:text-base text-gray-600 mt-1">
+            Orientacyjne wolne terminy wyliczone na podstawie aktualnego grafiku zajęć grupowych.
+          </p>
+        </div>
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide uppercase w-fit">
+          Aktualizowane automatycznie
+        </span>
+      </div>
+
+      <div class="flex flex-wrap gap-2 mb-4">
+        <span class="inline-flex items-center gap-2 text-xs font-semibold rounded-full bg-rose-50 text-rose-700 border border-rose-100" style="padding:6px 12px;">
+          <span class="w-2 h-2 rounded-full bg-rose-400"></span>Reformer
+        </span>
+        <span class="inline-flex items-center gap-2 text-xs font-semibold rounded-full bg-sky-50 text-sky-700 border border-sky-100" style="padding:6px 12px;">
+          <span class="w-2 h-2 rounded-full bg-sky-400"></span>Sala ogólna
+        </span>
+      </div>
+
+      <div id="personalSlotsList" class="grid sm:grid-cols-2 lg:grid-cols-3" style="gap:14px;"></div>
+      <p class="text-xs text-gray-500 mt-4">
+        To propozycje orientacyjne. Ostateczną dostępność i rezerwację potwierdzisz w Fitssey.
+      </p>
+    </div>
 
     <div class="bg-softGray p-8 md:p-12 rounded-2xl shadow-lg">
       <form id="waitlistForm" class="space-y-6">
@@ -749,11 +686,10 @@
 </section>
 
 <!-- CTA -->
-<section id="kontakt" class="py-20 md:py-24 bg-primary text-white text-center">
-  <div class="max-w-4xl mx-auto px-6">
+<section id="kontakt" class="py-14 sm:py-20 md:py-24 bg-primary text-white text-center">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-7xl font-bold mb-8">Gotowa na Start?</h2>
     <p class="text-gray-200 text-lg md:text-2xl mb-4">Dołącz do nas na pierwszą sesję i poczuj różnicę.</p>
-    <p class="text-white text-xl md:text-2xl font-bold mb-10 md:mb-16">🎉 Zaczynamy 1 kwietnia!</p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="inline-block px-10 md:px-16 py-4 md:py-5 bg-accent text-white text-lg md:text-xl font-bold rounded-full hover:bg-opacity-90 transition-all shadow-2xl hover:shadow-3xl hover:-translate-y-1">
         Zarezerwuj zajęcia
@@ -767,7 +703,7 @@
 
 <!-- FOOTER -->
 <footer class="py-16 bg-lightPink text-gray-700">
-  <div class="max-w-7xl mx-auto px-6">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid md:grid-cols-3 gap-10 mb-10">
       <!-- Company info -->
       <div>
@@ -852,6 +788,7 @@
   const todayName = polishWeekDays[new Date().getDay()];
   const scheduleTables = document.querySelectorAll('#grafik table');
   const upcomingScheduleBody = document.getElementById('upcomingScheduleBody');
+  const personalSlotsList = document.getElementById('personalSlotsList');
 
   const scheduleEntries = [
     { day: 'Poniedziałek', time: '08:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
@@ -941,6 +878,163 @@
     'Vinyasa Joga Flow': 'Dynamiczna praktyka jogi łącząca oddech z płynnym ruchem.',
     'Yin Joga Good Night': 'Spokojna, wieczorna sesja wyciszająca i regenerująca ciało.',
     'Zdrowy Kręgosłup': 'Ćwiczenia wzmacniające otoczenie kręgosłupa i korygujące postawę.',
+  };
+
+  const classDurations = {
+    'Good Morning Joga': 60,
+    'Joga dla Kręgosłupa': 60,
+    'Vinyasa Joga Flow': 60,
+    'Yin Joga Good Night': 60,
+  };
+
+  const personalWindowsByDay = {
+    1: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
+    2: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
+    3: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
+    4: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
+    5: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
+    6: [[9 * 60, 15 * 60]],
+  };
+
+  const roomLabels = {
+    'Reformer': 'Reformer',
+    'Pilates Mata': 'Sala ogólna'
+  };
+
+  const PERSONAL_SLOT_DURATION = 55;
+
+  const timeToMinutes = value => {
+    const [h, m] = value.split(':').map(Number);
+    return h * 60 + m;
+  };
+
+  const minutesToTime = minutes => {
+    const h = String(Math.floor(minutes / 60)).padStart(2, '0');
+    const m = String(minutes % 60).padStart(2, '0');
+    return `${h}:${m}`;
+  };
+
+  const getClassDuration = entry => classDurations[entry.className] || 50;
+
+  const getWeeklyPersonalStarts = (dayIndex, room) => {
+    const windows = personalWindowsByDay[dayIndex] || [];
+    if (!windows.length) {
+      return [];
+    }
+
+    const dayName = polishWeekDays[dayIndex];
+    const busy = scheduleEntries
+      .filter(entry => entry.day === dayName && entry.room === room)
+      .map(entry => {
+        const start = timeToMinutes(entry.time);
+        const end = start + getClassDuration(entry);
+        return [start, end];
+      })
+      .sort((a, b) => a[0] - b[0]);
+
+    const starts = [];
+
+    windows.forEach(([windowStart, windowEnd]) => {
+      let cursor = windowStart;
+
+      busy.forEach(([busyStart, busyEnd]) => {
+        if (busyEnd <= windowStart || busyStart >= windowEnd) {
+          return;
+        }
+
+        const boundedStart = Math.max(busyStart, windowStart);
+        const boundedEnd = Math.min(busyEnd, windowEnd);
+
+        if (boundedStart - cursor >= PERSONAL_SLOT_DURATION) {
+          for (let start = cursor; start + PERSONAL_SLOT_DURATION <= boundedStart; start += 60) {
+            starts.push(start);
+          }
+        }
+
+        cursor = Math.max(cursor, boundedEnd);
+      });
+
+      if (windowEnd - cursor >= PERSONAL_SLOT_DURATION) {
+        for (let start = cursor; start + PERSONAL_SLOT_DURATION <= windowEnd; start += 60) {
+          starts.push(start);
+        }
+      }
+    });
+
+    return [...new Set(starts)].sort((a, b) => a - b);
+  };
+
+  const getUpcomingPersonalSlots = limit => {
+    const now = new Date();
+    const results = [];
+    const rooms = ['Reformer', 'Pilates Mata'];
+
+    for (let offset = 0; offset < 21 && results.length < limit; offset++) {
+      const date = new Date(now);
+      date.setDate(now.getDate() + offset);
+      const dayIndex = date.getDay();
+
+      if (!personalWindowsByDay[dayIndex]) {
+        continue;
+      }
+
+      rooms.forEach(room => {
+        const starts = getWeeklyPersonalStarts(dayIndex, room);
+        starts.forEach(startMinutes => {
+          const slotDate = new Date(date);
+          slotDate.setHours(Math.floor(startMinutes / 60), startMinutes % 60, 0, 0);
+          if (slotDate > now) {
+            results.push({ slotDate, dayIndex, startMinutes, room });
+          }
+        });
+      });
+    }
+
+    return results
+      .sort((a, b) => a.slotDate - b.slotDate)
+      .slice(0, limit);
+  };
+
+  const renderPersonalSlots = () => {
+    if (!personalSlotsList) {
+      return;
+    }
+
+    const slots = getUpcomingPersonalSlots(12);
+    if (!slots.length) {
+      personalSlotsList.innerHTML = '<p class="text-sm text-gray-500">Brak wyliczonych slotów w najbliższych dniach.</p>';
+      return;
+    }
+
+    personalSlotsList.innerHTML = slots.map(slot => {
+      const dateLabel = slot.slotDate.toLocaleDateString('pl-PL', {
+        day: '2-digit',
+        month: '2-digit'
+      });
+      const dayLabel = polishWeekDays[slot.dayIndex];
+      const timeLabel = minutesToTime(slot.startMinutes);
+      const roomLabel = roomLabels[slot.room] || slot.room;
+      const roomToneStyle = slot.room === 'Reformer'
+        ? 'background:#fff1f2;color:#be123c;border-color:#ffe4e6;'
+        : 'background:#f0f9ff;color:#0369a1;border-color:#e0f2fe;';
+
+      return `
+        <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow" style="padding:16px;">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">${dayLabel}</p>
+              <p class="text-sm font-bold text-primary mt-0.5">${dateLabel}</p>
+            </div>
+            <span class="inline-flex items-center text-[11px] font-semibold rounded-full border" style="padding:4px 10px; ${roomToneStyle}">${roomLabel}</span>
+          </div>
+          <p class="text-2xl font-extrabold text-accent leading-none mt-4">${timeLabel}</p>
+          <p class="text-xs text-gray-500 mt-1">Sesja personalna • 55 min</p>
+          <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center w-full px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-gray-800 transition-colors">
+            Umów w Fitssey
+          </a>
+        </div>
+      `;
+    }).join('');
   };
 
   const scheduleTooltip = document.createElement('div');
@@ -1088,6 +1182,7 @@
 
   renderUpcomingClasses();
   attachScheduleTooltips();
+  renderPersonalSlots();
 
   document.addEventListener('click', event => {
     if (activeTooltipCell && !activeTooltipCell.contains(event.target)) {
