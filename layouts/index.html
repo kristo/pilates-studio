@@ -16,6 +16,7 @@
     <!-- Desktop nav -->
     <nav class="hidden md:flex items-center space-x-10">
       <a href="#zajecia" class="text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
+      <a href="#dzien-otwarty" class="text-lg text-white hover:text-accent transition font-medium">Dzień Otwarty</a>
       <a href="#grafik" class="text-lg text-white hover:text-accent transition font-medium">Grafik</a>
       <a href="#cennik" class="text-lg text-white hover:text-accent transition font-medium">Cennik</a>
       <a href="#instruktor" class="text-lg text-white hover:text-accent transition font-medium">O nas</a>
@@ -47,6 +48,7 @@
   <!-- Mobile nav dropdown -->
   <nav id="mobileMenu" class="hidden md:hidden bg-primary border-t border-white/10 px-4 sm:px-6 pb-6 pt-4 space-y-4">
     <a href="#zajecia" class="block text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
+    <a href="#dzien-otwarty" class="block text-lg text-white hover:text-accent transition font-medium">Dzień Otwarty</a>
     <a href="#grafik" class="block text-lg text-white hover:text-accent transition font-medium">Grafik</a>
     <a href="#cennik" class="block text-lg text-white hover:text-accent transition font-medium">Cennik</a>
     <a href="#instruktor" class="block text-lg text-white hover:text-accent transition font-medium">O nas</a>
@@ -88,6 +90,120 @@
     </div>
     <div>
       <img src="{{ "images/DSC_3409.jpg" | relURL }}" class="rounded-2xl shadow-lg w-full max-w-[520px] mx-auto" alt="Studio Pilates">
+    </div>
+  </div>
+</section>
+
+<!-- OPEN DAY -->
+<section id="dzien-otwarty" class="py-14 sm:py-20 bg-gradient-to-b from-rose-50 via-white to-softGray">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="bg-white rounded-3xl shadow-xl p-6 sm:p-10 md:p-12 border border-rose-100">
+      <div class="text-center max-w-4xl mx-auto">
+        <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 text-accent font-semibold text-sm tracking-wide uppercase">
+          Wydarzenie specjalne
+        </span>
+        <h2 class="mt-5 text-3xl sm:text-4xl md:text-6xl font-bold text-primary leading-tight">✨ Dzień Otwarty w Pure Shape Studio ✨</h2>
+        <p class="mt-4 text-lg sm:text-xl text-gray-700 leading-relaxed">
+          Sobota, 11 kwietnia. Poznaj nasze instruktorki, przetestuj różne formaty zajęć i poczuj klimat studia w wersji intro.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-4 mt-8">
+        <div class="rounded-2xl bg-softGray p-5 text-center">
+          <p class="text-sm uppercase tracking-wide text-gray-500 font-semibold">Lokalizacja</p>
+          <p class="text-lg font-bold text-primary mt-1">Kościuszki 11A, Bibice</p>
+        </div>
+        <div class="rounded-2xl bg-softGray p-5 text-center">
+          <p class="text-sm uppercase tracking-wide text-gray-500 font-semibold">Godziny</p>
+          <p class="text-lg font-bold text-primary mt-1">12:00-19:00</p>
+        </div>
+        <div class="rounded-2xl bg-softGray p-5 text-center">
+          <p class="text-sm uppercase tracking-wide text-gray-500 font-semibold">Wejście</p>
+          <p class="text-lg font-bold text-primary mt-1">30 zł (zwrot przy zakupie karnetu)</p>
+        </div>
+      </div>
+
+      <div class="mt-8 grid lg:grid-cols-2 gap-8">
+        <div class="rounded-2xl border border-gray-100 p-6 sm:p-8 bg-white">
+          <h3 class="text-2xl font-bold text-primary mb-4">Jak to działa?</h3>
+          <ul class="space-y-3 text-gray-700 leading-relaxed">
+            <li>Kup karnet <strong>"Wejście - Dzień Otwarty"</strong> za 30 zł.</li>
+            <li>Zarezerwuj jedno, dwa albo kilka zajęć w grafiku Fitssey.</li>
+            <li>Testuj różne formaty i wybierz te, które najbardziej Ci pasują.</li>
+            <li>Uwaga: liczba miejsc jest ograniczona, szczególnie na reformerach.</li>
+          </ul>
+          <div class="mt-6 flex flex-col sm:flex-row gap-3">
+            <a href="https://app.fitssey.com/total-training/frontoffice" target="_blank" rel="noopener noreferrer" class="inline-block px-6 py-3 bg-primary text-white font-semibold rounded-full text-center hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl">Zapisy przez Fitssey</a>
+            <a href="#grafik" class="inline-block px-6 py-3 bg-accent text-white font-semibold rounded-full text-center hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl">Zobacz grafik zajęć</a>
+          </div>
+        </div>
+
+        <div class="rounded-2xl border border-gray-100 p-6 sm:p-8 bg-softGray">
+          <h3 class="text-2xl font-bold text-primary mb-4">Czeka na Was</h3>
+          <div class="grid sm:grid-cols-2 gap-3 text-gray-700">
+            <div class="rounded-xl bg-white px-4 py-3">☕ aromatyczna kawa</div>
+            <div class="rounded-xl bg-white px-4 py-3">🥙 smaczne przekąski</div>
+            <div class="rounded-xl bg-white px-4 py-3">🎁 drobne upominki</div>
+            <div class="rounded-xl bg-white px-4 py-3">💬 poznanie instruktorek</div>
+            <div class="rounded-xl bg-white px-4 py-3 sm:col-span-2">🧘‍♀️ pełen przekrój zajęć z krótkim opisem</div>
+          </div>
+          <p class="mt-4 text-sm text-gray-600">Zajęcia pokazowe trwają 40 minut, dzięki czemu łatwo przetestujesz kilka formatów podczas jednego popołudnia.</p>
+        </div>
+      </div>
+
+      <div class="mt-10">
+        <h3 class="text-2xl sm:text-3xl font-bold text-primary text-center mb-6">Program zajęć intro (40 min)</h3>
+        <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Barre Flow</h4>
+            <p class="mt-2 text-gray-600">Połączenie pilatesu, baletu i treningu funkcjonalnego. Płynne sekwencje wzmacniające nogi, pośladki i core.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Joga dla Kręgosłupa - Intro</h4>
+            <p class="mt-2 text-gray-600">Łagodne, precyzyjne ruchy poprawiające mobilność i odciążające plecy.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Reformer Strong Core - Intro</h4>
+            <p class="mt-2 text-gray-600">Skupienie na stabilizacji i sile centrum ciała z wykorzystaniem reformera.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Power Pilates - Intro</h4>
+            <p class="mt-2 text-gray-600">Dynamiczny pilates budujący siłę, wytrzymałość i kontrolę ruchu.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Reformer Basic - Intro</h4>
+            <p class="mt-2 text-gray-600">Podstawy pracy na reformerze, idealne pierwsze spotkanie ze sprzętem.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Reformer Booty &amp; Legs - Intro</h4>
+            <p class="mt-2 text-gray-600">Trening dolnych partii ciała na reformerze, mocny i przyjazny początkującym.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Stretch &amp; Mobility - Intro</h4>
+            <p class="mt-2 text-gray-600">Rozciąganie, otwieranie i poprawa zakresów ruchu w całym ciele.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Power Booty &amp; Legs - Intro</h4>
+            <p class="mt-2 text-gray-600">Energetyczny trening wzmacniający nogi i pośladki w wersji matowej.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Reformer Mięśnie Dna Miednicy - Intro</h4>
+            <p class="mt-2 text-gray-600">Bezpieczne, świadome ćwiczenia wzmacniające dno miednicy z fizjoterapeutką.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Reformer Equipment - Intro</h4>
+            <p class="mt-2 text-gray-600">Trening na reformerze z dodatkowymi akcesoriami, urozmaicony i funkcjonalny.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Strong Core - Intro</h4>
+            <p class="mt-2 text-gray-600">Skupienie na stabilizacji, sile brzucha i poprawie postawy.</p>
+          </article>
+          <article class="bg-white border border-gray-100 rounded-2xl p-5 shadow-sm">
+            <h4 class="text-lg font-bold text-primary">Vinyasa Joga Flow - Intro</h4>
+            <p class="mt-2 text-gray-600">Płynna, energetyczna praktyka łącząca ruch z oddechem.</p>
+          </article>
+        </div>
+      </div>
     </div>
   </div>
 </section>
