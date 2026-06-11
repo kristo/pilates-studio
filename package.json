@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "hugo && gh-pages -d public"
+    "deploy": "hugo && gh-pages -d public",
+    "pdf:regulamin": "bash ./scripts/generate-regulamin-pdf.sh",
+    "pdf:regulamin:prod": "bash ./scripts/generate-regulamin-pdf-from-url.sh"
   },
   "keywords": [],
   "author": "",

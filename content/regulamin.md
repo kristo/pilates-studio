@@ -44,6 +44,14 @@ url: "/regulamin/"
 4. Niewykorzystane wejścia w ramach karnetu nie przechodzą na kolejny okres i nie podlegają zwrotowi.
 5. Rezerwacja zajęć odbywa się za pośrednictwem systemu Fitssey.
 
+## §4a. Zasady korzystania z karty Multisport
+
+1. Od dnia **16 czerwca 2026 r.** Studio honoruje karty Multisport na wybranych zajęciach grupowych.
+2. Rezerwacje dla użytkowników karty Multisport otwierają się na **24 godziny przed rozpoczęciem zajęć**.
+3. Dla zajęć na reformerze obowiązuje dopłata w wysokości **75 PLN** oraz wymagane jest utrzymanie minimum **20 PLN** w portfelu Fitssey.
+4. Dla zajęć na macie obowiązuje dopłata w wysokości **10 PLN** oraz wymagana jest kaucja w portfelu Fitssey w wysokości **45 PLN**.
+5. W przypadku odwołania rezerwacji lub nieobecności w terminie krótszym niż 12 godzin przed zajęciami, Studio pobiera kaucję z portfela Fitssey tak, aby łączna płatność odpowiadała cenie pojedynczego treningu obowiązującej w Studio. Zasada ta dotyczy zarówno zajęć na reformerze, jak i zajęć na macie.
+
 ## §5. Odwoływanie i zmiana rezerwacji
 
 1. Odwołanie rezerwacji jest możliwe nie później niż 12 godzin przed planowanym rozpoczęciem zajęć.
@@ -87,4 +95,4 @@ url: "/regulamin/"
 
 1. Studio zastrzega sobie prawo do zmiany regulaminu. Aktualna wersja regulaminu dostępna jest na stronie pure-shape.pl.
 2. W sprawach nieuregulowanych niniejszym regulaminem zastosowanie mają przepisy prawa polskiego, w szczególności Kodeksu cywilnego i ustawy o prawach konsumenta.
-3. Regulamin obowiązuje od dnia 6 marca 2026 r. Ostatnia aktualizacja: 13 marca 2026 r.
+3. Regulamin obowiązuje od dnia 6 marca 2026 r. Ostatnia aktualizacja: 11 czerwca 2026 r.
