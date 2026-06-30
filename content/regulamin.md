@@ -47,16 +47,25 @@ url: "/regulamin/"
 ## §4a. Zasady korzystania z karty Multisport
 
 1. Od dnia **16 czerwca 2026 r.** Studio honoruje karty Multisport na wybranych zajęciach grupowych.
-2. Rezerwacje dla użytkowników karty Multisport otwierają się na **24 godziny przed rozpoczęciem zajęć**.
+2. Rezerwacje dla użytkowników karty Multisport otwierają się na **48 godzin przed rozpoczęciem zajęć**.
 3. Dla zajęć na reformerze obowiązuje dopłata w wysokości **75 PLN** oraz wymagane jest utrzymanie minimum **20 PLN** w portfelu Fitssey.
 4. Dla zajęć na macie obowiązuje dopłata w wysokości **10 PLN** oraz wymagana jest kaucja w portfelu Fitssey w wysokości **45 PLN**.
 5. W przypadku odwołania rezerwacji lub nieobecności w terminie krótszym niż 12 godzin przed zajęciami, Studio pobiera kaucję z portfela Fitssey tak, aby łączna płatność odpowiadała cenie pojedynczego treningu obowiązującej w Studio. Zasada ta dotyczy zarówno zajęć na reformerze, jak i zajęć na macie.
+
+## §4b. Zasady korzystania z karnetów Unlimited
+
+1. Dla posiadaczy karnetów Unlimited obowiązuje kaucja w wysokości **20 PLN**, utrzymywana w portfelu Fitssey.
+2. Kaucja ma na celu ograniczenie częstych odwołań zajęć w terminie krótszym niż 12 godzin przed ich rozpoczęciem.
+3. W przypadku odwołania rezerwacji lub nieobecności w terminie krótszym niż 12 godzin, Studio pobiera kaucję z portfela Fitssey, zgodnie z zasadami określonymi w §5.
+4. Brak wymaganej kwoty kaucji w portfelu Fitssey uniemożliwia dokonanie kolejnej rezerwacji.
+5. Zasady dotyczą wszystkich zajęć grupowych na macie oraz na reformerze realizowanych w ramach karnetu Unlimited.
 
 ## §5. Odwoływanie i zmiana rezerwacji
 
 1. Odwołanie rezerwacji jest możliwe nie później niż 12 godzin przed planowanym rozpoczęciem zajęć.
 2. W przypadku odwołania rezerwacji w terminie krótszym niż 12 godzin, wejście zostaje uznane za wykorzystane.
 3. Studio zastrzega sobie prawo do odwołania zajęć z przyczyn niezależnych od Studia, o czym poinformuje uczestników z odpowiednim wyprzedzeniem.
+4. Studio zastrzega sobie prawo do odwołania zajęć w przypadku zapisania się tylko jednej osoby na dany termin zajęć. Informacja o odwołaniu zostanie przekazana uczestnikowi z odpowiednim wyprzedzeniem.
 
 ## §6. Zwroty
 
@@ -95,4 +104,4 @@ url: "/regulamin/"
 
 1. Studio zastrzega sobie prawo do zmiany regulaminu. Aktualna wersja regulaminu dostępna jest na stronie pure-shape.pl.
 2. W sprawach nieuregulowanych niniejszym regulaminem zastosowanie mają przepisy prawa polskiego, w szczególności Kodeksu cywilnego i ustawy o prawach konsumenta.
-3. Regulamin obowiązuje od dnia 6 marca 2026 r. Ostatnia aktualizacja: 11 czerwca 2026 r.
+3. Regulamin obowiązuje od dnia 6 marca 2026 r. Ostatnia aktualizacja: 30 czerwca 2026 r.
