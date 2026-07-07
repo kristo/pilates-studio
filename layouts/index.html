@@ -27,7 +27,8 @@
           </svg>
         </button>
         <div id="desktopMoreMenu" class="hidden absolute right-0 mt-3 w-60 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
-          <a href="#lista-oczekujacych" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Lista oczekujących</a>
+          <a href="#skarpetki" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Skarpetki do Pilatesu</a>
+          <a href="#lista-oczekujacych" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Trening personalny</a>
           <a href="#kontakt" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Kontakt</a>
           <a href="/regulamin/" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Regulamin</a>
           <a href="/polityka-prywatnosci/" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Prywatność</a>
@@ -58,7 +59,8 @@
         </svg>
       </button>
       <div id="mobileMoreMenu" class="hidden mt-3 pl-2 space-y-3 border-l border-white/20">
-        <a href="#lista-oczekujacych" class="block text-base text-white hover:text-accent transition font-medium">Lista oczekujących</a>
+        <a href="#skarpetki" class="block text-base text-white hover:text-accent transition font-medium">Skarpetki do Pilatesu</a>
+        <a href="#lista-oczekujacych" class="block text-base text-white hover:text-accent transition font-medium">Trening personalny</a>
         <a href="#kontakt" class="block text-base text-white hover:text-accent transition font-medium">Kontakt</a>
         <a href="/regulamin/" class="block text-base text-white hover:text-accent transition font-medium">Regulamin</a>
         <a href="/polityka-prywatnosci/" class="block text-base text-white hover:text-accent transition font-medium">Prywatność</a>
@@ -88,6 +90,23 @@
     </div>
     <div>
       <img src="{{ "images/DSC_3409.jpg" | relURL }}" class="rounded-2xl shadow-lg w-full max-w-[520px] mx-auto" alt="Studio Pilates">
+    </div>
+  </div>
+</section>
+
+<!-- SOCKS QUICK CTA -->
+<section class="bg-white py-4 sm:py-5 border-y border-gray-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 bg-softGray rounded-2xl p-4 sm:p-5">
+      <div class="flex items-center gap-3 sm:gap-4">
+        <img src="{{ "images/socks.png" | relURL }}" alt="Skarpetki Elliosa" class="w-14 h-14 rounded-xl object-cover shadow-sm">
+        <p class="text-primary text-sm sm:text-base md:text-lg font-semibold text-center sm:text-left">
+          W naszym studio kupisz fantastyczne skarpetki Elliosa do Pilatesu za <span class="text-accent font-bold">49 zł</span>.
+        </p>
+      </div>
+      <a href="#skarpetki" class="inline-flex items-center justify-center px-6 py-3 bg-primary text-white font-bold rounded-full hover:bg-gray-800 transition-all whitespace-nowrap">
+        Zobacz modele
+      </a>
     </div>
   </div>
 </section>
@@ -326,7 +345,7 @@
           <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Plan treningowy</li>
           <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Indywidualne podejście</li>
         </ul>
-        <a href="#lista-oczekujacych" class="inline-block w-full px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Zapisz się</a>
+        <a href="#lista-oczekujacych" class="inline-block w-full px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Zapytaj o ofertę</a>
       </div>
     </div>
 
@@ -511,213 +530,48 @@
   </div>
 </section>
 
+
 <!-- WAITLIST -->
 <section id="lista-oczekujacych" class="py-14 sm:py-20 bg-softGray">
   <div class="max-w-4xl mx-auto px-4 sm:px-6">
     <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Treningi Personalne</h2>
     <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-12">
-      Chcesz trenować indywidualnie? Zapisz się na listę oczekujących, a skontaktujemy się z Tobą, gdy pojawi się wolny termin.
+      Grafik personalny mamy obecnie mocno obłożony, dlatego działamy szybciej i prościej: wyślij zapytanie, a przygotujemy ofertę i zaproponujemy najbliższe realne terminy.
     </p>
 
-    <div class="hidden bg-white p-4 sm:p-6 rounded-2xl shadow-lg mb-8 border border-gray-100">
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
+    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100">
+      <div class="grid md:grid-cols-2 gap-8 items-start">
         <div>
-          <h3 class="text-xl sm:text-2xl font-bold text-primary">Możliwe najbliższe sloty personalne</h3>
-          <p class="text-sm sm:text-base text-gray-600 mt-1">
-            Orientacyjne wolne terminy wyliczone na podstawie aktualnego grafiku zajęć grupowych.
+          <h3 class="text-2xl font-bold text-primary mb-4">Jak to działa?</h3>
+          <ul class="space-y-3 text-gray-700 leading-relaxed">
+            <li class="flex items-start gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">1</span>
+              <span>Wysyłasz krótkie zapytanie: czego potrzebujesz i w jakich dniach najchętniej trenujesz.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">2</span>
+              <span>Wracamy z dopasowaną ofertą i najbliższymi możliwymi terminami.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">3</span>
+              <span>Potwierdzasz i rezerwujemy trening bez dodatkowych formularzy.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="bg-softGray rounded-xl p-6 md:p-8">
+          <h3 class="text-xl font-bold text-primary mb-4">Wyślij zapytanie</h3>
+          <p class="text-gray-700 mb-6">
+            Napisz do nas wygodnym kanałem. Odpowiadamy z propozycją oferty i terminów.
           </p>
+          <div class="space-y-3">
+            <a href="tel:+48698190880" class="flex items-center justify-center w-full px-6 py-3 bg-primary text-white font-bold rounded-full hover:bg-gray-800 transition-all">Zadzwoń: 698 190 880</a>
+            <a href="https://wa.me/48698190880?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zapytac%20o%20ofert%C4%99%20na%20trening%20personalny." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-6 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Napisz na WhatsApp</a>
+            <a href="mailto:gosia.pilinska@gmail.com?subject=Zapytanie%20o%20trening%20personalny" class="flex items-center justify-center w-full px-6 py-3 bg-white text-primary border border-primary font-bold rounded-full hover:bg-gray-50 transition-all">Napisz e-mail</a>
+          </div>
+          <p class="text-sm text-gray-500 mt-4">W wiadomości możesz dodać: cel treningowy, preferowane pory i informację, czy wolisz reformer czy matę.</p>
         </div>
-        <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-bold tracking-wide uppercase w-fit">
-          Aktualizowane automatycznie
-        </span>
       </div>
-
-      <div class="flex flex-wrap gap-2 mb-4">
-        <span class="inline-flex items-center gap-2 text-xs font-semibold rounded-full bg-rose-50 text-rose-700 border border-rose-100" style="padding:6px 12px;">
-          <span class="w-2 h-2 rounded-full bg-rose-400"></span>Reformer
-        </span>
-        <span class="inline-flex items-center gap-2 text-xs font-semibold rounded-full bg-sky-50 text-sky-700 border border-sky-100" style="padding:6px 12px;">
-          <span class="w-2 h-2 rounded-full bg-sky-400"></span>Sala ogólna
-        </span>
-      </div>
-
-      <div id="personalSlotsList" class="grid sm:grid-cols-2 lg:grid-cols-3" style="gap:14px;"></div>
-      <p class="text-xs text-gray-500 mt-4">
-        To propozycje orientacyjne. Ostateczną dostępność i rezerwację potwierdzisz w Fitssey.
-      </p>
-    </div>
-
-    <div class="bg-softGray p-8 md:p-12 rounded-2xl shadow-lg">
-      <form id="waitlistForm" class="space-y-6">
-        <!-- Imię i Nazwisko -->
-        <div class="grid md:grid-cols-2 gap-6">
-          <div>
-            <label for="firstName" class="block text-lg font-semibold text-primary mb-2">Imię *</label>
-            <input 
-              type="text" 
-              id="firstName" 
-              name="firstName" 
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
-              placeholder="Twoje imię"
-            >
-          </div>
-          <div>
-            <label for="lastName" class="block text-lg font-semibold text-primary mb-2">Nazwisko *</label>
-            <input 
-              type="text" 
-              id="lastName" 
-              name="lastName" 
-              required
-              class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
-              placeholder="Twoje nazwisko"
-            >
-          </div>
-        </div>
-
-        <!-- Email -->
-        <div>
-          <label for="email" class="block text-lg font-semibold text-primary mb-2">Email *</label>
-          <input 
-            type="email" 
-            id="email" 
-            name="email" 
-            required
-            class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-transparent outline-none transition-all"
-            placeholder="twoj@email.com"
-          >
-        </div>
-
-        <!-- Preferowane dni tygodnia -->
-        <div>
-          <label class="block text-lg font-semibold text-primary mb-3">Preferowane dni tygodnia *</label>
-          <p class="text-gray-600 mb-4">Wybierz dni, w których chcesz otrzymywać powiadomienia</p>
-          
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-2">
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="dowolny" class="sr-only" id="day-any">
-              <span class="text-sm font-medium">Dowolny dzień</span>
-            </label>
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="poniedziałek" class="sr-only">
-              <span class="text-sm font-medium">Poniedziałek</span>
-            </label>
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="wtorek" class="sr-only">
-              <span class="text-sm font-medium">Wtorek</span>
-            </label>
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="środa" class="sr-only">
-              <span class="text-sm font-medium">Środa</span>
-            </label>
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="czwartek" class="sr-only">
-              <span class="text-sm font-medium">Czwartek</span>
-            </label>
-            <label class="flex items-center justify-center px-4 py-3 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-              <input type="checkbox" name="days" value="piątek" class="sr-only">
-              <span class="text-sm font-medium">Piątek</span>
-            </label>
-          </div>
-          <p class="text-sm text-gray-500 mt-3">Możesz wybrać wiele dni lub "Dowolny dzień" dla wszystkich dni roboczych (Pn-Pt)</p>
-        </div>
-
-        <!-- Preferowane godziny -->
-        <div>
-          <label class="block text-lg font-semibold text-primary mb-3">Preferowane godziny *</label>
-          <p class="text-gray-600 mb-4">Wybierz godziny, w których chcesz otrzymywać powiadomienia o wolnych miejscach</p>
-          
-          <div class="space-y-4">
-            <!-- Przedpołudnie 7-13 -->
-            <div>
-              <p class="font-semibold text-gray-700 mb-2">Przedpołudnie (7:00 - 13:00)</p>
-              <div class="grid grid-cols-4 md:grid-cols-7 gap-2">
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="07:00" class="sr-only">
-                  <span class="text-sm font-medium">7:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="08:00" class="sr-only">
-                  <span class="text-sm font-medium">8:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="09:00" class="sr-only">
-                  <span class="text-sm font-medium">9:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="10:00" class="sr-only">
-                  <span class="text-sm font-medium">10:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="11:00" class="sr-only">
-                  <span class="text-sm font-medium">11:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="12:00" class="sr-only">
-                  <span class="text-sm font-medium">12:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="13:00" class="sr-only">
-                  <span class="text-sm font-medium">13:00</span>
-                </label>
-              </div>
-            </div>
-
-            <!-- Popołudnie 16-20 -->
-            <div>
-              <p class="font-semibold text-gray-700 mb-2">Popołudnie (16:00 - 20:00)</p>
-              <div class="grid grid-cols-4 md:grid-cols-5 gap-2">
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="16:00" class="sr-only">
-                  <span class="text-sm font-medium">16:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="17:00" class="sr-only">
-                  <span class="text-sm font-medium">17:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="18:00" class="sr-only">
-                  <span class="text-sm font-medium">18:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="19:00" class="sr-only">
-                  <span class="text-sm font-medium">19:00</span>
-                </label>
-                <label class="flex items-center justify-center px-3 py-2 bg-white border-2 border-gray-200 rounded-lg cursor-pointer hover:border-accent transition-all has-[:checked]:border-accent has-[:checked]:bg-accent has-[:checked]:text-white">
-                  <input type="checkbox" name="hours" value="20:00" class="sr-only">
-                  <span class="text-sm font-medium">20:00</span>
-                </label>
-              </div>
-            </div>
-          </div>
-          <p class="text-sm text-gray-500 mt-3">Możesz wybrać wiele godzin</p>
-        </div>
-
-        <!-- Submit Button -->
-        <div class="pt-4">
-          <button 
-            type="submit" 
-            class="w-full px-8 py-4 bg-accent text-white text-lg font-bold rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
-          >
-            Zapisz się na listę oczekujących
-          </button>
-          <p class="text-sm text-gray-500 mt-4 text-center">
-            Zapisując się, zgadzasz się na przetwarzanie danych osobowych w celu wysyłania powiadomień o wolnych miejscach na zajęciach.
-          </p>
-        </div>
-
-        <!-- Success Message -->
-        <div id="successMessage" class="hidden bg-green-100 border-l-4 border-green-500 text-green-700 p-4 rounded">
-          <p class="font-bold">Dziękujemy za zapis!</p>
-          <p>Powiadomimy Cię emailem, gdy zwolni się miejsce w wybranych godzinach.</p>
-        </div>
-
-        <!-- Error Message -->
-        <div id="errorMessage" class="hidden bg-red-100 border-l-4 border-red-500 text-red-700 p-4 rounded">
-          <p class="font-bold">Wystąpił błąd</p>
-          <p>Spróbuj ponownie lub skontaktuj się z nami bezpośrednio.</p>
-        </div>
-      </form>
     </div>
   </div>
 </section>
