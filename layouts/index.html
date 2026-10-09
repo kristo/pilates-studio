@@ -1,276 +1,232 @@
 {{ define "main" }}
+{{- $t := index site.Data.home site.Language.Lang -}}
+{{- $fitssey := "https://app.fitssey.com/total-training" -}}
+{{- $fitsseyPricing := "https://app.fitssey.com/total-training/frontoffice/pricing/classes" -}}
+{{- $arrow := `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg>` | safeHTML -}}
+{{- $chevron := `<svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>` | safeHTML -}}
+
+
 <!-- HEADER -->
-<header class="bg-primary shadow-md sticky top-0 z-50">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between">
-    <div class="flex items-center">
-      <img src="{{ "images/logo-icon.svg" | relURL }}" alt="Pure Shape Studio" class="h-9 sm:h-10 md:h-12">
-      <div class="ml-3 sm:ml-5 leading-tight">
-        <span class="text-white font-bold text-base sm:text-lg md:text-xl tracking-widest">PURE SHAPE</span>
-        <div class="flex items-center gap-2 mt-0.5">
-          <span class="h-px flex-1 bg-white/60"></span>
-          <span class="text-white text-[10px] md:text-xs tracking-[0.3em] font-light">STUDIO</span>
-          <span class="h-px flex-1 bg-white/60"></span>
-        </div>
-      </div>
-    </div>
+<header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 md:h-20 flex items-center justify-between">
+    <a href="#" class="flex items-center gap-3" aria-label="{{ $t.nav.home_aria }}">
+      <span class="logo-mark w-8 h-9 md:w-9 md:h-10" aria-hidden="true"></span>
+      <span class="leading-none">
+        <span class="block font-semibold tracking-[0.25em] text-sm md:text-base">PURE SHAPE</span>
+        <span class="block text-[10px] tracking-[0.45em] opacity-70 mt-1">STUDIO</span>
+      </span>
+    </a>
+
     <!-- Desktop nav -->
-    <nav class="hidden md:flex items-center space-x-10">
-      <a href="#zajecia" class="text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
-      <a href="#grafik" class="text-lg text-white hover:text-accent transition font-medium">Grafik</a>
-      <a href="#cennik" class="text-lg text-white hover:text-accent transition font-medium">Cennik</a>
-      <a href="#instruktor" class="text-lg text-white hover:text-accent transition font-medium">O nas</a>
+    <nav class="hidden md:flex items-center gap-8 text-[15px] font-medium">
+      <a href="#zajecia" class="opacity-80 hover:opacity-100 transition-opacity">{{ $t.nav.classes }}</a>
+      <a href="#grafik" class="opacity-80 hover:opacity-100 transition-opacity">{{ $t.nav.schedule }}</a>
+      <a href="#cennik" class="opacity-80 hover:opacity-100 transition-opacity">{{ $t.nav.pricing }}</a>
+      <a href="#instruktor" class="opacity-80 hover:opacity-100 transition-opacity">{{ $t.nav.about }}</a>
       <div class="relative">
-        <button id="desktopMoreToggle" type="button" class="text-lg text-white hover:text-accent transition font-medium inline-flex items-center gap-2" aria-expanded="false" aria-controls="desktopMoreMenu">
-          Więcej
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-          </svg>
+        <button id="desktopMoreToggle" type="button" class="opacity-80 hover:opacity-100 transition-opacity inline-flex items-center gap-1.5" aria-expanded="false" aria-controls="desktopMoreMenu">
+          {{ $t.nav.more }} {{ $chevron }}
         </button>
-        <div id="desktopMoreMenu" class="hidden absolute right-0 mt-3 w-60 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50">
-          <a href="#skarpetki" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Skarpetki do Pilatesu</a>
-          <a href="#lista-oczekujacych" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Trening personalny</a>
-          <a href="#kontakt" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Kontakt</a>
-          <a href="/regulamin/" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Regulamin</a>
-          <a href="/polityka-prywatnosci/" class="block px-4 py-2 text-primary hover:bg-softGray transition-colors">Prywatność</a>
+        <div id="desktopMoreMenu" class="hidden absolute right-0 mt-4 w-60 bg-cream text-ink rounded-2xl shadow-xl ring-1 ring-ink/5 py-2">
+          <a href="#skarpetki" class="block px-5 py-2.5 hover:bg-sand transition-colors">{{ $t.nav.socks }}</a>
+          <a href="#lista-oczekujacych" class="block px-5 py-2.5 hover:bg-sand transition-colors">{{ $t.nav.personal }}</a>
+          <a href="#kontakt" class="block px-5 py-2.5 hover:bg-sand transition-colors">{{ $t.nav.contact }}</a>
+          <a href="/regulamin/" class="block px-5 py-2.5 hover:bg-sand transition-colors">{{ $t.nav.terms }}</a>
+          <a href="/polityka-prywatnosci/" class="block px-5 py-2.5 hover:bg-sand transition-colors">{{ $t.nav.privacy }}</a>
         </div>
       </div>
+      {{ partial "lang-switch.html" (dict "page" . "label" $t.nav.lang_aria "class" "") }}
+      <a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="px-5 py-2.5 rounded-full bg-blush text-ink font-semibold hover:bg-white transition-colors">
+        {{ $t.nav.book }}
+      </a>
     </nav>
-    <!-- Mobile hamburger button -->
-    <button id="menuToggle" class="md:hidden text-white focus:outline-none" aria-label="Menu">
-      <svg id="menuOpen" class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-      <svg id="menuClose" class="w-8 h-8 hidden" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
-      </svg>
-    </button>
-  </div>
-  <!-- Mobile nav dropdown -->
-  <nav id="mobileMenu" class="hidden md:hidden bg-primary border-t border-white/10 px-4 sm:px-6 pb-6 pt-4 space-y-4">
-    <a href="#zajecia" class="block text-lg text-white hover:text-accent transition font-medium">Zajęcia</a>
-    <a href="#grafik" class="block text-lg text-white hover:text-accent transition font-medium">Grafik</a>
-    <a href="#cennik" class="block text-lg text-white hover:text-accent transition font-medium">Cennik</a>
-    <a href="#instruktor" class="block text-lg text-white hover:text-accent transition font-medium">O nas</a>
-    <div>
-      <button id="mobileMoreToggle" type="button" class="w-full text-left text-lg text-white hover:text-accent transition font-medium inline-flex items-center justify-between" aria-expanded="false" aria-controls="mobileMoreMenu">
-        Więcej
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
-        </svg>
+
+    <div class="md:hidden flex items-center gap-3">
+      {{ partial "lang-switch.html" (dict "page" . "label" $t.nav.lang_aria "class" "") }}
+      <!-- Mobile hamburger button -->
+      <button id="menuToggle" class="p-2 -mr-2" aria-label="Menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg id="menuOpen" class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <svg id="menuClose" class="w-7 h-7 hidden" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
       </button>
-      <div id="mobileMoreMenu" class="hidden mt-3 pl-2 space-y-3 border-l border-white/20">
-        <a href="#skarpetki" class="block text-base text-white hover:text-accent transition font-medium">Skarpetki do Pilatesu</a>
-        <a href="#lista-oczekujacych" class="block text-base text-white hover:text-accent transition font-medium">Trening personalny</a>
-        <a href="#kontakt" class="block text-base text-white hover:text-accent transition font-medium">Kontakt</a>
-        <a href="/regulamin/" class="block text-base text-white hover:text-accent transition font-medium">Regulamin</a>
-        <a href="/polityka-prywatnosci/" class="block text-base text-white hover:text-accent transition font-medium">Prywatność</a>
+    </div>
+  </div>
+
+  <!-- Mobile nav -->
+  <nav id="mobileMenu" class="hidden md:hidden bg-cream text-ink px-6 pb-8 pt-4 border-t border-ink/10 shadow-xl">
+    <div class="space-y-1 font-display text-3xl">
+      <a href="#zajecia" class="block py-2">{{ $t.nav.classes }}</a>
+      <a href="#grafik" class="block py-2">{{ $t.nav.schedule }}</a>
+      <a href="#cennik" class="block py-2">{{ $t.nav.pricing }}</a>
+      <a href="#instruktor" class="block py-2">{{ $t.nav.about }}</a>
+    </div>
+    <div class="mt-4">
+      <button id="mobileMoreToggle" type="button" class="w-full text-left text-base font-medium inline-flex items-center justify-between py-2 text-ink/70" aria-expanded="false" aria-controls="mobileMoreMenu">
+        {{ $t.nav.more }} {{ $chevron }}
+      </button>
+      <div id="mobileMoreMenu" class="hidden mt-2 pl-4 space-y-3 border-l border-ink/15">
+        <a href="#skarpetki" class="block">{{ $t.nav.socks }}</a>
+        <a href="#lista-oczekujacych" class="block">{{ $t.nav.personal }}</a>
+        <a href="#kontakt" class="block">{{ $t.nav.contact }}</a>
+        <a href="/regulamin/" class="block">{{ $t.nav.terms }}</a>
+        <a href="/polityka-prywatnosci/" class="block">{{ $t.nav.privacy }}</a>
       </div>
     </div>
   </nav>
 </header>
 
+<main>
 <!-- HERO -->
-<section class="relative bg-lightPink">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-20 md:py-32 grid md:grid-cols-2 gap-8 md:gap-16 items-center">
-    <div>
-      <h1 class="text-3xl sm:text-5xl md:text-7xl font-bold text-primary leading-tight tracking-tight">
-        Studio Fitness&Pilates<br>dla Siły<br>i Równowagi
-      </h1>
-      <p class="mt-5 md:mt-8 text-base sm:text-lg md:text-2xl text-gray-700 leading-relaxed">
-        Kameralne studio w Bibicach z&nbsp;reformerami i&nbsp;salą ćwiczeń. Małe grupy, indywidualne podejście i&nbsp;atmosfera, do&nbsp;której chce się wracać.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 mt-8">
-        <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-10 py-3 sm:py-4 bg-primary text-white text-base sm:text-lg font-semibold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl text-center">
-          Zarezerwuj przez Fitssey
-        </a>
-        <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-10 py-3 sm:py-4 bg-accent text-white text-base sm:text-lg font-semibold rounded-full hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl text-center">
-          Kup karnet
-        </a>
-      </div>
+<section class="relative min-h-[100svh] flex items-end overflow-hidden bg-ink">
+  <picture>
+    <source media="(min-width: 768px)" srcset="{{ "images/sesja/hero-1600.webp" | relURL }}">
+    <img src="{{ "images/sesja/hero-m-1600.webp" | relURL }}" alt="{{ $t.hero.alt }}" class="absolute inset-0 w-full h-full object-cover object-[center_75%] md:object-center" fetchpriority="high">
+  </picture>
+  <div class="absolute inset-0 bg-gradient-to-t from-ink/90 via-ink/55 to-ink/30 md:bg-gradient-to-r md:from-ink/80 md:via-ink/40 md:to-transparent"></div>
+
+  <div class="relative w-full max-w-7xl mx-auto px-4 sm:px-6 pb-16 md:pb-24 pt-32 text-white">
+    <p class="uppercase tracking-[0.3em] text-xs sm:text-sm text-white/80">{{ $t.hero.eyebrow }}</p>
+    <h1 class="mt-5 font-display font-light text-5xl sm:text-6xl md:text-8xl leading-[0.95] tracking-tight max-w-4xl">
+      {{ $t.hero.title | safeHTML }}
+    </h1>
+    <p class="mt-6 md:mt-8 text-base sm:text-lg md:text-xl text-white/85 leading-relaxed max-w-xl">
+      {{ $t.hero.lead | safeHTML }}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-3 mt-8 md:mt-10">
+      <a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-blush text-ink font-semibold rounded-full hover:bg-white transition-colors text-center">
+        {{ $t.hero.book }}
+      </a>
+      <a href="{{ $fitsseyPricing }}" target="_blank" rel="noopener noreferrer" class="px-8 py-4 border border-white/50 text-white font-semibold rounded-full hover:bg-white hover:text-ink transition-colors text-center backdrop-blur-sm">
+        {{ $t.hero.buy }}
+      </a>
     </div>
-    <div>
-      <img src="{{ "images/DSC_3409.jpg" | relURL }}" class="rounded-2xl shadow-lg w-full max-w-[520px] mx-auto" alt="Studio Pilates">
-    </div>
+    <ul class="mt-10 md:mt-14 flex flex-wrap gap-x-6 gap-y-2 text-sm text-white/75">
+      {{ range $t.hero.badges }}
+      <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-blush"></span>{{ . }}</li>
+      {{ end }}
+    </ul>
   </div>
 </section>
 
-<!-- SOCKS QUICK CTA -->
-<section class="bg-white py-4 sm:py-5 border-y border-gray-100">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="flex items-center gap-3 sm:gap-4 bg-softGray rounded-2xl p-4 sm:p-5">
-      <img src="{{ "images/socks.png" | relURL }}" alt="Skarpetki Elliosa" class="w-14 h-14 rounded-xl object-cover shadow-sm">
-      <p class="text-primary text-sm sm:text-base md:text-lg font-semibold">
-        W naszym studio kupisz fantastyczne skarpetki Elliosa do Pilatesu za <span class="text-accent font-bold">49 zł</span>.
-      </p>
-    </div>
+<!-- MARQUEE -->
+<div class="bg-wine text-cream py-4 overflow-hidden" aria-hidden="true">
+  <div class="marquee-track flex w-max gap-10 whitespace-nowrap font-display italic text-xl md:text-2xl">
+    {{ range seq 2 }}{{ range $t.marquee }}
+    <span>{{ . }}</span><span class="text-blush">✦</span>
+    {{ end }}{{ end }}
   </div>
-</section>
-
+</div>
 
 <!-- ABOUT -->
-<section class="py-14 sm:py-20 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary">Studio Stworzone<br>dla Ciebie</h2>
-      <p class="mt-5 sm:mt-8 text-base sm:text-xl md:text-2xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-        Nasze studio Fitness&Pilates oferuje indywidualną uwagę, nowoczesne reformery Balanced Body i spokojną atmosferę.
-      </p>
+<section class="py-20 md:py-32">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid md:grid-cols-12 gap-12 md:gap-16 items-center">
+    <div class="md:col-span-5 reveal">
+      <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ $t.about.eyebrow }}</p>
+      <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl leading-[1.05]">{{ $t.about.title | safeHTML }}</h2>
+      <p class="mt-6 text-lg text-ink/70 leading-relaxed">{{ $t.about.text | safeHTML }}</p>
+      <dl class="mt-10 grid grid-cols-3 gap-4 border-t border-ink/10 pt-8">
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-ink/50">{{ $t.about.stat_classes }}</dt>
+          <dd class="mt-1 font-display text-4xl">18</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-ink/50">{{ $t.about.stat_team }}</dt>
+          <dd class="mt-1 font-display text-4xl">5</dd>
+        </div>
+        <div>
+          <dt class="text-xs uppercase tracking-wider text-ink/50">{{ $t.about.stat_reformers }}</dt>
+          <dd class="mt-1 font-display text-2xl leading-[2.5rem]">Balanced Body</dd>
+        </div>
+      </dl>
     </div>
-    
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-      <img src="{{ "images/DSC_3390.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/DSC_3393.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/DSC_3405.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
-      <img src="{{ "images/studio1.jpg" | relURL }}" class="rounded-xl shadow-lg w-full aspect-square object-cover hover:shadow-xl transition-shadow" alt="Studio Pure Shape">
+    <div class="md:col-span-7 grid grid-cols-2 gap-4 reveal">
+      {{ partial "photo.html" (dict "name" "team" "alt" $t.about.alt_team "class" "rounded-3xl w-full aspect-[3/4] object-cover row-span-2 h-full" "sizes" "(min-width: 768px) 30vw, 50vw") }}
+      {{ partial "photo.html" (dict "name" "okno" "alt" $t.about.alt_window "class" "rounded-3xl w-full aspect-square object-cover" "sizes" "(min-width: 768px) 30vw, 50vw") }}
+      {{ partial "photo.html" (dict "name" "reformer-2" "alt" $t.about.alt_reformer "class" "rounded-3xl w-full aspect-square object-cover" "sizes" "(min-width: 768px) 30vw, 50vw") }}
     </div>
   </div>
 </section>
 
 <!-- CLASS TYPES -->
-<section id="zajecia" class="py-14 sm:py-20 bg-softGray">
+<section id="zajecia" class="py-20 md:py-28 bg-sand/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Rodzaje Zajęć</h2>
-    <p class="text-center text-gray-600 text-lg max-w-2xl mx-auto">Wybierz zajęcia odpowiednie dla Twojego poziomu i celów</p>
-
-    <!-- REFORMER -->
-    <h3 class="text-xl font-bold text-accent uppercase tracking-wide mt-16 mb-6 text-center">Reformer Balanced Body</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Flow</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Płynna sesja na reformerze rozwijająca kontrolę ruchu, mobilność i koordynację. 50 min.</p>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ $t.classes.eyebrow }}</p>
+        <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl leading-[1.05]">{{ $t.classes.title | safeHTML }}</h2>
       </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Basic</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Podstawy pracy na reformerze — technika, oddech i bezpieczne wzorce ruchu. Idealne na start. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Strong Core</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Intensywna praca core na reformerze — wzmocnienie głębokich mięśni stabilizujących. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Booty &amp; Legs</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Trening na reformerze skupiony na pośladkach i nogach. Modeluje i wzmacnia dolną partię ciała. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Mięśnie Dna Miednicy</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Specjalistyczny trening na reformerze wzmacniający mięśnie dna miednicy. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Reformer Equipment</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Zajęcia na reformerze z dodatkowym sprzętem — nowe wyzwania i pełniejszy trening. 50 min.</p>
-      </div>
+      <p class="text-ink/70 text-lg max-w-md">{{ $t.classes.lead | safeHTML }}</p>
     </div>
 
-    <!-- MATA -->
-    <h3 class="text-xl font-bold text-accent uppercase tracking-wide mt-16 mb-6 text-center">Zajęcia na macie</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Pilates Flow</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Płynny trening Pilates na macie — wzmocnienie core, poprawa postawy i kontroli ciała. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Power Pilates</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Intensywniejsza wersja Pilates na macie — więcej siły, więcej wyzwań. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Pilates Equipment</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Pilates na macie z dodatkowymi akcesoriami — piłki, gumy, obciążniki. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Barre Flow</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Nowoczesny trening łączący fitness, balet i pilates. Ćwiczenia przy drążku. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Power Booty &amp; Legs</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Intensywny trening na pośladki i nogi — rzeźbi i wzmacnia dolne partie ciała. 50 min.</p>
-      </div>
-      <div class="bg-white p-6 md:p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Strong Core</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Trening głębokich mięśni brzucha i stabilizatorów — mocny środek ciała. 50 min.</p>
-      </div>
+    <div class="mt-10 flex gap-2 overflow-x-auto no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0" role="tablist" aria-label="{{ $t.classes.tabs_aria }}">
+      {{ range $i, $c := $t.classes.categories }}
+      <button type="button" role="tab" class="tab-btn shrink-0 px-5 py-2.5 rounded-full border border-ink/15 font-medium transition-colors" aria-selected="{{ if $i }}false{{ else }}true{{ end }}" aria-controls="tab-{{ $c.id }}" id="tabbtn-{{ $c.id }}">{{ $c.tab }}</button>
+      {{ end }}
     </div>
 
-    <!-- JOGA & STRETCH -->
-    <h3 class="text-xl font-bold text-accent uppercase tracking-wide mt-16 mb-6 text-center">Joga &amp; Stretch</h3>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Good Morning Joga</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Poranna praktyka jogi — delikatne rozbudzenie ciała i energii na cały dzień. 60 min.</p>
+    {{ range $i, $c := $t.classes.categories }}
+    <div id="tab-{{ $c.id }}" role="tabpanel" aria-labelledby="tabbtn-{{ $c.id }}" class="tab-panel mt-8 grid lg:grid-cols-12 gap-8 {{ if $i }}hidden{{ end }}">
+      <div class="lg:col-span-5">
+        {{ partial "photo.html" (dict "name" $c.photo "alt" $c.alt "class" "rounded-3xl w-full aspect-[4/5] object-cover lg:sticky lg:top-28" "sizes" "(min-width: 1024px) 40vw, 100vw") }}
       </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Vinyasa Joga Flow</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Dynamiczna praktyka łącząca oddech z płynnym ruchem — siła, równowaga, relaks. 60 min.</p>
-      </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Yin Joga Good Night</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Wieczorna sesja wyciszająca i regenerująca — głębokie rozciąganie i relaksacja. 60 min.</p>
-      </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Joga dla Kręgosłupa</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Łagodna praktyka wspierająca zdrowie kręgosłupa i prawidłową postawę. 60 min.</p>
-      </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Zdrowy Kręgosłup</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Ćwiczenia wzmacniające i mobilizujące kręgosłup — profilaktyka bólu pleców. 50 min.</p>
-      </div>
-      <div class="bg-white p-10 rounded-2xl shadow-lg border-t-4 border-accent">
-        <h3 class="text-2xl font-bold text-primary mb-4">Stretch &amp; Mobility</h3>
-        <p class="text-gray-600 text-lg leading-relaxed">Rozciąganie i praca nad zakresem ruchu — redukuje napięcia i poprawia elastyczność. 50 min.</p>
-      </div>
+      <ul class="lg:col-span-7 divide-y divide-ink/10 border-y border-ink/10">
+        {{ range $c.items }}
+        <li class="py-6 grid sm:grid-cols-[1fr_auto] gap-x-8 gap-y-2">
+          <h3 class="font-display text-2xl md:text-3xl">{{ index . 0 }}</h3>
+          <span class="sm:row-span-2 text-sm text-taupe font-medium whitespace-nowrap sm:pt-2">{{ index . 2 }}</span>
+          <p class="text-ink/65 leading-relaxed">{{ index . 1 }}</p>
+        </li>
+        {{ end }}
+      </ul>
     </div>
+    {{ end }}
   </div>
 </section>
 
 <!-- GRAFIK FITSSEY -->
-<section id="grafik" class="py-14 sm:py-20 bg-softGray">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-4">Grafik zajęć</h2>
-    <p class="text-center text-gray-600 text-base sm:text-lg md:text-xl leading-relaxed mb-8 sm:mb-10">
-      Aktualny grafik pobierany bezpośrednio z Fitssey.
-    </p>
+<section id="grafik" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center reveal">
+      <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ $t.schedule.eyebrow }}</p>
+      <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl">{{ $t.schedule.title }}</h2>
+      <p class="mt-4 text-ink/65 text-lg">{{ $t.schedule.lead | safeHTML }}</p>
+    </div>
 
-    <div class="bg-white rounded-2xl shadow-lg p-3 sm:p-4 md:p-6">
+    <div class="mt-10 bg-white rounded-3xl shadow-[0_30px_80px_-30px_rgba(29,25,22,0.25)] ring-1 ring-ink/5 p-3 sm:p-4 md:p-6">
       <lb-schedule-widget class="block w-full min-h-[520px] md:min-h-[680px]"></lb-schedule-widget>
     </div>
 
     <div class="mt-8 text-center">
-      <a href="https://app.fitssey.com/total-training/frontoffice" target="_blank" rel="noopener noreferrer" class="inline-block px-8 py-3 bg-primary text-white text-base md:text-lg font-bold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-        Otwórz grafik w Fitssey
+      <a href="https://app.fitssey.com/total-training/frontoffice" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 bg-ink text-cream font-semibold rounded-full hover:bg-wine transition-colors">
+        {{ $t.schedule.open }} {{ $arrow }}
       </a>
     </div>
   </div>
 </section>
 
 <!-- MULTISPORT -->
-<section id="multisport" class="py-14 sm:py-20 bg-white">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6">
-    <div class="bg-softGray rounded-2xl shadow-lg border-l-4 border-accent p-6 sm:p-8 md:p-10">
-      <p class="inline-flex items-center px-3 py-1 rounded-full bg-accent/15 text-accent text-xs sm:text-sm font-bold uppercase tracking-wide">
-        Ważna informacja
-      </p>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mt-4">Od 16 czerwca 2026 honorujemy karty Multisport</h2>
-      <p class="text-gray-700 text-base sm:text-lg mt-4 leading-relaxed">
-        Rezerwacje dla użytkowników Multisport otwierają się na <strong>48 godzin przed zajęciami</strong>.
-      </p>
-      <p class="text-gray-700 text-base sm:text-lg mt-3 leading-relaxed">
-        Przy odwołaniu lub nieobecności później niż 12h przed zajęciami pobieramy kaucję z portfela tak, aby łączna płatność wyniosła tyle, ile kosztuje u nas pojedynczy trening. Zasada dotyczy zarówno zajęć na reformerze, jak i na macie.
-      </p>
-
-      <div class="grid md:grid-cols-2 gap-5 mt-6">
-        <div class="bg-white rounded-xl p-5 border border-gray-100">
-          <h3 class="text-xl font-bold text-primary mb-3">Zajęcia na reformerze</h3>
-          <ul class="text-gray-700 space-y-2 leading-relaxed">
-            <li>Dopłata: <strong>75 zł</strong>.</li>
-            <li>W portfelu Fitssey musi być minimum: <strong>20 zł</strong>.</li>
-          </ul>
+<section id="multisport" class="pb-20 md:pb-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="rounded-3xl bg-ink text-cream p-8 sm:p-10 md:p-14 grid md:grid-cols-12 gap-10 reveal">
+      <div class="md:col-span-6">
+        <span class="inline-flex items-center px-3 py-1 rounded-full bg-blush text-ink text-xs font-semibold uppercase tracking-wider">{{ $t.multisport.badge }}</span>
+        <h2 class="mt-5 font-display font-light text-3xl sm:text-4xl md:text-5xl leading-tight">{{ $t.multisport.title | safeHTML }}</h2>
+        <p class="mt-5 text-cream/75 leading-relaxed">{{ $t.multisport.p1 | safeHTML }}</p>
+        <p class="mt-3 text-cream/75 leading-relaxed">{{ $t.multisport.p2 }}</p>
+      </div>
+      <div class="md:col-span-6 grid sm:grid-cols-2 md:grid-cols-1 gap-4 content-center">
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+          <h3 class="font-display text-2xl">{{ $t.multisport.reformer }}</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div class="flex justify-between gap-4"><dt class="text-cream/60">{{ $t.multisport.surcharge }}</dt><dd class="font-semibold">75 zł</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-cream/60">{{ $t.multisport.wallet_min }}</dt><dd class="font-semibold">20 zł</dd></div>
+          </dl>
         </div>
-
-        <div class="bg-white rounded-xl p-5 border border-gray-100">
-          <h3 class="text-xl font-bold text-primary mb-3">Zajęcia na macie</h3>
-          <ul class="text-gray-700 space-y-2 leading-relaxed">
-            <li>Dopłata: <strong>10 zł</strong>.</li>
-            <li>Wymagana kaucja w portfelu Fitssey: <strong>45 zł</strong>.</li>
-          </ul>
+        <div class="rounded-2xl bg-white/5 ring-1 ring-white/10 p-6">
+          <h3 class="font-display text-2xl">{{ $t.multisport.mat }}</h3>
+          <dl class="mt-4 space-y-3 text-sm">
+            <div class="flex justify-between gap-4"><dt class="text-cream/60">{{ $t.multisport.surcharge }}</dt><dd class="font-semibold">10 zł</dd></div>
+            <div class="flex justify-between gap-4"><dt class="text-cream/60">{{ $t.multisport.deposit }}</dt><dd class="font-semibold">45 zł</dd></div>
+          </dl>
         </div>
       </div>
     </div>
@@ -278,359 +234,293 @@
 </section>
 
 <!-- CENNIK -->
-<section id="cennik" class="py-14 sm:py-20 bg-white">
+<section id="cennik" class="py-20 md:py-28 bg-sand/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Cennik</h2>
-    <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
-      Najczęściej wybierane opcje. Pełną ofertę sprawdzisz w Fitssey.
-    </p>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-accent text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Welcome Pass (mata)</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">39 PLN</p>
-        <p class="text-gray-600">Próbne wejście na dowolne zajęcia grupowe na macie (Pilates, Barre, Joga i in.). Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ $t.pricing.eyebrow }}</p>
+        <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl">{{ $t.pricing.title | safeHTML }}</h2>
       </div>
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-primary text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Welcome Pass (reformer)</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">69 PLN</p>
-        <p class="text-gray-600">Próbne wejście na zajęcia grupowe na reformerze Balanced Body. Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
-      </div>
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-accent text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Karnet Flow x4</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">199 PLN</p>
-        <p class="text-gray-600">4 wejścia na zajęcia grupowe na macie. Ważny 30 dni od pierwszej wizyty. Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
-      </div>
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-primary text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Karnet Premium x4</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">359 PLN</p>
-        <p class="text-gray-600">4 wejścia na wszystkie zajęcia — reformer oraz mata. Ważny 30 dni od pierwszej wizyty. Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
-      </div>
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-accent text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Karnet Flow x8</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">359 PLN</p>
-        <p class="text-gray-600">8 wejść na zajęcia grupowe na macie. Ważny 30 dni od pierwszej wizyty. Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
-      </div>
-      <div class="bg-softGray p-8 rounded-2xl shadow-lg border-t-4 border-primary text-center">
-        <h3 class="text-xl font-bold text-primary mb-2">Karnet Premium x8</h3>
-        <p class="text-4xl font-bold text-accent tabular-nums mb-4">679 PLN</p>
-        <p class="text-gray-600">8 wejść na wszystkie zajęcia — reformer oraz mata. Ważny 30 dni od pierwszej wizyty. Usługodawca: Pure Shape Studio.</p>
-        <p class="text-gray-400 text-xs mt-2">Cena w PLN, sprzedawca nie jest płatnikiem VAT</p>
-      </div>
+      <p class="text-ink/70 text-lg max-w-md">{{ $t.pricing.lead | safeHTML }}</p>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      {{ range $t.pricing.passes }}
+      <article class="relative flex flex-col rounded-3xl p-8 {{ if .featured }}bg-ink text-cream{{ else }}bg-cream ring-1 ring-ink/5{{ end }}">
+        {{ if .featured }}<span class="absolute top-6 right-6 px-3 py-1 rounded-full bg-blush text-ink text-xs font-semibold">{{ $t.pricing.featured }}</span>{{ end }}
+        <p class="text-xs uppercase tracking-[0.2em] {{ if .featured }}text-cream/60{{ else }}text-taupe{{ end }}">{{ .tag }}</p>
+        <h3 class="mt-3 font-display text-2xl">{{ .name }}</h3>
+        <p class="mt-6 flex items-baseline gap-2">
+          <span class="font-display text-6xl font-light tabular-nums">{{ .price }}</span>
+          <span class="text-sm {{ if .featured }}text-cream/60{{ else }}text-ink/50{{ end }}">PLN</span>
+        </p>
+        <p class="mt-6 leading-relaxed {{ if .featured }}text-cream/75{{ else }}text-ink/65{{ end }}">{{ .desc }} {{ $t.pricing.provider }}</p>
+        <p class="mt-auto pt-6 text-xs {{ if .featured }}text-cream/40{{ else }}text-ink/40{{ end }}">{{ $t.pricing.vat }}</p>
+      </article>
+      {{ end }}
     </div>
 
     <div class="mt-10 text-center">
-      <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="inline-block px-10 py-4 bg-primary text-white text-lg font-bold rounded-full hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-        Zobacz pełny cennik w Fitssey
+      <a href="{{ $fitsseyPricing }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-8 py-3.5 bg-ink text-cream font-semibold rounded-full hover:bg-wine transition-colors">
+        {{ $t.pricing.full }} {{ $arrow }}
       </a>
     </div>
 
     <!-- Trening personalny -->
-    <h3 class="text-2xl font-bold text-primary text-center mt-20 mb-8">Trening personalny</h3>
-    <div class="max-w-md mx-auto">
-      <div class="bg-softGray p-10 rounded-2xl shadow-lg hover:shadow-2xl transition-all hover:-translate-y-1 border-t-4 border-accent text-center">
-        <h3 class="text-2xl font-bold text-primary mb-2">Trening indywidualny</h3>
-        <p class="text-3xl font-bold text-accent my-6">Zapytaj o cenę</p>
-        <p class="text-gray-600 text-lg leading-relaxed mb-6">Indywidualny trening dopasowany do Twoich celów i potrzeb.</p>
-        <ul class="text-gray-600 text-left space-y-2 mb-8">
-          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Plan treningowy</li>
-          <li class="flex items-center"><svg class="w-5 h-5 text-accent mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>Indywidualne podejście</li>
+    {{ with $t.pricing.personal }}
+    <div class="mt-16 rounded-3xl bg-cream ring-1 ring-ink/5 overflow-hidden grid md:grid-cols-2">
+      {{ partial "photo.html" (dict "name" "reformer-4" "alt" .alt "class" "w-full h-64 md:h-full object-cover" "sizes" "(min-width: 768px) 50vw, 100vw") }}
+      <div class="p-8 md:p-12">
+        <p class="text-xs uppercase tracking-[0.2em] text-taupe">{{ .eyebrow }}</p>
+        <h3 class="mt-3 font-display text-3xl md:text-4xl">{{ .title }}</h3>
+        <p class="mt-4 text-ink/65 text-lg leading-relaxed">{{ .lead | safeHTML }}</p>
+        <ul class="mt-6 space-y-2 text-ink/75">
+          {{ range .points }}<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-wine"></span>{{ . }}</li>{{ end }}
         </ul>
-        <a href="#lista-oczekujacych" class="inline-block w-full px-8 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Zapytaj o ofertę</a>
+        <p class="mt-6 font-display text-2xl italic text-wine">{{ .price }}</p>
+        <a href="#lista-oczekujacych" class="mt-6 inline-block px-8 py-3.5 bg-blush text-ink font-semibold rounded-full hover:bg-ink hover:text-cream transition-colors">{{ .cta }}</a>
       </div>
     </div>
+    {{ end }}
 
-    <p class="text-center text-gray-500 text-sm mt-8">Podmiotem świadczącym obsługę płatności online w zakresie płatności kartami jest <strong>Autopay S.A.</strong> Obsługa płatności: Paynow (mBank S.A.). Waluta: PLN.</p>
-    <p class="text-center text-gray-500 text-sm mt-2">Karnet aktywowany jest automatycznie po zaksięgowaniu płatności. Rezerwacja zajęć odbywa się przez system <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="text-accent hover:underline">Fitssey</a>.</p>
+    <p class="text-center text-ink/50 text-sm mt-12">{{ $t.pricing.legal1 | safeHTML }}</p>
+    <p class="text-center text-ink/50 text-sm mt-2">{{ $t.pricing.legal2 }} <a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="text-wine hover:underline">Fitssey</a>.</p>
     <!-- Baner organizacji płatniczych (Visa / Mastercard) — zapisz plik otrzymany od Autopay jako /static/images/autopay-payment-methods.png -->
     <div class="mt-6 flex justify-center">
-      <img src="{{ "images/autopay-payment-methods.png" | relURL }}" alt="Akceptowane metody płatności: Visa, Visa Electron, Mastercard, MasterCard Electronic, Maestro" class="h-10" loading="lazy">
+      <img src="{{ "images/autopay-payment-methods.png" | relURL }}" alt="{{ $t.pricing.payment_alt }}" class="h-10" loading="lazy">
     </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="py-20 md:py-28 overflow-hidden" aria-label="{{ $t.gallery.aria }}">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 flex items-end justify-between gap-6 reveal">
+    <h2 class="font-display font-light text-4xl sm:text-5xl md:text-6xl">{{ $t.gallery.title | safeHTML }}</h2>
+    <div class="hidden sm:flex gap-2">
+      <button type="button" data-gallery-scroll="-1" class="w-12 h-12 rounded-full border border-ink/20 grid place-items-center hover:bg-ink hover:text-cream transition-colors" aria-label="{{ $t.gallery.prev }}">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button type="button" data-gallery-scroll="1" class="w-12 h-12 rounded-full border border-ink/20 grid place-items-center hover:bg-ink hover:text-cream transition-colors" aria-label="{{ $t.gallery.next }}">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="gallery" class="mt-10 flex gap-4 overflow-x-auto snap-x snap-mandatory no-scrollbar px-4 sm:px-6 lg:px-[max(1.5rem,calc((100vw-80rem)/2+1.5rem))]">
+    {{ range $t.gallery.items }}
+    <figure class="shrink-0 snap-start {{ if eq (index . 2) "landscape" }}w-[85vw] sm:w-[560px]{{ else }}w-[62vw] sm:w-[300px]{{ end }}">
+      {{ partial "photo.html" (dict "name" (index . 0) "alt" (index . 1) "class" "w-full h-[420px] sm:h-[440px] object-cover rounded-3xl" "sizes" "(min-width: 640px) 560px, 85vw") }}
+    </figure>
+    {{ end }}
   </div>
 </section>
 
 <!-- INSTRUCTORS -->
-<section id="instruktor" class="py-14 sm:py-20 bg-softGray">
+<section id="instruktor" class="py-20 md:py-28 bg-sand/60">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">O nas</h2>
-    <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-16">
-      Jesteśmy pasjonatkami ruchu i zdrowego stylu życia. Razem tworzymy przestrzeń, w której każdy znajdzie swoje miejsce.
-    </p>
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 reveal">
+      <div>
+        <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ $t.team.eyebrow }}</p>
+        <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl">{{ $t.team.title | safeHTML }}</h2>
+      </div>
+      <p class="text-ink/70 text-lg max-w-md">{{ $t.team.lead | safeHTML }}</p>
+    </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
-      <!-- Instructor 1 -->
-      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <img src="{{ "images/gosia.jpeg" | relURL }}" class="w-full h-64 object-cover object-top" alt="Małgorzata Pilińska-Babula">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-primary mb-3">Małgorzata Pilińska-Babula</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Certyfikowana instruktorka fitness i Pilates, pracująca z kobietami na różnych etapach życia. Specjalizuje się w treningu funkcjonalnym, ciąży i powrocie do formy po porodzie.
-          </p>
-          <p id="bio-gosia" class="hidden text-gray-600 leading-relaxed mt-4">
-            Certyfikowana instruktorka Balanced Body i promotorka świadomego ruchu. Na zajęciach łączy technikę, oddech i indywidualne podejście do potrzeb każdej kobiety.
-          </p>
-          <div class="mt-4 flex items-center gap-4">
-            <button type="button" data-bio-toggle="bio-gosia" class="inline-flex items-center text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">
-              Czytaj więcej
-            </button>
-            <a href="https://www.instagram.com/gosia.pilinska/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-accent hover:text-primary transition-colors">
-              Instagram
-            </a>
-          </div>
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
+      {{ range $t.team.members }}
+      <article class="group">
+        <div class="overflow-hidden rounded-3xl">
+          {{ partial "photo.html" (dict "name" (printf "zespol-%s" .id) "alt" .name "class" "w-full aspect-[4/5] object-cover group-hover:scale-[1.03] transition-transform duration-700" "sizes" "(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw") }}
         </div>
+        <h3 class="mt-5 font-display text-2xl">{{ .name }}</h3>
+        <p class="mt-1 text-sm text-taupe font-medium">{{ .role }}</p>
+        <p class="mt-3 text-ink/65 leading-relaxed">{{ .bio }}</p>
+        {{ if .more }}
+        <p id="bio-{{ .id }}" class="hidden text-ink/65 leading-relaxed mt-3">{{ .more }}</p>
+        {{ end }}
+        {{ if or .more .instagram }}
+        <div class="mt-4 flex items-center gap-5 text-sm font-semibold">
+          {{ if .more }}<button type="button" data-bio-toggle="bio-{{ .id }}" data-label-more="{{ $t.team.read_more }}" data-label-less="{{ $t.team.collapse }}" class="text-wine hover:text-ink transition-colors" aria-expanded="false">{{ $t.team.read_more }}</button>{{ end }}
+          {{ with .instagram }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer" class="text-wine hover:text-ink transition-colors">Instagram ↗</a>{{ end }}
+        </div>
+        {{ end }}
+      </article>
+      {{ end }}
+    </div>
+
+    <!-- Socks -->
+    {{ with $t.socks }}
+    <div id="skarpetki" class="mt-16 rounded-3xl bg-wine text-cream overflow-hidden grid md:grid-cols-12 md:h-80">
+      {{ partial "photo.html" (dict "name" "skarpetki" "alt" .alt "class" "md:col-span-5 w-full h-64 md:h-80 object-cover object-[center_60%]" "sizes" "(min-width: 768px) 40vw, 100vw") }}
+      <div class="md:col-span-7 p-8 md:p-12 flex flex-col md:flex-row md:items-end md:justify-between gap-8">
+        <div>
+          <p class="text-xs uppercase tracking-[0.2em] text-cream/60">{{ .eyebrow }}</p>
+          <h3 class="mt-3 font-display text-3xl md:text-4xl">{{ .title }}</h3>
+          <p class="mt-4 text-cream/75 leading-relaxed max-w-md">{{ .text | safeHTML }}</p>
+        </div>
+        <p class="font-display text-6xl font-light whitespace-nowrap">{{ .price }} <span class="text-xl">{{ .currency }}</span></p>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</section>
+
+<!-- WAITLIST / PERSONAL -->
+{{ with $t.personal }}
+<section id="lista-oczekujacych" class="py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="text-center max-w-3xl mx-auto reveal">
+      <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ .eyebrow }}</p>
+      <h2 class="mt-4 font-display font-light text-4xl sm:text-5xl md:text-6xl">{{ .title | safeHTML }}</h2>
+      <p class="mt-6 text-ink/70 text-lg leading-relaxed">{{ .lead | safeHTML }}</p>
+    </div>
+
+    <div class="mt-14 grid md:grid-cols-2 gap-6">
+      <div class="rounded-3xl bg-sand/60 p-8 md:p-12">
+        <h3 class="font-display text-3xl">{{ .how }}</h3>
+        <ol class="mt-8 space-y-6">
+          {{ range $i, $step := .steps }}
+          <li class="flex gap-5">
+            <span class="font-display text-4xl font-light text-wine leading-none">0{{ add $i 1 }}</span>
+            <span class="text-ink/75 leading-relaxed">{{ $step | safeHTML }}</span>
+          </li>
+          {{ end }}
+        </ol>
       </div>
 
-      <!-- Instructor 2 -->
-      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-          <img src="{{ "images/anna.jpeg" | relURL }}" class="w-full h-64 object-cover object-top" alt="Anna Soczowka">
-        <div class="p-6">
-            <h3 class="text-2xl font-bold text-primary mb-3">Anna Soczowka</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Pomaga budować siłę, sprawność i pewność siebie dzięki dobrze dopasowanym planom treningowym. Stawia na regularność, zdrowie i widoczne efekty.
-          </p>
-          <p id="bio-anna" class="hidden text-gray-600 leading-relaxed mt-4">
-            Pracuje zarówno z osobami początkującymi, jak i zaawansowanymi, dbając o bezpieczną technikę i plan treningowy dopasowany do celu oraz możliwości.
-          </p>
-          <button type="button" data-bio-toggle="bio-anna" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
+      <div class="rounded-3xl bg-ink text-cream p-8 md:p-12">
+        <h3 class="font-display text-3xl">{{ .send }}</h3>
+        <p class="mt-4 text-cream/70">{{ .send_lead | safeHTML }}</p>
+        <div class="mt-8 space-y-3">
+          <a href="tel:+48698190880" class="flex items-center justify-center w-full px-6 py-3.5 bg-cream text-ink font-semibold rounded-full hover:bg-blush transition-colors">{{ .call }}</a>
+          <a href="{{ printf "https://wa.me/48698190880?text=%s" .whatsapp_text | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-6 py-3.5 bg-blush text-ink font-semibold rounded-full hover:bg-cream transition-colors">{{ .whatsapp }}</a>
+          <a href="{{ printf "mailto:gosia.pilinska@gmail.com?subject=%s" .email_subject | safeURL }}" class="flex items-center justify-center w-full px-6 py-3.5 border border-cream/30 font-semibold rounded-full hover:bg-cream hover:text-ink transition-colors">{{ .email }}</a>
         </div>
-      </div>
-
-      <!-- Instructor 3 -->
-      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <img src="{{ "images/DorotaW.jpg" | relURL }}" class="w-full h-64 object-cover object-top" alt="Dorota Wodzień-Kowalczyk">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-primary mb-3">Dorota Wodzień-Kowalczyk</h3>
-          <p class="text-gray-600 leading-relaxed">
-            Certyfikowana nauczycielka jogi (RYT 200) w stylach Ashtanga, Vinyasa i Yin. Tworzy zajęcia, które łączą ruch, oddech i regenerację.
-          </p>
-          <p id="bio-dorota" class="hidden text-gray-600 leading-relaxed mt-4">
-            Jej praktyka opiera się na uważności i pracy z ciałem bez presji. Pomaga odzyskać równowagę, mobilność i spokój w codziennym funkcjonowaniu.
-          </p>
-          <button type="button" data-bio-toggle="bio-dorota" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
-        </div>
-      </div>
-
-      <!-- Instructor 4 -->
-      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <img src="{{ "images/olivia.jpeg" | relURL }}" class="w-full h-64 object-cover object-top" alt="Olivia">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-primary mb-3">Olivia</h3>
-          <p class="text-gray-600 font-semibold mb-3">Fizjoterapeutka i instruktorka pilates</p>
-          <p class="text-gray-600 leading-relaxed">
-            Prowadzi zajęcia Pilates Reformer i na macie dla kobiet na każdym etapie życia. Pomaga wzmacniać ciało, poprawiać postawę i pracować bez bólu.
-          </p>
-          <p class="text-gray-600 leading-relaxed mt-4">
-            Ukończyła fizjoterapię na Collegium Medicum UJ i stale rozwija swoje umiejętności poprzez kursy i szkolenia.
-          </p>
-          <p id="bio-olivia" class="hidden text-gray-600 leading-relaxed mt-4">
-            Specjalizuje się w pracy z kobietami od pierwszej miesiączki, przez ciążę i połóg, aż po menopauzę. W treningu stawia na precyzję, stabilizację i świadomą pracę mięśni głębokich.
-          </p>
-          <button type="button" data-bio-toggle="bio-olivia" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
-        </div>
-      </div>
-
-      <!-- Instructor 5 -->
-      <div class="bg-softGray rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all">
-        <img src="{{ "images/klaudia.jpeg" | relURL }}" class="w-full h-64 object-cover object-bottom" alt="Klaudia Pyszniak">
-        <div class="p-6">
-          <h3 class="text-2xl font-bold text-primary mb-3">Klaudia Pyszniak</h3>
-          <p class="text-gray-600 font-semibold mb-3">Instruktorka pilatesu &bull; certyfikacja Balanced Body</p>
-          <p class="text-gray-600 leading-relaxed">
-            Prowadzi energetyczne, dynamiczne treningi, a także zajęcia z klasycznymi zasadami pilatesu — pełne precyzji i kontroli.
-          </p>
-          <p id="bio-klaudia" class="hidden text-gray-600 leading-relaxed mt-4">
-            W trakcie kompletnej certyfikacji Balanced Body, łączy klasyczne fundamenty metody z nowoczesnym podejściem do treningu. Stale rozwija swoje umiejętności, szukając nowych inspiracji — jej zajęcia wzmacniają ciało, poprawiają sprawność i sprawiają, że czujesz się lepiej.
-          </p>
-          <button type="button" data-bio-toggle="bio-klaudia" class="inline-flex items-center mt-4 text-accent hover:text-primary transition-colors font-semibold" aria-expanded="false">Czytaj więcej</button>
-        </div>
+        <p class="text-sm text-cream/50 mt-6">{{ .hint | safeHTML }}</p>
       </div>
     </div>
   </div>
 </section>
+{{ end }}
 
 <!-- LOCATION -->
-<section class="py-14 sm:py-20 bg-white">
+{{ with $t.location }}
+<section class="pb-20 md:pb-28">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Lokalizacja</h2>
-    <p class="text-center text-gray-600 text-xl max-w-2xl mx-auto mb-12">
-      Znajdziesz nas w spokojnej okolicy Zielonek
-    </p>
-
-    <div class="grid md:grid-cols-2 gap-12 items-start">
-      <div class="bg-white p-10 rounded-2xl shadow-lg">
-        <h3 class="text-3xl font-bold text-primary mb-8">Pure Shape Studio</h3>
-        
-        <div class="space-y-6 text-lg text-gray-700">
-          <div class="flex items-start">
-            <div class="w-8 h-8 flex items-center justify-center bg-accent bg-opacity-20 rounded-full mr-3 flex-shrink-0">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
-              </svg>
+    <div class="grid lg:grid-cols-12 gap-6">
+      <div class="lg:col-span-5 rounded-3xl bg-sand/60 overflow-hidden flex flex-col">
+        {{ partial "photo.html" (dict "name" "wejscie" "alt" .alt "class" "w-full aspect-[3/2] object-cover" "sizes" "(min-width: 1024px) 40vw, 100vw") }}
+        <div class="p-8 md:p-10">
+          <p class="uppercase tracking-[0.3em] text-xs text-taupe">{{ .eyebrow }}</p>
+          <h2 class="mt-3 font-display text-3xl md:text-4xl">{{ .title | safeHTML }}</h2>
+          <dl class="mt-8 grid sm:grid-cols-2 gap-6 text-ink/75">
+            <div>
+              <dt class="text-xs uppercase tracking-wider text-ink/45">{{ .address }}</dt>
+              <dd class="mt-2 leading-relaxed"><span class="font-semibold text-ink">ul. Kościuszki 11A</span><br>Bibice</dd>
             </div>
             <div>
-              <p class="font-semibold">ul. Kościuszki 11A</p>
-              <p>Bibice</p>
-            </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="w-8 h-8 flex items-center justify-center bg-accent bg-opacity-20 rounded-full mr-3 flex-shrink-0">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"></path>
-              </svg>
+              <dt class="text-xs uppercase tracking-wider text-ink/45">{{ .hours }}</dt>
+              <dd class="mt-2 leading-relaxed">{{ delimit .hours_lines "<br>" | safeHTML }}</dd>
             </div>
             <div>
-              <p class="font-semibold">Godziny otwarcia</p>
-              <p>Pon - Pt: 7:00 - 21:00</p>
-              <p>Sobota: 9:00 - 15:00</p>
+              <dt class="text-xs uppercase tracking-wider text-ink/45">{{ .phone }}</dt>
+              <dd class="mt-2"><a href="tel:+48698190880" class="font-semibold text-wine hover:text-ink transition-colors">698 190 880</a></dd>
             </div>
-          </div>
-
-          <div class="flex items-start">
-            <div class="w-8 h-8 flex items-center justify-center bg-accent bg-opacity-20 rounded-full mr-3 flex-shrink-0">
-              <svg class="w-4 h-4 text-accent" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-semibold">Kontakt</p>
-              <a href="tel:+48698190880" class="text-accent hover:text-primary transition-colors">698 190 880</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="mt-8 rounded-xl overflow-hidden">
-          <img src="{{ "images/studio.jpg" | relURL }}" alt="Pure Shape Studio" class="w-full h-56 object-cover rounded-xl">
+          </dl>
         </div>
       </div>
-
-
-      <div class="rounded-2xl shadow-lg overflow-hidden h-[320px] sm:h-[420px] md:h-[450px]">
-        <iframe 
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.3!2d19.934!3d50.121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKo%C5%9Bciuszki%2011A%2C%20Bibice!5e0!3m2!1spl!2spl"
-          width="100%" 
-          height="450" 
-          style="border:0;" 
-          allowfullscreen="" 
-          loading="lazy" 
+      <div class="lg:col-span-7 rounded-3xl overflow-hidden min-h-[360px] lg:min-h-0">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2558.3!2d19.934!3d50.121!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sKo%C5%9Bciuszki%2011A%2C%20Bibice!5e0!3m2!1s{{ site.Language.Lang }}!2spl"
+          title="{{ .map_title }}"
+          style="border:0;"
+          allowfullscreen=""
+          loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
-          class="w-full h-full">
+          class="w-full h-full min-h-[360px]">
         </iframe>
       </div>
     </div>
   </div>
 </section>
-
-
-<!-- WAITLIST -->
-<section id="lista-oczekujacych" class="py-14 sm:py-20 bg-softGray">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-6xl font-bold text-primary text-center mb-6">Treningi Personalne</h2>
-    <p class="text-center text-gray-600 text-xl max-w-3xl mx-auto mb-12">
-      Grafik personalny mamy obecnie mocno obłożony, dlatego działamy szybciej i prościej: wyślij zapytanie, a przygotujemy ofertę i zaproponujemy najbliższe realne terminy.
-    </p>
-
-    <div class="bg-white p-8 md:p-12 rounded-2xl shadow-lg border border-gray-100">
-      <div class="grid md:grid-cols-2 gap-8 items-start">
-        <div>
-          <h3 class="text-2xl font-bold text-primary mb-4">Jak to działa?</h3>
-          <ul class="space-y-3 text-gray-700 leading-relaxed">
-            <li class="flex items-start gap-3">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">1</span>
-              <span>Wysyłasz krótkie zapytanie: czego potrzebujesz i w jakich dniach najchętniej trenujesz.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">2</span>
-              <span>Wracamy z dopasowaną ofertą i najbliższymi możliwymi terminami.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <span class="inline-flex items-center justify-center w-7 h-7 rounded-full bg-accent text-white text-sm font-bold mt-0.5">3</span>
-              <span>Potwierdzasz i rezerwujemy trening bez dodatkowych formularzy.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div class="bg-softGray rounded-xl p-6 md:p-8">
-          <h3 class="text-xl font-bold text-primary mb-4">Wyślij zapytanie</h3>
-          <p class="text-gray-700 mb-6">
-            Napisz do nas wygodnym kanałem. Odpowiadamy z propozycją oferty i terminów.
-          </p>
-          <div class="space-y-3">
-            <a href="tel:+48698190880" class="flex items-center justify-center w-full px-6 py-3 bg-primary text-white font-bold rounded-full hover:bg-gray-800 transition-all">Zadzwoń: 698 190 880</a>
-            <a href="https://wa.me/48698190880?text=Dzie%C5%84%20dobry%2C%20chc%C4%99%20zapytac%20o%20ofert%C4%99%20na%20trening%20personalny." target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-6 py-3 bg-accent text-white font-bold rounded-full hover:bg-opacity-90 transition-all">Napisz na WhatsApp</a>
-            <a href="mailto:gosia.pilinska@gmail.com?subject=Zapytanie%20o%20trening%20personalny" class="flex items-center justify-center w-full px-6 py-3 bg-white text-primary border border-primary font-bold rounded-full hover:bg-gray-50 transition-all">Napisz e-mail</a>
-          </div>
-          <p class="text-sm text-gray-500 mt-4">W wiadomości możesz dodać: cel treningowy, preferowane pory i informację, czy wolisz reformer czy matę.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+{{ end }}
 
 <!-- CTA -->
-<section id="kontakt" class="py-14 sm:py-20 md:py-24 bg-primary text-white text-center">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6">
-    <h2 class="text-3xl sm:text-4xl md:text-7xl font-bold mb-8">Gotowa na Start?</h2>
-    <p class="text-gray-200 text-lg md:text-2xl mb-4">Dołącz do nas na pierwszą sesję i poczuj różnicę.</p>
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="inline-block px-10 md:px-16 py-4 md:py-5 bg-accent text-white text-lg md:text-xl font-bold rounded-full hover:bg-opacity-90 transition-all shadow-2xl hover:shadow-3xl hover:-translate-y-1">
-        Zarezerwuj zajęcia
+<section id="kontakt" class="relative overflow-hidden bg-ink text-cream">
+  {{ partial "photo.html" (dict "name" "reformer-3" "alt" "" "class" "absolute inset-0 w-full h-full object-cover opacity-40" "sizes" "100vw") }}
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 py-28 md:py-40 text-center">
+    <h2 class="font-display font-light text-5xl sm:text-6xl md:text-8xl leading-[0.95]">{{ $t.cta.title | safeHTML }}</h2>
+    <p class="mt-6 text-cream/80 text-lg md:text-xl">{{ $t.cta.lead | safeHTML }}</p>
+    <div class="mt-10 flex flex-col sm:flex-row gap-3 justify-center">
+      <a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-blush text-ink text-lg font-semibold rounded-full hover:bg-cream transition-colors">
+        {{ $t.cta.book }}
       </a>
-      <a href="https://app.fitssey.com/total-training/frontoffice/pricing/classes" target="_blank" rel="noopener noreferrer" class="inline-block px-10 md:px-16 py-4 md:py-5 bg-white text-primary text-lg md:text-xl font-bold rounded-full hover:bg-gray-100 transition-all shadow-2xl hover:shadow-3xl hover:-translate-y-1">
-        Kup karnet
+      <a href="{{ $fitsseyPricing }}" target="_blank" rel="noopener noreferrer" class="px-10 py-4 border border-cream/40 text-lg font-semibold rounded-full hover:bg-cream hover:text-ink transition-colors">
+        {{ $t.cta.buy }}
       </a>
     </div>
   </div>
 </section>
+</main>
 
 <!-- FOOTER -->
-<footer class="py-16 bg-lightPink text-gray-700">
+{{ with $t.footer }}
+<footer class="bg-ink text-cream/70 pt-16 pb-28 md:pb-12 border-t border-cream/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid md:grid-cols-3 gap-10 mb-10">
-      <!-- Company info -->
+    <div class="grid md:grid-cols-4 gap-10">
       <div>
-        <h4 class="text-xl font-bold text-primary mb-4">Pure Shape Studio</h4>
-        <p class="font-semibold">Pure Shape Studio Małgorzata Pilińska-Babula</p>
-        <p class="mt-2">ul. Graniczna 121D</p>
-        <p>32-087 Bibice</p>
-        <p class="mt-2">NIP: 6782974830</p>
-        <p>REGON: 382489195</p>
+        <div class="flex items-center gap-3 text-cream">
+          <span class="logo-mark w-8 h-9" aria-hidden="true"></span>
+          <span class="leading-none">
+            <span class="block font-semibold tracking-[0.25em] text-sm">PURE SHAPE</span>
+            <span class="block text-[10px] tracking-[0.45em] opacity-70 mt-1">STUDIO</span>
+          </span>
+        </div>
+        <a href="https://www.instagram.com/gosia.pilinska/" target="_blank" rel="noopener noreferrer" class="mt-6 inline-block hover:text-blush transition-colors">Instagram ↗</a>
+      </div>
+      <!-- Company info -->
+      <div class="text-sm leading-relaxed">
+        <h4 class="text-cream font-semibold mb-4">{{ .company }}</h4>
+        <p>Pure Shape Studio Małgorzata Pilińska-Babula</p>
+        <p class="mt-2">ul. Graniczna 121D<br>32-087 Bibice</p>
+        <p class="mt-2">NIP: 6782974830<br>REGON: 382489195</p>
       </div>
       <!-- Contact -->
-      <div>
-        <h4 class="text-xl font-bold text-primary mb-4">Kontakt</h4>
-        <p>Miejsce zajęć: ul. Kościuszki 11A, Bibice</p>
-        <p class="mt-2"><a href="tel:+48698190880" class="text-accent hover:text-primary transition-colors">698 190 880</a></p>
-        <p class="mt-1"><a href="mailto:gosia.pilinska@gmail.com" class="text-accent hover:text-primary transition-colors">gosia.pilinska@gmail.com</a></p>
-        <div class="mt-4">
-          <p>Pon - Pt: 7:00 - 21:00</p>
-          <p>Sobota: 9:00 - 15:00</p>
-        </div>
+      <div class="text-sm leading-relaxed">
+        <h4 class="text-cream font-semibold mb-4">{{ .contact }}</h4>
+        <p>{{ .venue }}</p>
+        <p class="mt-2"><a href="tel:+48698190880" class="hover:text-blush transition-colors">698 190 880</a></p>
+        <p><a href="mailto:gosia.pilinska@gmail.com" class="hover:text-blush transition-colors">gosia.pilinska@gmail.com</a></p>
+        <p class="mt-2">{{ delimit $t.location.hours_lines "<br>" | safeHTML }}</p>
       </div>
       <!-- Links -->
-      <div>
-        <h4 class="text-xl font-bold text-primary mb-4">Informacje</h4>
+      <div class="text-sm">
+        <h4 class="text-cream font-semibold mb-4">{{ .info }}</h4>
         <ul class="space-y-2">
-          <li><a href="#cennik" class="text-gray-600 hover:text-accent transition-colors">Cennik</a></li>
-          <li><a href="/regulamin/" class="text-gray-600 hover:text-accent transition-colors">Regulamin</a></li>
-          <li><a href="/polityka-prywatnosci/" class="text-gray-600 hover:text-accent transition-colors">Polityka prywatności</a></li>
-          <li><a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="text-gray-600 hover:text-accent transition-colors">Rezerwacja przez Fitssey</a></li>
+          <li><a href="#cennik" class="hover:text-blush transition-colors">{{ .pricing }}</a></li>
+          <li><a href="/regulamin/" class="hover:text-blush transition-colors">{{ .terms }}</a></li>
+          <li><a href="/polityka-prywatnosci/" class="hover:text-blush transition-colors">{{ .privacy }}</a></li>
+          <li><a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="hover:text-blush transition-colors">{{ .booking }}</a></li>
         </ul>
       </div>
     </div>
-    <div class="border-t border-gray-300 pt-6 text-center text-sm text-gray-500">
-      <p>© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. Wszelkie prawa zastrzeżone.</p>
-      <p class="mt-1">Płatności online obsługiwane przez Autopay S.A. / Paynow (mBank S.A.). Waluta: PLN.</p>
+    <div class="mt-12 border-t border-cream/10 pt-6 text-xs text-cream/45 flex flex-col md:flex-row md:justify-between gap-2">
+      <p>{{ .rights }}</p>
+      <p>{{ .payments }}</p>
     </div>
   </div>
 </footer>
+{{ end }}
 
-<!-- Mobile menu toggle script -->
+<!-- Mobile sticky booking bar -->
+<div id="mobileCta" class="md:hidden fixed inset-x-0 bottom-0 z-40 p-3 translate-y-full transition-transform duration-300">
+  <div class="flex gap-2 rounded-full bg-ink/90 backdrop-blur p-1.5 shadow-2xl">
+    <a href="{{ $fitssey }}" target="_blank" rel="noopener noreferrer" class="flex-1 text-center py-3 rounded-full bg-blush text-ink font-semibold">{{ $t.mobile.book }}</a>
+    <a href="#grafik" class="flex-1 text-center py-3 rounded-full text-cream font-medium">{{ $t.mobile.schedule }}</a>
+  </div>
+</div>
+
 <script>
+  const header = document.getElementById('siteHeader');
   const menuToggle = document.getElementById('menuToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const menuOpen = document.getElementById('menuOpen');
@@ -639,18 +529,44 @@
   const desktopMoreMenu = document.getElementById('desktopMoreMenu');
   const mobileMoreToggle = document.getElementById('mobileMoreToggle');
   const mobileMoreMenu = document.getElementById('mobileMoreMenu');
+  const mobileCta = document.getElementById('mobileCta');
 
-  menuToggle.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-    menuOpen.classList.toggle('hidden');
-    menuClose.classList.toggle('hidden');
-  });
+  // Header turns solid after the hero, or while the mobile menu is open
+  const updateHeader = () => {
+    const scrolled = window.scrollY > 40;
+    header.dataset.solid = (scrolled || !mobileMenu.classList.contains('hidden')).toString();
+    mobileCta.classList.toggle('translate-y-full', window.scrollY < window.innerHeight * 0.7);
+  };
+  updateHeader();
+  window.addEventListener('scroll', updateHeader, { passive: true });
+
+  const setMobileMenu = open => {
+    mobileMenu.classList.toggle('hidden', !open);
+    menuOpen.classList.toggle('hidden', open);
+    menuClose.classList.toggle('hidden', !open);
+    menuToggle.setAttribute('aria-expanded', open.toString());
+    if (!open && mobileMoreMenu) {
+      mobileMoreMenu.classList.add('hidden');
+      mobileMoreToggle.setAttribute('aria-expanded', 'false');
+    }
+    updateHeader();
+  };
+
+  menuToggle.addEventListener('click', () => setMobileMenu(mobileMenu.classList.contains('hidden')));
+  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMobileMenu(false)));
 
   if (desktopMoreToggle && desktopMoreMenu) {
     desktopMoreToggle.addEventListener('click', event => {
       event.stopPropagation();
       desktopMoreMenu.classList.toggle('hidden');
       desktopMoreToggle.setAttribute('aria-expanded', (!desktopMoreMenu.classList.contains('hidden')).toString());
+    });
+    desktopMoreMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => desktopMoreMenu.classList.add('hidden')));
+    document.addEventListener('click', event => {
+      if (!desktopMoreMenu.contains(event.target) && !desktopMoreToggle.contains(event.target)) {
+        desktopMoreMenu.classList.add('hidden');
+        desktopMoreToggle.setAttribute('aria-expanded', 'false');
+      }
     });
   }
 
@@ -661,467 +577,48 @@
     });
   }
 
-  const polishWeekDays = ['Niedziela', 'Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Piątek', 'Sobota'];
-  const scheduleDayToIndex = {
-    'Niedziela': 0,
-    'Poniedziałek': 1,
-    'Wtorek': 2,
-    'Środa': 3,
-    'Czwartek': 4,
-    'Piątek': 5,
-    'Sobota': 6
-  };
-  const todayName = polishWeekDays[new Date().getDay()];
-  const scheduleTables = document.querySelectorAll('#grafik table');
-  const upcomingScheduleBody = document.getElementById('upcomingScheduleBody');
-  const personalSlotsList = document.getElementById('personalSlotsList');
-
-  const scheduleEntries = [
-    { day: 'Poniedziałek', time: '08:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Poniedziałek', time: '08:30', room: 'Pilates Mata', className: 'Power Pilates', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Poniedziałek', time: '09:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Poniedziałek', time: '11:30', room: 'Pilates Mata', className: 'Joga dla Kręgosłupa', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Poniedziałek', time: '16:50', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Poniedziałek', time: '18:00', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Poniedziałek', time: '19:00', room: 'Reformer', className: 'Reformer Basic', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Poniedziałek', time: '20:00', room: 'Reformer', className: 'Reformer Mięśnie Dna Miednicy', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-
-    { day: 'Wtorek', time: '08:30', room: 'Pilates Mata', className: 'Good Morning Joga', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Wtorek', time: '09:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Wtorek', time: '10:00', room: 'Reformer', className: 'Reformer Basic', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Wtorek', time: '11:00', room: 'Pilates Mata', className: 'Pilates Equipment', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Wtorek', time: '12:00', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Wtorek', time: '18:00', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Wtorek', time: '20:00', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-
-    { day: 'Środa', time: '08:30', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Środa', time: '09:30', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Środa', time: '09:30', room: 'Reformer', className: 'Reformer Basic', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Środa', time: '10:30', room: 'Reformer', className: 'Reformer Equipment', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Środa', time: '12:00', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Środa', time: '16:15', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Środa', time: '17:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Środa', time: '20:30', room: 'Pilates Mata', className: 'Power Booty & Legs', instructor: 'Ania', image: '{{ "images/anna.jpeg" | relURL }}', initial: 'A' },
-
-    { day: 'Czwartek', time: '08:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Czwartek', time: '09:30', room: 'Reformer', className: 'Reformer Strong Core', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Czwartek', time: '10:30', room: 'Pilates Mata', className: 'Joga dla Kręgosłupa', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Czwartek', time: '16:50', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Czwartek', time: '18:00', room: 'Reformer', className: 'Reformer Basic', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Czwartek', time: '18:00', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Czwartek', time: '19:00', room: 'Reformer', className: 'Reformer Equipment', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Czwartek', time: '20:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-
-    { day: 'Piątek', time: '08:30', room: 'Pilates Mata', className: 'Good Morning Joga', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Piątek', time: '08:30', room: 'Reformer', className: 'Reformer Flow', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Piątek', time: '09:30', room: 'Reformer', className: 'Reformer Basic', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Piątek', time: '10:30', room: 'Reformer', className: 'Reformer Mięśnie Dna Miednicy', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Piątek', time: '12:00', room: 'Pilates Mata', className: 'Power Booty & Legs', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Piątek', time: '19:00', room: 'Pilates Mata', className: 'Strong Core', instructor: 'Ania', image: '{{ "images/anna.jpeg" | relURL }}', initial: 'A' },
-    { day: 'Piątek', time: '19:15', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Piątek', time: '20:00', room: 'Pilates Mata', className: 'Stretch & Mobility', instructor: 'Ania', image: '{{ "images/anna.jpeg" | relURL }}', initial: 'A' },
-    { day: 'Piątek', time: '20:15', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Piątek', time: '21:00', room: 'Pilates Mata', className: 'Yin Joga Good Night', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-
-    { day: 'Sobota', time: '09:00', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Sobota', time: '10:00', room: 'Pilates Mata', className: 'Barre Flow', instructor: 'Gosia', image: '{{ "images/gosia.jpg" | relURL }}', initial: 'G' },
-    { day: 'Sobota', time: '10:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Klaudia', image: '{{ "images/klaudia.jpeg" | relURL }}', initial: 'K' },
-    { day: 'Sobota', time: '12:00', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-    { day: 'Sobota', time: '16:00', room: 'Pilates Mata', className: 'Zdrowy Kręgosłup', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Sobota', time: '17:00', room: 'Reformer', className: 'Reformer Booty & Legs', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Sobota', time: '18:00', room: 'Reformer', className: 'Reformer Mięśnie Dna Miednicy', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-
-    { day: 'Niedziela', time: '09:00', room: 'Pilates Mata', className: 'Pilates Flow', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Niedziela', time: '10:00', room: 'Reformer', className: 'Reformer Mięśnie Dna Miednicy', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Niedziela', time: '11:00', room: 'Reformer', className: 'Reformer Flow', instructor: 'Olivia', image: '{{ "images/olivia.jpeg" | relURL }}', initial: 'O' },
-    { day: 'Niedziela', time: '19:30', room: 'Pilates Mata', className: 'Vinyasa Joga Flow', instructor: 'Dorota', image: '{{ "images/DorotaW.jpg" | relURL }}', initial: 'D' },
-  ];
-
-  const alignScheduleTimeColumn = () => {
-    scheduleTables.forEach(table => {
-      table.querySelectorAll('thead th:nth-child(2), tbody td:nth-child(2)').forEach(cell => {
-        cell.style.textAlign = 'center';
+  // Class category tabs
+  const tabButtons = document.querySelectorAll('[role="tab"]');
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      tabButtons.forEach(other => {
+        const selected = other === button;
+        other.setAttribute('aria-selected', selected.toString());
+        document.getElementById(other.getAttribute('aria-controls')).classList.toggle('hidden', !selected);
       });
     });
-  };
-
-  const classDescriptions = {
-    'Barre Flow': 'Nowoczesny trening łączący fitness, balet i pilates. Ćwiczenia przy drążku.',
-    'Good Morning Joga': 'Poranna joga energetyzująca ciało — delikatne rozciąganie i oddech.',
-    'Joga dla Kręgosłupa': 'Łagodna joga wspierająca zdrowie kręgosłupa i prawidłową postawę.',
-    'Pilates Equipment': 'Pilates na macie z użyciem dodatkowych akcesoriów — ring, piłka, roller.',
-    'Pilates Flow': 'Płynny trening Pilates na macie wzmacniający core i poprawiający postawę.',
-    'Power Booty & Legs': 'Trening ukierunkowany na pośladki i dolne partie ciała.',
-    'Power Pilates': 'Intensywny Pilates na macie budujący siłę i wytrzymałość mięśniową.',
-    'Reformer Basic': 'Podstawy pracy na reformerze — technika, oddech i bezpieczne wzorce ruchu.',
-    'Reformer Booty & Legs': 'Reformer z naciskiem na rzeźbienie pośladków i wzmacnianie nóg.',
-    'Reformer Equipment': 'Sesja na reformerze z dodatkowymi akcesoriami zwiększającymi zakres ćwiczeń.',
-    'Reformer Flow': 'Płynna sesja na reformerze rozwijająca kontrolę ruchu i mobilność.',
-    'Reformer Mięśnie Dna Miednicy': 'Specjalistyczny trening na reformerze wzmacniający mięśnie dna miednicy.',
-    'Reformer Strong Core': 'Trening na reformerze z naciskiem na wzmacnianie mięśni głębokich i stabilizację centrum.',
-    'Stretch & Mobility': 'Zajęcia poprawiające elastyczność i zakres ruchu, redukujące napięcia.',
-    'Strong Core': 'Intensywna praca nad mięśniami głębokimi i stabilizacją tułowia.',
-    'Vinyasa Joga Flow': 'Dynamiczna praktyka jogi łącząca oddech z płynnym ruchem.',
-    'Yin Joga Good Night': 'Spokojna, wieczorna sesja wyciszająca i regenerująca ciało.',
-    'Zdrowy Kręgosłup': 'Ćwiczenia wzmacniające otoczenie kręgosłupa i korygujące postawę.',
-  };
-
-  const classDurations = {
-    'Good Morning Joga': 60,
-    'Joga dla Kręgosłupa': 60,
-    'Vinyasa Joga Flow': 60,
-    'Yin Joga Good Night': 60,
-  };
-
-  const personalWindowsByDay = {
-    1: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
-    2: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
-    3: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
-    4: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
-    5: [[7 * 60, 13 * 60], [16 * 60, 21 * 60]],
-    6: [[9 * 60, 15 * 60]],
-  };
-
-  const roomLabels = {
-    'Reformer': 'Reformer',
-    'Pilates Mata': 'Sala ogólna'
-  };
-
-  const PERSONAL_SLOT_DURATION = 55;
-
-  const timeToMinutes = value => {
-    const [h, m] = value.split(':').map(Number);
-    return h * 60 + m;
-  };
-
-  const minutesToTime = minutes => {
-    const h = String(Math.floor(minutes / 60)).padStart(2, '0');
-    const m = String(minutes % 60).padStart(2, '0');
-    return `${h}:${m}`;
-  };
-
-  const getClassDuration = entry => classDurations[entry.className] || 50;
-
-  const getWeeklyPersonalStarts = (dayIndex, room) => {
-    const windows = personalWindowsByDay[dayIndex] || [];
-    if (!windows.length) {
-      return [];
-    }
-
-    const dayName = polishWeekDays[dayIndex];
-    const busy = scheduleEntries
-      .filter(entry => entry.day === dayName && entry.room === room)
-      .map(entry => {
-        const start = timeToMinutes(entry.time);
-        const end = start + getClassDuration(entry);
-        return [start, end];
-      })
-      .sort((a, b) => a[0] - b[0]);
-
-    const starts = [];
-
-    windows.forEach(([windowStart, windowEnd]) => {
-      let cursor = windowStart;
-
-      busy.forEach(([busyStart, busyEnd]) => {
-        if (busyEnd <= windowStart || busyStart >= windowEnd) {
-          return;
-        }
-
-        const boundedStart = Math.max(busyStart, windowStart);
-        const boundedEnd = Math.min(busyEnd, windowEnd);
-
-        if (boundedStart - cursor >= PERSONAL_SLOT_DURATION) {
-          for (let start = cursor; start + PERSONAL_SLOT_DURATION <= boundedStart; start += 60) {
-            starts.push(start);
-          }
-        }
-
-        cursor = Math.max(cursor, boundedEnd);
-      });
-
-      if (windowEnd - cursor >= PERSONAL_SLOT_DURATION) {
-        for (let start = cursor; start + PERSONAL_SLOT_DURATION <= windowEnd; start += 60) {
-          starts.push(start);
-        }
-      }
-    });
-
-    return [...new Set(starts)].sort((a, b) => a - b);
-  };
-
-  const getUpcomingPersonalSlots = limit => {
-    const now = new Date();
-    const results = [];
-    const rooms = ['Reformer', 'Pilates Mata'];
-
-    for (let offset = 0; offset < 21 && results.length < limit; offset++) {
-      const date = new Date(now);
-      date.setDate(now.getDate() + offset);
-      const dayIndex = date.getDay();
-
-      if (!personalWindowsByDay[dayIndex]) {
-        continue;
-      }
-
-      rooms.forEach(room => {
-        const starts = getWeeklyPersonalStarts(dayIndex, room);
-        starts.forEach(startMinutes => {
-          const slotDate = new Date(date);
-          slotDate.setHours(Math.floor(startMinutes / 60), startMinutes % 60, 0, 0);
-          if (slotDate > now) {
-            results.push({ slotDate, dayIndex, startMinutes, room });
-          }
-        });
-      });
-    }
-
-    return results
-      .sort((a, b) => a.slotDate - b.slotDate)
-      .slice(0, limit);
-  };
-
-  const renderPersonalSlots = () => {
-    if (!personalSlotsList) {
-      return;
-    }
-
-    const slots = getUpcomingPersonalSlots(12);
-    if (!slots.length) {
-      personalSlotsList.innerHTML = '<p class="text-sm text-gray-500">Brak wyliczonych slotów w najbliższych dniach.</p>';
-      return;
-    }
-
-    personalSlotsList.innerHTML = slots.map(slot => {
-      const dateLabel = slot.slotDate.toLocaleDateString('pl-PL', {
-        day: '2-digit',
-        month: '2-digit'
-      });
-      const dayLabel = polishWeekDays[slot.dayIndex];
-      const timeLabel = minutesToTime(slot.startMinutes);
-      const roomLabel = roomLabels[slot.room] || slot.room;
-      const roomToneStyle = slot.room === 'Reformer'
-        ? 'background:#fff1f2;color:#be123c;border-color:#ffe4e6;'
-        : 'background:#f0f9ff;color:#0369a1;border-color:#e0f2fe;';
-
-      return `
-        <div class="rounded-xl border border-gray-200 bg-white shadow-sm hover:shadow-md transition-shadow" style="padding:16px;">
-          <div class="flex items-start justify-between gap-3">
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">${dayLabel}</p>
-              <p class="text-sm font-bold text-primary mt-0.5">${dateLabel}</p>
-            </div>
-            <span class="inline-flex items-center text-[11px] font-semibold rounded-full border" style="padding:4px 10px; ${roomToneStyle}">${roomLabel}</span>
-          </div>
-          <p class="text-2xl font-extrabold text-accent leading-none mt-4">${timeLabel}</p>
-          <p class="text-xs text-gray-500 mt-1">Sesja personalna • 55 min</p>
-          <a href="https://app.fitssey.com/total-training" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center justify-center w-full px-3 py-2 rounded-lg bg-primary text-white text-sm font-semibold hover:bg-gray-800 transition-colors">
-            Umów w Fitssey
-          </a>
-        </div>
-      `;
-    }).join('');
-  };
-
-  const scheduleTooltip = document.createElement('div');
-  Object.assign(scheduleTooltip.style, {
-    position: 'fixed',
-    zIndex: '9999',
-    maxWidth: '20rem',
-    padding: '8px 10px',
-    borderRadius: '10px',
-    background: '#1B2A4A',
-    color: '#ffffff',
-    fontSize: '12px',
-    lineHeight: '1.45',
-    boxShadow: '0 10px 30px rgba(0,0,0,0.16)',
-    opacity: '0',
-    pointerEvents: 'none',
-    transition: 'opacity 150ms ease',
-    left: '0px',
-    top: '0px'
-  });
-  scheduleTooltip.setAttribute('role', 'tooltip');
-  document.body.appendChild(scheduleTooltip);
-
-  let activeTooltipCell = null;
-
-  const hideScheduleTooltip = () => {
-    scheduleTooltip.style.opacity = '0';
-    activeTooltipCell = null;
-  };
-
-  const positionScheduleTooltip = (cell, mouseEvent) => {
-    const padding = 12;
-    const tooltipRect = scheduleTooltip.getBoundingClientRect();
-    const cellRect = cell.getBoundingClientRect();
-
-    let left = mouseEvent ? mouseEvent.clientX + 14 : cellRect.left + (cellRect.width / 2) - (tooltipRect.width / 2);
-    let top = mouseEvent ? mouseEvent.clientY + 14 : cellRect.top - tooltipRect.height - 10;
-
-    if (left + tooltipRect.width > window.innerWidth - padding) {
-      left = window.innerWidth - tooltipRect.width - padding;
-    }
-    if (left < padding) {
-      left = padding;
-    }
-
-    if (top + tooltipRect.height > window.innerHeight - padding) {
-      top = cellRect.top - tooltipRect.height - 10;
-    }
-    if (top < padding) {
-      top = cellRect.bottom + 10;
-    }
-
-    scheduleTooltip.style.left = `${left}px`;
-    scheduleTooltip.style.top = `${top}px`;
-  };
-
-  const showScheduleTooltip = (cell, mouseEvent) => {
-    const text = cell.dataset.tooltip;
-    if (!text) {
-      return;
-    }
-    activeTooltipCell = cell;
-    scheduleTooltip.textContent = text;
-    scheduleTooltip.style.opacity = '1';
-    positionScheduleTooltip(cell, mouseEvent);
-  };
-
-  const getNextClassDateTime = (entry, now) => {
-    const [hours, minutes] = entry.time.split(':').map(Number);
-    const dayIndex = scheduleDayToIndex[entry.day];
-    const nowDayIndex = now.getDay();
-    const daysAhead = (dayIndex - nowDayIndex + 7) % 7;
-
-    const date = new Date(now);
-    date.setDate(now.getDate() + daysAhead);
-    date.setHours(hours, minutes, 0, 0);
-
-    if (date < now) {
-      date.setDate(date.getDate() + 7);
-    }
-
-    return date;
-  };
-
-  const renderUpcomingClasses = () => {
-    if (!upcomingScheduleBody) {
-      return;
-    }
-
-    const now = new Date();
-    const nextTen = scheduleEntries
-      .map(entry => ({ ...entry, nextDateTime: getNextClassDateTime(entry, now) }))
-      .sort((a, b) => a.nextDateTime - b.nextDateTime)
-      .slice(0, 10);
-
-    upcomingScheduleBody.innerHTML = nextTen.map(entry => `
-      <tr class="border-t border-gray-100 h-16 ${entry.day === todayName ? 'bg-lightPink' : ''}">
-        <td class="px-4 py-3 font-semibold ${entry.day === todayName ? 'text-primary' : ''}">${entry.day}</td>
-        <td class="px-4 py-3">${entry.time}</td>
-        <td class="px-4 py-3">${entry.room}</td>
-        <td class="px-4 py-3">${entry.className}</td>
-        <td class="px-4 py-3">
-          <div class="flex items-center gap-2">
-            <img src="${entry.image}" alt="${entry.instructor}" class="w-8 h-8 rounded-full object-cover" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-flex';">
-            <span class="hidden w-8 h-8 rounded-full bg-softGray text-primary items-center justify-center text-xs font-bold">${entry.initial}</span>
-            <span>${entry.instructor}</span>
-          </div>
-        </td>
-      </tr>
-    `).join('');
-
-    alignScheduleTimeColumn();
-  };
-
-  const attachScheduleTooltips = () => {
-    const activityCells = document.querySelectorAll('#grafik tbody td:nth-child(4)');
-    activityCells.forEach(cell => {
-      const className = cell.textContent.trim();
-      if (classDescriptions[className]) {
-        cell.dataset.tooltip = classDescriptions[className];
-        cell.removeAttribute('title');
-        cell.classList.add('cursor-help');
-        cell.setAttribute('tabindex', '0');
-
-        cell.addEventListener('mouseenter', event => showScheduleTooltip(cell, event));
-        cell.addEventListener('mousemove', event => {
-          if (activeTooltipCell === cell) {
-            positionScheduleTooltip(cell, event);
-          }
-        });
-        cell.addEventListener('mouseleave', hideScheduleTooltip);
-        cell.addEventListener('focus', () => showScheduleTooltip(cell));
-        cell.addEventListener('blur', hideScheduleTooltip);
-        cell.addEventListener('click', event => {
-          event.stopPropagation();
-          if (activeTooltipCell === cell) {
-            hideScheduleTooltip();
-          } else {
-            showScheduleTooltip(cell);
-          }
-        });
-      }
-    });
-  };
-
-  renderUpcomingClasses();
-  attachScheduleTooltips();
-  renderPersonalSlots();
-
-  document.addEventListener('click', event => {
-    if (activeTooltipCell && !activeTooltipCell.contains(event.target)) {
-      hideScheduleTooltip();
-    }
-
-    if (desktopMoreMenu && desktopMoreToggle && !desktopMoreMenu.contains(event.target) && !desktopMoreToggle.contains(event.target)) {
-      desktopMoreMenu.classList.add('hidden');
-      desktopMoreToggle.setAttribute('aria-expanded', 'false');
-    }
   });
 
-  window.addEventListener('scroll', () => {
-    if (activeTooltipCell) {
-      positionScheduleTooltip(activeTooltipCell);
-    }
-  }, { passive: true });
-
-  window.addEventListener('resize', () => {
-    if (activeTooltipCell) {
-      positionScheduleTooltip(activeTooltipCell);
-    }
-  });
-
-  // Close menu when clicking a link
-  mobileMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      mobileMenu.classList.add('hidden');
-      if (mobileMoreMenu) {
-        mobileMoreMenu.classList.add('hidden');
-      }
-      if (mobileMoreToggle) {
-        mobileMoreToggle.setAttribute('aria-expanded', 'false');
-      }
-      menuOpen.classList.remove('hidden');
-      menuClose.classList.add('hidden');
+  // Gallery arrows
+  const gallery = document.getElementById('gallery');
+  document.querySelectorAll('[data-gallery-scroll]').forEach(button => {
+    button.addEventListener('click', () => {
+      gallery.scrollBy({ left: Number(button.dataset.galleryScroll) * gallery.clientWidth * 0.8, behavior: 'smooth' });
     });
   });
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // Instructor bio expand/collapse
-  const bioToggleButtons = document.querySelectorAll('[data-bio-toggle]');
-  bioToggleButtons.forEach(button => {
+  document.querySelectorAll('[data-bio-toggle]').forEach(button => {
     button.addEventListener('click', () => {
-      const bioId = button.getAttribute('data-bio-toggle');
-      const bio = bioId ? document.getElementById(bioId) : null;
+      const bio = document.getElementById(button.dataset.bioToggle);
       if (!bio) {
         return;
       }
-
       const isHidden = bio.classList.contains('hidden');
       bio.classList.toggle('hidden', !isHidden);
       button.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
-      button.textContent = isHidden ? 'Zwiń opis' : 'Czytaj więcej';
+      button.textContent = isHidden ? button.dataset.labelLess : button.dataset.labelMore;
     });
   });
 </script>

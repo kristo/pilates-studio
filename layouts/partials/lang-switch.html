@@ -1,0 +1,7 @@
+{{- /* Language switcher. Params: page, label, class */ -}}
+<div class="flex items-center gap-1 text-xs font-semibold tracking-wider {{ .class }}" role="group" aria-label="{{ .label }}">
+  {{- range $i, $p := .page.AllTranslations -}}
+  {{ if $i }}<span class="opacity-40">/</span>{{ end }}
+  <a href="{{ $p.RelPermalink }}" hreflang="{{ $p.Language.Lang }}" lang="{{ $p.Language.Lang }}" class="px-1 py-1 {{ if eq $p.Language.Lang site.Language.Lang }}opacity-100 underline underline-offset-4{{ else }}opacity-60 hover:opacity-100{{ end }}"{{ if eq $p.Language.Lang site.Language.Lang }} aria-current="true"{{ end }}>{{ $p.Language.LanguageName }}</a>
+  {{- end -}}
+</div>

@@ -1,0 +1,237 @@
+# Home page content (EN). Strings may contain HTML (e.g. <em>, &nbsp;).
+meta:
+  description: 'Boutique Fitness & Pilates studio in Bibice near Kraków — Balanced Body reformers, mat pilates, barre and yoga in small groups.'
+  og_description: 'Balanced Body reformers, pilates, barre and yoga in small groups. Bibice, ul. Kościuszki 11A.'
+
+nav:
+  home_aria: 'Pure Shape Studio — home'
+  classes: 'Classes'
+  schedule: 'Schedule'
+  pricing: 'Pricing'
+  about: 'About us'
+  more: 'More'
+  socks: 'Pilates socks'
+  personal: 'Personal training'
+  contact: 'Contact'
+  terms: 'Terms (PL)'
+  privacy: 'Privacy (PL)'
+  book: 'Book now'
+  lang_aria: 'Change language'
+
+hero:
+  alt: 'Balanced Body reformer class at Pure Shape Studio'
+  eyebrow: 'Fitness & Pilates Studio · Bibice'
+  title: 'Strength, balance<br><em class="italic text-blush">&amp;&nbsp;calm.</em>'
+  lead: 'A boutique studio with Balanced Body reformers and a training room. Small groups, a personal approach and an atmosphere you’ll want to come back to.'
+  book: 'Book on Fitssey'
+  buy: 'Buy a pass'
+  badges: ['Balanced Body reformers', 'Small groups', 'Multisport accepted']
+
+marquee: ['Reformer', 'Pilates', 'Barre', 'Yoga', 'Stretch & Mobility', 'Functional training', 'Healthy spine']
+
+about:
+  eyebrow: 'The studio'
+  title: 'Made<br><em class="italic">for you</em>'
+  text: 'Our Fitness&amp;Pilates studio offers personal attention, modern Balanced Body reformers and a calm atmosphere. You train in a small group, guided by an instructor who knows your name.'
+  stat_classes: 'Class types'
+  stat_team: 'Instructors'
+  stat_reformers: 'Reformers'
+  alt_team: 'Pure Shape Studio instructors'
+  alt_window: 'Studio window: reformers, pilates, barre, functional training, yoga'
+  alt_reformer: 'Reformer exercise'
+
+classes:
+  eyebrow: 'Classes'
+  title: 'Find your <em class="italic">rhythm</em>'
+  lead: 'Choose classes that suit your level and goals — from a gentle start to an intense workout.'
+  tabs_aria: 'Class categories'
+  categories:
+    - id: reformer
+      tab: 'Balanced Body Reformer'
+      photo: reformer
+      alt: 'Group reformer class'
+      items:
+        - ['Reformer Flow', 'A flowing reformer session that builds movement control, mobility and coordination.', '50 min']
+        - ['Reformer Basic', 'Reformer fundamentals — technique, breathing and safe movement patterns. Perfect for beginners.', '50 min']
+        - ['Reformer Strong Core', 'Intense core work on the reformer — strengthens the deep stabilising muscles.', '50 min']
+        - ['Reformer Booty & Legs', 'A reformer workout focused on glutes and legs. Shapes and strengthens the lower body.', '50 min']
+        - ['Reformer Pelvic Floor', 'A specialised reformer class that strengthens the pelvic floor muscles.', '50 min']
+        - ['Reformer Equipment', 'Reformer class with extra props — new challenges and a more complete workout.', '50 min']
+    - id: mata
+      tab: 'Mat & Barre'
+      photo: barre
+      alt: 'Barre class at the ballet bars'
+      items:
+        - ['Pilates Flow', 'A flowing mat pilates workout — stronger core, better posture and body control.', '50 min']
+        - ['Power Pilates', 'A more intense take on mat pilates — more strength, more challenge.', '50 min']
+        - ['Pilates Equipment', 'Mat pilates with props — balls, bands and weights.', '50 min']
+        - ['Barre Flow', 'A modern workout blending fitness, ballet and pilates, done at the barre.', '50 min']
+        - ['Power Booty & Legs', 'An intense glutes and legs workout — sculpts and strengthens the lower body.', '50 min']
+        - ['Strong Core', 'Training for the deep abdominal muscles and stabilisers — a strong centre.', '50 min']
+    - id: joga
+      tab: 'Yoga & Stretch'
+      photo: joga
+      alt: 'Yoga practice at the studio'
+      items:
+        - ['Good Morning Yoga', 'A morning yoga practice — gently wakes up the body and sets your energy for the day.', '60 min']
+        - ['Vinyasa Yoga Flow', 'A dynamic practice linking breath with flowing movement — strength, balance, relaxation.', '60 min']
+        - ['Yin Yoga Good Night', 'An evening session to unwind and recover — deep stretching and relaxation.', '60 min']
+        - ['Yoga for the Spine', 'A gentle practice supporting a healthy spine and good posture.', '60 min']
+        - ['Healthy Spine', 'Exercises that strengthen and mobilise the spine — helps prevent back pain.', '50 min']
+        - ['Stretch & Mobility', 'Stretching and range-of-motion work — releases tension and improves flexibility.', '50 min']
+
+schedule:
+  eyebrow: 'Schedule'
+  title: 'Class schedule'
+  lead: 'Live schedule straight from Fitssey.'
+  open: 'Open schedule on Fitssey'
+
+multisport:
+  badge: 'Good to know'
+  title: 'From 16 June 2026 we accept <em class="italic text-blush">Multisport</em> cards'
+  p1: 'Bookings for Multisport members open <strong class="text-cream">48 hours before class</strong>.'
+  p2: 'If you cancel or miss a class later than 12 hours before it starts, we charge a deposit from your wallet so that the total equals the price of a single class with us. This applies to both reformer and mat classes.'
+  reformer: 'Reformer'
+  mat: 'Mat'
+  surcharge: 'Surcharge'
+  wallet_min: 'Minimum Fitssey wallet balance'
+  deposit: 'Fitssey wallet deposit'
+
+pricing:
+  eyebrow: 'Pricing'
+  title: 'Choose your <em class="italic">pass</em>'
+  lead: 'Our most popular options. See the full offer on Fitssey.'
+  featured: 'Most popular'
+  provider: 'Service provider: Pure Shape Studio.'
+  vat: 'Prices in PLN, seller is not a VAT payer'
+  full: 'See full pricing on Fitssey'
+  passes:
+    - {name: 'Welcome Pass', tag: 'Mat · first visit', price: '39', desc: 'A trial entry to any group mat class (Pilates, Barre, Yoga and more).'}
+    - {name: 'Welcome Pass', tag: 'Reformer · first visit', price: '69', desc: 'A trial entry to a group Balanced Body reformer class.', featured: true}
+    - {name: 'Flow Pass x4', tag: 'Mat', price: '199', desc: '4 group mat classes. Valid for 30 days from your first visit.'}
+    - {name: 'Premium Pass x4', tag: 'Reformer + mat', price: '359', desc: '4 entries to all classes — reformer and mat. Valid for 30 days from your first visit.'}
+    - {name: 'Flow Pass x8', tag: 'Mat', price: '359', desc: '8 group mat classes. Valid for 30 days from your first visit.'}
+    - {name: 'Premium Pass x8', tag: 'Reformer + mat', price: '679', desc: '8 entries to all classes — reformer and mat. Valid for 30 days from your first visit.'}
+  personal:
+    alt: 'One-to-one reformer training'
+    eyebrow: 'Personal training'
+    title: 'One-to-one training'
+    lead: 'Personal training tailored to your goals and needs.'
+    points: ['Training plan', 'Individual approach']
+    price: 'Ask for a quote'
+    cta: 'Get in touch'
+  legal1: 'Online card payments are processed by <strong>Autopay S.A.</strong> Payment handling: Paynow (mBank S.A.). Currency: PLN.'
+  legal2: 'Your pass is activated automatically once the payment is received. Classes are booked through'
+  payment_alt: 'Accepted payment methods: Visa, Visa Electron, Mastercard, MasterCard Electronic, Maestro'
+
+gallery:
+  title: 'Take a look <em class="italic">inside</em>'
+  aria: 'Studio gallery'
+  prev: 'Previous photos'
+  next: 'Next photos'
+  items:
+    - [reformer-3, 'Reformer exercise with the box', landscape]
+    - [barre-2, 'Barre class', portrait]
+    - [wnetrze, 'Studio interior', landscape]
+    - [reformer-5, 'Reformer workout', portrait]
+    - [trx, 'Functional training with TRX', portrait]
+    - [mata, 'Pilates with a ball', portrait]
+    - [reformer-6, 'Stretching on the reformer', portrait]
+    - [kettle, 'Kettlebell training', portrait]
+    - [mata-2, 'Mat pilates', portrait]
+
+team:
+  eyebrow: 'About us'
+  title: 'Meet the <em class="italic">team</em>'
+  lead: 'We’re passionate about movement and healthy living. Together we’ve created a space where everyone can find their place.'
+  read_more: 'Read more'
+  collapse: 'Show less'
+  members:
+    - id: gosia
+      name: 'Małgorzata Pilińska-Babula'
+      role: 'Studio owner · fitness & Pilates instructor'
+      bio: 'Certified fitness and Pilates instructor working with women at every stage of life. She specialises in functional training, pregnancy and postnatal recovery.'
+      more: 'Certified Balanced Body instructor and advocate of mindful movement. Her classes combine technique, breathing and an individual approach to every woman’s needs.'
+      instagram: 'https://www.instagram.com/gosia.pilinska/'
+    - id: ania
+      name: 'Anna Soczowka'
+      role: 'Coach · strength & fitness'
+      bio: 'Helps you build strength, fitness and confidence with well-tailored training plans. She focuses on consistency, health and visible results.'
+      more: 'Works with beginners and advanced clients alike, ensuring safe technique and a plan matched to your goals and abilities.'
+    - id: dorota
+      name: 'Dorota Wodzień-Kowalczyk'
+      role: 'Yoga teacher · RYT 200'
+      bio: 'Certified yoga teacher (RYT 200) in Ashtanga, Vinyasa and Yin. Her classes bring together movement, breath and recovery.'
+      more: 'Her practice is rooted in mindfulness and working with the body without pressure. She helps you regain balance, mobility and calm in everyday life.'
+    - id: olivia
+      name: 'Olivia'
+      role: 'Physiotherapist & pilates instructor'
+      bio: 'Teaches reformer and mat Pilates for women at every stage of life, helping them strengthen the body, improve posture and move without pain. She graduated in physiotherapy from Jagiellonian University Medical College and keeps developing through courses and training.'
+      more: 'She specialises in working with women from their first period, through pregnancy and postpartum, to menopause. Her training focuses on precision, stability and mindful deep-muscle work.'
+    - id: klaudia
+      name: 'Klaudia Pyszniak'
+      role: 'Pilates instructor · Balanced Body certification'
+      bio: 'Leads energetic, dynamic workouts as well as classes built on classical pilates principles — full of precision and control.'
+      more: 'Currently completing her full Balanced Body certification, she combines the classical foundations of the method with a modern approach to training. Always looking for new inspiration — her classes strengthen the body, improve fitness and simply make you feel better.'
+    - id: zuza
+      name: 'Zuza'
+      role: 'Front desk'
+      bio: 'She’ll welcome you to the studio and help with bookings, passes and any questions.'
+
+socks:
+  alt: 'Elliosa pilates socks on a reformer'
+  eyebrow: 'Available at the studio'
+  title: 'Elliosa Pilates Socks'
+  text: 'Non-slip socks that keep you steady on the reformer and the mat.'
+  price: '49'
+  currency: 'PLN'
+
+personal:
+  eyebrow: 'One-to-one'
+  title: 'Personal <em class="italic">training</em>'
+  lead: 'Our personal training schedule is very busy right now, so we keep it quick and simple: send us a request and we’ll prepare an offer with the earliest available times.'
+  how: 'How does it work?'
+  steps:
+    - 'Send a short request: what you need and which days suit you best.'
+    - 'We get back to you with a tailored offer and the earliest available slots.'
+    - 'You confirm and we book your session — no extra forms.'
+  send: 'Send a request'
+  send_lead: 'Reach us however suits you. We’ll reply with an offer and available times.'
+  call: 'Call: +48 698 190 880'
+  whatsapp: 'Message on WhatsApp'
+  whatsapp_text: 'Hi%2C%20I%27d%20like%20to%20ask%20about%20personal%20training.'
+  email: 'Send an email'
+  email_subject: 'Personal%20training%20enquiry'
+  hint: 'In your message, feel free to include your training goal, preferred times and whether you prefer the reformer or the mat.'
+
+location:
+  alt: 'Entrance to Pure Shape Studio at ul. Kościuszki 11A in Bibice'
+  eyebrow: 'Location'
+  title: 'Find us in Bibice'
+  address: 'Address'
+  hours: 'Opening hours'
+  phone: 'Phone'
+  hours_lines: ['Mon – Fri: 7:00 – 21:00', 'Saturday: 9:00 – 15:00']
+  map_title: 'Map to Pure Shape Studio'
+
+cta:
+  title: 'Ready<br><em class="italic text-blush">to start?</em>'
+  lead: 'Join us for your first session and feel the difference.'
+  book: 'Book a class'
+  buy: 'Buy a pass'
+
+footer:
+  company: 'Pure Shape Studio'
+  contact: 'Contact'
+  info: 'Information'
+  venue: 'Classes at: ul. Kościuszki 11A, Bibice'
+  pricing: 'Pricing'
+  terms: 'Terms & conditions (PL)'
+  privacy: 'Privacy policy (PL)'
+  booking: 'Book on Fitssey'
+  rights: '© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. All rights reserved.'
+  payments: 'Online payments by Autopay S.A. / Paynow (mBank S.A.). Currency: PLN.'
+
+mobile:
+  book: 'Book now'
+  schedule: 'Schedule'

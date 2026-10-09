@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ site.Language.Lang }}">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ .Title }}</title>
+  {{- $t := index site.Data.home site.Language.Lang }}
+  <meta name="description" content="{{ $t.meta.description }}">
+  <meta name="theme-color" content="#f7f2ec">
+  <meta property="og:title" content="{{ .Title }}">
+  <meta property="og:description" content="{{ $t.meta.og_description }}">
+  {{- range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+  {{- end }}
+  <meta property="og:image" content="{{ "images/sesja/hero-1600.webp" | absURL }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
   {{ $styles := resources.Get "css/main.css" | postCSS }}
   <link rel="stylesheet" href="{{ $styles.RelPermalink }}">
 </head>
 
-<body class="bg-gray-50 text-gray-900">
+<body class="bg-cream text-ink font-sans">
   {{ block "main" . }}{{ end }}
 
   <!-- Fitssey base code -->

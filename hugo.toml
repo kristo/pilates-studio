@@ -1,4 +1,13 @@
 baseURL = 'https://pure-shape.pl/'
-languageCode = 'pl-pl'
+defaultContentLanguage = 'pl'
 title = 'Pure Shape Studio - Fitness & Pilates Studio'
- 
+
+[languages.pl]
+  languageCode = 'pl-PL'
+  languageName = 'PL'
+  weight = 1
+
+[languages.en]
+  languageCode = 'en-GB'
+  languageName = 'EN'
+  weight = 2

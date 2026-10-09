@@ -1,0 +1,237 @@
+# Treść strony głównej (PL). Teksty z HTML (np. <em>, &nbsp;) są renderowane jako HTML.
+meta:
+  description: 'Kameralne studio Fitness & Pilates w Bibicach — reformery Balanced Body, pilates na macie, barre i joga w małych grupach.'
+  og_description: 'Reformery Balanced Body, pilates, barre i joga w małych grupach. Bibice, ul. Kościuszki 11A.'
+
+nav:
+  home_aria: 'Pure Shape Studio — strona główna'
+  classes: 'Zajęcia'
+  schedule: 'Grafik'
+  pricing: 'Cennik'
+  about: 'O nas'
+  more: 'Więcej'
+  socks: 'Skarpetki do Pilatesu'
+  personal: 'Trening personalny'
+  contact: 'Kontakt'
+  terms: 'Regulamin'
+  privacy: 'Prywatność'
+  book: 'Zarezerwuj'
+  lang_aria: 'Zmień język'
+
+hero:
+  alt: 'Zajęcia na reformerach Balanced Body w Pure Shape Studio'
+  eyebrow: 'Fitness & Pilates Studio · Bibice'
+  title: 'Siła, równowaga<br><em class="italic text-blush">i&nbsp;spokój.</em>'
+  lead: 'Kameralne studio z&nbsp;reformerami Balanced Body i&nbsp;salą ćwiczeń. Małe grupy, indywidualne podejście i&nbsp;atmosfera, do&nbsp;której chce się wracać.'
+  book: 'Zarezerwuj przez Fitssey'
+  buy: 'Kup karnet'
+  badges: ['Reformery Balanced Body', 'Małe grupy', 'Honorujemy Multisport']
+
+marquee: ['Reformer', 'Pilates', 'Barre', 'Joga', 'Stretch & Mobility', 'Trening funkcjonalny', 'Zdrowy kręgosłup']
+
+about:
+  eyebrow: 'Studio'
+  title: 'Stworzone<br><em class="italic">dla Ciebie</em>'
+  text: 'Nasze studio Fitness&amp;Pilates oferuje indywidualną uwagę, nowoczesne reformery Balanced Body i&nbsp;spokojną atmosferę. Ćwiczysz w&nbsp;małej grupie, pod okiem instruktorki, która zna Twoje imię.'
+  stat_classes: 'Rodzaje zajęć'
+  stat_team: 'Instruktorek'
+  stat_reformers: 'Reformery'
+  alt_team: 'Instruktorki Pure Shape Studio'
+  alt_window: 'Witryna studia: reformery, pilates, barre, trening funkcjonalny, joga'
+  alt_reformer: 'Ćwiczenie na reformerze'
+
+classes:
+  eyebrow: 'Zajęcia'
+  title: 'Znajdź swój <em class="italic">rytm</em>'
+  lead: 'Wybierz zajęcia odpowiednie dla Twojego poziomu i&nbsp;celów — od spokojnego startu po intensywny trening.'
+  tabs_aria: 'Kategorie zajęć'
+  categories:
+    - id: reformer
+      tab: 'Reformer Balanced Body'
+      photo: reformer
+      alt: 'Zajęcia grupowe na reformerze'
+      items:
+        - ['Reformer Flow', 'Płynna sesja na reformerze rozwijająca kontrolę ruchu, mobilność i koordynację.', '50 min']
+        - ['Reformer Basic', 'Podstawy pracy na reformerze — technika, oddech i bezpieczne wzorce ruchu. Idealne na start.', '50 min']
+        - ['Reformer Strong Core', 'Intensywna praca core na reformerze — wzmocnienie głębokich mięśni stabilizujących.', '50 min']
+        - ['Reformer Booty & Legs', 'Trening na reformerze skupiony na pośladkach i nogach. Modeluje i wzmacnia dolną partię ciała.', '50 min']
+        - ['Reformer Mięśnie Dna Miednicy', 'Specjalistyczny trening na reformerze wzmacniający mięśnie dna miednicy.', '50 min']
+        - ['Reformer Equipment', 'Zajęcia na reformerze z dodatkowym sprzętem — nowe wyzwania i pełniejszy trening.', '50 min']
+    - id: mata
+      tab: 'Mata & Barre'
+      photo: barre
+      alt: 'Zajęcia barre przy drążkach'
+      items:
+        - ['Pilates Flow', 'Płynny trening Pilates na macie — wzmocnienie core, poprawa postawy i kontroli ciała.', '50 min']
+        - ['Power Pilates', 'Intensywniejsza wersja Pilates na macie — więcej siły, więcej wyzwań.', '50 min']
+        - ['Pilates Equipment', 'Pilates na macie z dodatkowymi akcesoriami — piłki, gumy, obciążniki.', '50 min']
+        - ['Barre Flow', 'Nowoczesny trening łączący fitness, balet i pilates. Ćwiczenia przy drążku.', '50 min']
+        - ['Power Booty & Legs', 'Intensywny trening na pośladki i nogi — rzeźbi i wzmacnia dolne partie ciała.', '50 min']
+        - ['Strong Core', 'Trening głębokich mięśni brzucha i stabilizatorów — mocny środek ciała.', '50 min']
+    - id: joga
+      tab: 'Joga & Stretch'
+      photo: joga
+      alt: 'Praktyka jogi w studiu'
+      items:
+        - ['Good Morning Joga', 'Poranna praktyka jogi — delikatne rozbudzenie ciała i energii na cały dzień.', '60 min']
+        - ['Vinyasa Joga Flow', 'Dynamiczna praktyka łącząca oddech z płynnym ruchem — siła, równowaga, relaks.', '60 min']
+        - ['Yin Joga Good Night', 'Wieczorna sesja wyciszająca i regenerująca — głębokie rozciąganie i relaksacja.', '60 min']
+        - ['Joga dla Kręgosłupa', 'Łagodna praktyka wspierająca zdrowie kręgosłupa i prawidłową postawę.', '60 min']
+        - ['Zdrowy Kręgosłup', 'Ćwiczenia wzmacniające i mobilizujące kręgosłup — profilaktyka bólu pleców.', '50 min']
+        - ['Stretch & Mobility', 'Rozciąganie i praca nad zakresem ruchu — redukuje napięcia i poprawia elastyczność.', '50 min']
+
+schedule:
+  eyebrow: 'Grafik'
+  title: 'Grafik zajęć'
+  lead: 'Aktualny grafik pobierany bezpośrednio z&nbsp;Fitssey.'
+  open: 'Otwórz grafik w Fitssey'
+
+multisport:
+  badge: 'Ważna informacja'
+  title: 'Od 16 czerwca 2026 honorujemy karty <em class="italic text-blush">Multisport</em>'
+  p1: 'Rezerwacje dla użytkowników Multisport otwierają się na <strong class="text-cream">48 godzin przed zajęciami</strong>.'
+  p2: 'Przy odwołaniu lub nieobecności później niż 12h przed zajęciami pobieramy kaucję z portfela tak, aby łączna płatność wyniosła tyle, ile kosztuje u nas pojedynczy trening. Zasada dotyczy zarówno zajęć na reformerze, jak i na macie.'
+  reformer: 'Reformer'
+  mat: 'Mata'
+  surcharge: 'Dopłata'
+  wallet_min: 'Minimum w portfelu Fitssey'
+  deposit: 'Kaucja w portfelu Fitssey'
+
+pricing:
+  eyebrow: 'Cennik'
+  title: 'Wybierz <em class="italic">karnet</em>'
+  lead: 'Najczęściej wybierane opcje. Pełną ofertę sprawdzisz w&nbsp;Fitssey.'
+  featured: 'Najczęściej wybierany'
+  provider: 'Usługodawca: Pure Shape Studio.'
+  vat: 'Cena w PLN, sprzedawca nie jest płatnikiem VAT'
+  full: 'Zobacz pełny cennik w Fitssey'
+  passes:
+    - {name: 'Welcome Pass', tag: 'Mata · na start', price: '39', desc: 'Próbne wejście na dowolne zajęcia grupowe na macie (Pilates, Barre, Joga i in.).'}
+    - {name: 'Welcome Pass', tag: 'Reformer · na start', price: '69', desc: 'Próbne wejście na zajęcia grupowe na reformerze Balanced Body.', featured: true}
+    - {name: 'Karnet Flow x4', tag: 'Mata', price: '199', desc: '4 wejścia na zajęcia grupowe na macie. Ważny 30 dni od pierwszej wizyty.'}
+    - {name: 'Karnet Premium x4', tag: 'Reformer + mata', price: '359', desc: '4 wejścia na wszystkie zajęcia — reformer oraz mata. Ważny 30 dni od pierwszej wizyty.'}
+    - {name: 'Karnet Flow x8', tag: 'Mata', price: '359', desc: '8 wejść na zajęcia grupowe na macie. Ważny 30 dni od pierwszej wizyty.'}
+    - {name: 'Karnet Premium x8', tag: 'Reformer + mata', price: '679', desc: '8 wejść na wszystkie zajęcia — reformer oraz mata. Ważny 30 dni od pierwszej wizyty.'}
+  personal:
+    alt: 'Trening indywidualny na reformerze'
+    eyebrow: 'Trening personalny'
+    title: 'Trening indywidualny'
+    lead: 'Indywidualny trening dopasowany do Twoich celów i&nbsp;potrzeb.'
+    points: ['Plan treningowy', 'Indywidualne podejście']
+    price: 'Zapytaj o cenę'
+    cta: 'Zapytaj o ofertę'
+  legal1: 'Podmiotem świadczącym obsługę płatności online w zakresie płatności kartami jest <strong>Autopay S.A.</strong> Obsługa płatności: Paynow (mBank S.A.). Waluta: PLN.'
+  legal2: 'Karnet aktywowany jest automatycznie po zaksięgowaniu płatności. Rezerwacja zajęć odbywa się przez system'
+  payment_alt: 'Akceptowane metody płatności: Visa, Visa Electron, Mastercard, MasterCard Electronic, Maestro'
+
+gallery:
+  title: 'Zajrzyj <em class="italic">do środka</em>'
+  aria: 'Galeria studia'
+  prev: 'Poprzednie zdjęcia'
+  next: 'Następne zdjęcia'
+  items:
+    - [reformer-3, 'Ćwiczenie na reformerze z boxem', landscape]
+    - [barre-2, 'Zajęcia barre', portrait]
+    - [wnetrze, 'Wnętrze studia', landscape]
+    - [reformer-5, 'Trening na reformerze', portrait]
+    - [trx, 'Trening funkcjonalny z TRX', portrait]
+    - [mata, 'Pilates z piłką', portrait]
+    - [reformer-6, 'Stretching na reformerze', portrait]
+    - [kettle, 'Trening z kettlebell', portrait]
+    - [mata-2, 'Pilates na macie', portrait]
+
+team:
+  eyebrow: 'O nas'
+  title: 'Poznaj <em class="italic">zespół</em>'
+  lead: 'Jesteśmy pasjonatkami ruchu i&nbsp;zdrowego stylu życia. Razem tworzymy przestrzeń, w&nbsp;której każdy znajdzie swoje miejsce.'
+  read_more: 'Czytaj więcej'
+  collapse: 'Zwiń opis'
+  members:
+    - id: gosia
+      name: 'Małgorzata Pilińska-Babula'
+      role: 'Właścicielka studia · instruktorka fitness i Pilates'
+      bio: 'Certyfikowana instruktorka fitness i Pilates, pracująca z kobietami na różnych etapach życia. Specjalizuje się w treningu funkcjonalnym, ciąży i powrocie do formy po porodzie.'
+      more: 'Certyfikowana instruktorka Balanced Body i promotorka świadomego ruchu. Na zajęciach łączy technikę, oddech i indywidualne podejście do potrzeb każdej kobiety.'
+      instagram: 'https://www.instagram.com/gosia.pilinska/'
+    - id: ania
+      name: 'Anna Soczowka'
+      role: 'Trenerka · siła i sprawność'
+      bio: 'Pomaga budować siłę, sprawność i pewność siebie dzięki dobrze dopasowanym planom treningowym. Stawia na regularność, zdrowie i widoczne efekty.'
+      more: 'Pracuje zarówno z osobami początkującymi, jak i zaawansowanymi, dbając o bezpieczną technikę i plan treningowy dopasowany do celu oraz możliwości.'
+    - id: dorota
+      name: 'Dorota Wodzień-Kowalczyk'
+      role: 'Nauczycielka jogi · RYT 200'
+      bio: 'Certyfikowana nauczycielka jogi (RYT 200) w stylach Ashtanga, Vinyasa i Yin. Tworzy zajęcia, które łączą ruch, oddech i regenerację.'
+      more: 'Jej praktyka opiera się na uważności i pracy z ciałem bez presji. Pomaga odzyskać równowagę, mobilność i spokój w codziennym funkcjonowaniu.'
+    - id: olivia
+      name: 'Olivia'
+      role: 'Fizjoterapeutka i instruktorka pilates'
+      bio: 'Prowadzi zajęcia Pilates Reformer i na macie dla kobiet na każdym etapie życia. Pomaga wzmacniać ciało, poprawiać postawę i pracować bez bólu. Ukończyła fizjoterapię na Collegium Medicum UJ i stale rozwija swoje umiejętności poprzez kursy i szkolenia.'
+      more: 'Specjalizuje się w pracy z kobietami od pierwszej miesiączki, przez ciążę i połóg, aż po menopauzę. W treningu stawia na precyzję, stabilizację i świadomą pracę mięśni głębokich.'
+    - id: klaudia
+      name: 'Klaudia Pyszniak'
+      role: 'Instruktorka pilatesu · certyfikacja Balanced Body'
+      bio: 'Prowadzi energetyczne, dynamiczne treningi, a także zajęcia z klasycznymi zasadami pilatesu — pełne precyzji i kontroli.'
+      more: 'W trakcie kompletnej certyfikacji Balanced Body, łączy klasyczne fundamenty metody z nowoczesnym podejściem do treningu. Stale rozwija swoje umiejętności, szukając nowych inspiracji — jej zajęcia wzmacniają ciało, poprawiają sprawność i sprawiają, że czujesz się lepiej.'
+    - id: zuza
+      name: 'Zuza'
+      role: 'Recepcja'
+      bio: 'Przywita Cię w studiu, pomoże z rezerwacją, karnetem i odpowie na pytania.'
+
+socks:
+  alt: 'Skarpetki do pilatesu Elliosa na reformerze'
+  eyebrow: 'Do kupienia w studiu'
+  title: 'Skarpetki do Pilatesu Elliosa'
+  text: 'Antypoślizgowe skarpetki, w&nbsp;których pewnie stoisz na reformerze i&nbsp;macie.'
+  price: '49'
+  currency: 'zł'
+
+personal:
+  eyebrow: '1 na 1'
+  title: 'Treningi <em class="italic">personalne</em>'
+  lead: 'Grafik personalny mamy obecnie mocno obłożony, dlatego działamy szybciej i&nbsp;prościej: wyślij zapytanie, a&nbsp;przygotujemy ofertę i&nbsp;zaproponujemy najbliższe realne terminy.'
+  how: 'Jak to działa?'
+  steps:
+    - 'Wysyłasz krótkie zapytanie: czego potrzebujesz i&nbsp;w&nbsp;jakich dniach najchętniej trenujesz.'
+    - 'Wracamy z&nbsp;dopasowaną ofertą i&nbsp;najbliższymi możliwymi terminami.'
+    - 'Potwierdzasz i&nbsp;rezerwujemy trening bez dodatkowych formularzy.'
+  send: 'Wyślij zapytanie'
+  send_lead: 'Napisz do nas wygodnym kanałem. Odpowiadamy z&nbsp;propozycją oferty i&nbsp;terminów.'
+  call: 'Zadzwoń: 698 190 880'
+  whatsapp: 'Napisz na WhatsApp'
+  whatsapp_text: 'Dzie%C5%84%20dobry%2C%20chc%C4%99%20zapytac%20o%20ofert%C4%99%20na%20trening%20personalny.'
+  email: 'Napisz e-mail'
+  email_subject: 'Zapytanie%20o%20trening%20personalny'
+  hint: 'W wiadomości możesz dodać: cel treningowy, preferowane pory i&nbsp;informację, czy wolisz reformer czy matę.'
+
+location:
+  alt: 'Wejście do Pure Shape Studio przy ul. Kościuszki 11A w Bibicach'
+  eyebrow: 'Lokalizacja'
+  title: 'Znajdziesz nas w&nbsp;Bibicach'
+  address: 'Adres'
+  hours: 'Godziny otwarcia'
+  phone: 'Telefon'
+  hours_lines: ['Pon – Pt: 7:00 – 21:00', 'Sobota: 9:00 – 15:00']
+  map_title: 'Mapa dojazdu do Pure Shape Studio'
+
+cta:
+  title: 'Gotowa<br><em class="italic text-blush">na start?</em>'
+  lead: 'Dołącz do nas na pierwszą sesję i&nbsp;poczuj różnicę.'
+  book: 'Zarezerwuj zajęcia'
+  buy: 'Kup karnet'
+
+footer:
+  company: 'Pure Shape Studio'
+  contact: 'Kontakt'
+  info: 'Informacje'
+  venue: 'Miejsce zajęć: ul. Kościuszki 11A, Bibice'
+  pricing: 'Cennik'
+  terms: 'Regulamin'
+  privacy: 'Polityka prywatności'
+  booking: 'Rezerwacja przez Fitssey'
+  rights: '© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. Wszelkie prawa zastrzeżone.'
+  payments: 'Płatności online obsługiwane przez Autopay S.A. / Paynow (mBank S.A.). Waluta: PLN.'
+
+mobile:
+  book: 'Zarezerwuj'
+  schedule: 'Grafik'
