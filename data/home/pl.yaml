@@ -48,7 +48,7 @@ classes:
   categories:
     - id: reformer
       tab: 'Reformer Balanced Body'
-      photo: reformer
+      photo: reformer-8
       alt: 'Zajęcia grupowe na reformerze'
       items:
         - ['Reformer Flow', 'Płynna sesja na reformerze rozwijająca kontrolę ruchu, mobilność i koordynację.', '50 min']
@@ -130,7 +130,6 @@ gallery:
   prev: 'Poprzednie zdjęcia'
   next: 'Następne zdjęcia'
   items:
-    - [reformer-3, 'Ćwiczenie na reformerze z boxem', landscape]
     - [barre-2, 'Zajęcia barre', portrait]
     - [wnetrze, 'Wnętrze studia', landscape]
     - [reformer-5, 'Trening na reformerze', portrait]

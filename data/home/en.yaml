@@ -48,7 +48,7 @@ classes:
   categories:
     - id: reformer
       tab: 'Balanced Body Reformer'
-      photo: reformer
+      photo: reformer-8
       alt: 'Group reformer class'
       items:
         - ['Reformer Flow', 'A flowing reformer session that builds movement control, mobility and coordination.', '50 min']
@@ -130,7 +130,6 @@ gallery:
   prev: 'Previous photos'
   next: 'Next photos'
   items:
-    - [reformer-3, 'Reformer exercise with the box', landscape]
     - [barre-2, 'Barre class', portrait]
     - [wnetrze, 'Studio interior', landscape]
     - [reformer-5, 'Reformer workout', portrait]
