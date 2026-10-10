@@ -3,16 +3,57 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ .Title }}</title>
   {{- $t := index site.Data.home site.Language.Lang }}
-  <meta name="description" content="{{ $t.meta.description }}">
-  <meta name="theme-color" content="#f7f2ec">
-  <meta property="og:title" content="{{ .Title }}">
-  <meta property="og:description" content="{{ $t.meta.og_description }}">
+  {{- $title := cond .IsHome $t.meta.title (printf "%s | %s" .Title site.Title) }}
+  {{- $desc := .Params.description | default $t.meta.description }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $desc }}">
+  <link rel="canonical" href="{{ .Permalink }}">
   {{- range .AllTranslations }}
   <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
   {{- end }}
+  {{- with .Sites.Default.GetPage .Path }}
+  <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+  {{- end }}
+  <meta name="theme-color" content="#f7f2ec">
+  <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="48x48">
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:locale" content="{{ replace site.Language.LanguageCode "-" "_" }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ cond .IsHome $t.meta.og_description $desc }}">
   <meta property="og:image" content="{{ "images/sesja/hero-grupa-1600.webp" | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+
+  {{- if .IsHome }}
+  {{- $ld := dict
+    "@context" "https://schema.org"
+    "@type" "HealthClub"
+    "@id" (print site.BaseURL "#studio")
+    "name" site.Title
+    "description" $t.meta.description
+    "url" .Permalink
+    "logo" ("apple-touch-icon.png" | absURL)
+    "image" (slice ("images/sesja/hero-grupa-1600.webp" | absURL) ("images/sesja/wnetrze-1600.webp" | absURL) ("images/sesja/wejscie-1600.webp" | absURL))
+    "telephone" "+48698190880"
+    "email" "gosia.pilinska@gmail.com"
+    "priceRange" "39–679 PLN"
+    "currenciesAccepted" "PLN"
+    "address" (dict "@type" "PostalAddress" "streetAddress" "ul. Kościuszki 11A" "addressLocality" "Bibice" "postalCode" "32-087" "addressRegion" "małopolskie" "addressCountry" "PL")
+    "geo" (dict "@type" "GeoCoordinates" "latitude" 50.12553 "longitude" 19.95452)
+    "hasMap" "https://share.google/KkM7lcyIjgyWWkGyY"
+    "openingHoursSpecification" (slice
+      (dict "@type" "OpeningHoursSpecification" "dayOfWeek" (slice "Monday" "Tuesday" "Wednesday" "Thursday" "Friday") "opens" "07:00" "closes" "21:00")
+      (dict "@type" "OpeningHoursSpecification" "dayOfWeek" "Saturday" "opens" "09:00" "closes" "15:00"))
+    "sameAs" (slice "https://www.instagram.com/gosia.pilinska/")
+    "potentialAction" (dict "@type" "ReserveAction" "target" "https://app.fitssey.com/total-training/frontoffice")
+  }}
+  <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+  {{- end }}
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">

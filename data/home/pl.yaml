@@ -1,5 +1,6 @@
 # Treść strony głównej (PL). Teksty z HTML (np. <em>, &nbsp;) są renderowane jako HTML.
 meta:
+  title: 'Pilates na reformerach Bibice k. Krakowa | Pure Shape Studio'
   description: 'Kameralne studio Fitness & Pilates w Bibicach — reformery Balanced Body, pilates na macie, barre i joga w małych grupach.'
   og_description: 'Reformery Balanced Body, pilates, barre i joga w małych grupach. Bibice, ul. Kościuszki 11A.'
 

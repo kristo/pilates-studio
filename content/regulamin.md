@@ -1,6 +1,7 @@
 ---
 title: "Regulamin"
 subtitle: "Zasady korzystania z usług Pure Shape Studio"
+description: "Regulamin Pure Shape Studio w Bibicach — karnety, płatności, rezerwacje i odwoływanie zajęć pilates, barre i jogi."
 url: "/regulamin/"
 ---
 

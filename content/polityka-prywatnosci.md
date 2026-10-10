@@ -1,6 +1,7 @@
 ---
 title: "Polityka Prywatności"
 subtitle: "Informacje o ochronie danych osobowych"
+description: "Polityka prywatności Pure Shape Studio — jakie dane osobowe przetwarzamy, w jakim celu i jakie masz prawa."
 url: "/polityka-prywatnosci/"
 ---
 
