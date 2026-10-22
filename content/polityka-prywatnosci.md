@@ -7,7 +7,7 @@ url: "/polityka-prywatnosci/"
 
 ## §1. Administrator danych
 
-Administratorem danych osobowych jest Pure Shape Studio Małgorzata Pilińska-Babula, ul. Graniczna 121D, 32-087 Bibice, NIP: 6782974830, REGON: 382489195. Kontakt: [gosia.pilinska@gmail.com](mailto:gosia.pilinska@gmail.com), tel. [698 190 880](tel:+48698190880).
+Administratorem danych osobowych jest Pure Shape Studio Małgorzata Pilińska-Babula, ul. Graniczna 121D, 32-087 Bibice, NIP: 6782974830, REGON: 382489195. Kontakt: [info@pure-shape.pl](mailto:info@pure-shape.pl), tel. [698 190 880](tel:+48698190880).
 
 ## §2. Zakres zbieranych danych
 
@@ -47,7 +47,7 @@ Każdej osobie, której dane dotyczą, przysługuje prawo do:
 - Cofnięcia zgody w dowolnym momencie (bez wpływu na zgodność z prawem przetwarzania dokonanego przed cofnięciem).
 - Wniesienia skargi do Prezesa Urzędu Ochrony Danych Osobowych.
 
-W celu realizacji powyższych praw prosimy o kontakt: [gosia.pilinska@gmail.com](mailto:gosia.pilinska@gmail.com).
+W celu realizacji powyższych praw prosimy o kontakt: [info@pure-shape.pl](mailto:info@pure-shape.pl).
 
 ## §6. Odbiorcy danych
 

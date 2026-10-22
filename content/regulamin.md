@@ -9,7 +9,7 @@ url: "/regulamin/"
 
 1. Niniejszy regulamin określa zasady korzystania z usług oferowanych przez **Pure Shape Studio Małgorzata Pilińska-Babula**, z siedzibą przy ul. Granicznej 121D, 32-087 Bibice, NIP: 6782974830, REGON: 382489195 (dalej: „Studio").
 2. Zajęcia prowadzone są w lokalu przy ul. Kościuszki 11A, Bibice.
-3. Dane kontaktowe: tel. [698 190 880](tel:+48698190880), e-mail: [gosia.pilinska@gmail.com](mailto:gosia.pilinska@gmail.com).
+3. Dane kontaktowe: tel. [698 190 880](tel:+48698190880), e-mail: [info@pure-shape.pl](mailto:info@pure-shape.pl).
 4. Zakup karnetu lub pojedynczego wejścia oznacza akceptację niniejszego regulaminu.
 
 ## §2. Usługi i ceny
@@ -78,12 +78,12 @@ url: "/regulamin/"
 
 1. Konsument, który zawarł umowę na odległość lub umowę poza lokalem przedsiębiorstwa, ma prawo odstąpić od niej bez podawania przyczyny w terminie **14 dni** od momentu zawarcia umowy.
 2. Prawo odstąpienia od umowy nie przysługuje, jeżeli Studio rozpoczęło świadczenie usługi za wyraźną zgodą konsumenta przed upływem terminu do odstąpienia od umowy i po poinformowaniu go o utracie prawa odstąpienia (art. 38 pkt 1 ustawy z dnia 30 maja 2014 r. o prawach konsumenta).
-3. Aby skorzystać z prawa odstąpienia, należy poinformować Studio drogą mailową: [gosia.pilinska@gmail.com](mailto:gosia.pilinska@gmail.com) lub telefonicznie: [698 190 880](tel:+48698190880).
+3. Aby skorzystać z prawa odstąpienia, należy poinformować Studio drogą mailową: [info@pure-shape.pl](mailto:info@pure-shape.pl) lub telefonicznie: [698 190 880](tel:+48698190880).
 4. W przypadku skutecznego odstąpienia zwrot środków nastąpi nie później niż w terminie 14 dni od dnia otrzymania oświadczenia o odstąpieniu, przy użyciu takiego samego sposobu płatności, jakiego użył konsument, chyba że konsument wyraźnie zgodził się na inny sposób zwrotu, który nie wiąże się dla niego z żadnymi kosztami.
 
 ## §8. Reklamacje i rękojmia
 
-1. Reklamacje dotyczące świadczonych usług można składać drogą mailową na adres [gosia.pilinska@gmail.com](mailto:gosia.pilinska@gmail.com) lub telefonicznie pod numerem [698 190 880](tel:+48698190880).
+1. Reklamacje dotyczące świadczonych usług można składać drogą mailową na adres [info@pure-shape.pl](mailto:info@pure-shape.pl) lub telefonicznie pod numerem [698 190 880](tel:+48698190880).
 2. Reklamacja powinna zawierać: imię i nazwisko klienta, opis problemu oraz oczekiwany sposób rozwiązania.
 3. Reklamacje rozpatrywane są w terminie 14 dni od daty ich otrzymania.
 4. Odpowiedź na reklamację zostanie przesłana na adres e-mail wskazany przez klienta.

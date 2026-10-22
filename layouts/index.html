@@ -393,7 +393,7 @@
         <div class="mt-8 space-y-3">
           <a href="tel:+48698190880" class="flex items-center justify-center w-full px-6 py-3.5 bg-cream text-ink font-semibold rounded-full hover:bg-blush transition-colors">{{ .call }}</a>
           <a href="{{ printf "https://wa.me/48698190880?text=%s" .whatsapp_text | safeURL }}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center w-full px-6 py-3.5 bg-blush text-ink font-semibold rounded-full hover:bg-cream transition-colors">{{ .whatsapp }}</a>
-          <a href="{{ printf "mailto:gosia.pilinska@gmail.com?subject=%s" .email_subject | safeURL }}" class="flex items-center justify-center w-full px-6 py-3.5 border border-cream/30 font-semibold rounded-full hover:bg-cream hover:text-ink transition-colors">{{ .email }}</a>
+          <a href="{{ printf "mailto:info@pure-shape.pl?subject=%s" .email_subject | safeURL }}" class="flex items-center justify-center w-full px-6 py-3.5 border border-cream/30 font-semibold rounded-full hover:bg-cream hover:text-ink transition-colors">{{ .email }}</a>
         </div>
         <p class="text-sm text-cream/50 mt-6">{{ .hint | safeHTML }}</p>
       </div>
@@ -489,7 +489,7 @@
         <h4 class="text-cream font-semibold mb-4">{{ .contact }}</h4>
         <p>{{ .venue }}</p>
         <p class="mt-2"><a href="tel:+48698190880" class="hover:text-blush transition-colors">698 190 880</a></p>
-        <p><a href="mailto:gosia.pilinska@gmail.com" class="hover:text-blush transition-colors">gosia.pilinska@gmail.com</a></p>
+        <p><a href="mailto:info@pure-shape.pl" class="hover:text-blush transition-colors">info@pure-shape.pl</a></p>
         <p class="mt-2">{{ delimit $t.location.hours_lines "<br>" | safeHTML }}</p>
       </div>
       <!-- Links -->
