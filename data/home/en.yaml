@@ -104,7 +104,7 @@ pricing:
   lead: 'Our most popular options. See the full offer on Fitssey.'
   featured: 'Most popular'
   provider: 'Service provider: Pure Shape Studio.'
-  vat: 'Prices in PLN, seller is not a VAT payer'
+  vat: 'Gross price in PLN, incl. 8% VAT'
   full: 'See full pricing on Fitssey'
   passes:
     - {name: 'Welcome Pass', tag: 'Mat · first visit', price: '39', desc: 'A trial entry to any group mat class (Pilates, Barre, Yoga and more).'}
@@ -120,6 +120,7 @@ pricing:
     lead: 'Personal training tailored to your goals and needs.'
     points: ['Training plan', 'Individual approach']
     price: 'Ask for a quote'
+    vat: 'One-to-one training prices include 23% VAT'
     cta: 'Get in touch'
   legal1: 'Online card payments are processed by <strong>Autopay S.A.</strong> Payment handling: Paynow (mBank S.A.). Currency: PLN.'
   legal2: 'Your pass is activated automatically once the payment is received. Classes are booked through'

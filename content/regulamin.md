@@ -18,7 +18,7 @@ url: "/regulamin/"
    - **Zajęcia grupowe na macie** (m.in. Pilates Flow, Barre Flow, Power Glute, Joga Flow, Joga Relaksacyjna, Stretch & Mobility, Zdrowy kręgosłup) – grupowe zajęcia fitness i pilates w sali ćwiczeń, prowadzone przez certyfikowanego instruktora Pure Shape Studio.
    - **Zajęcia grupowe na reformerze** (m.in. Reformer Flow, Reformer Strength, Reformer Basic) – grupowe zajęcia na profesjonalnych reformerach Balanced Body, prowadzone przez certyfikowanego instruktora Pure Shape Studio.
    - **Trening personalny** – indywidualny trening dopasowany do potrzeb i celów klienta, prowadzony przez instruktora Pure Shape Studio.
-2. Aktualne ceny podane są w sekcji [Cennik](/#cennik) oraz w systemie rezerwacyjnym [Fitssey](https://app.fitssey.com/total-training/frontoffice/pricing/classes). Wszystkie ceny podane są w złotych polskich (PLN). Sprzedawca nie jest płatnikiem podatku VAT.
+2. Aktualne ceny podane są w sekcji [Cennik](/#cennik) oraz w systemie rezerwacyjnym [Fitssey](https://app.fitssey.com/total-training/frontoffice/pricing/classes). Wszystkie ceny podane są w złotych polskich (PLN). Ceny podane są w kwotach brutto i zawierają podatek VAT: 8% dla zajęć grupowych (na macie i na reformerze) oraz 23% dla treningów personalnych (indywidualnych).
 3. Usługodawcą jest Pure Shape Studio Małgorzata Pilińska-Babula.
 
 ## §3. Formy płatności i realizacja zamówień

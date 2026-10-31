@@ -104,7 +104,7 @@ pricing:
   lead: 'Najczęściej wybierane opcje. Pełną ofertę sprawdzisz w&nbsp;Fitssey.'
   featured: 'Najczęściej wybierany'
   provider: 'Usługodawca: Pure Shape Studio.'
-  vat: 'Cena w PLN, sprzedawca nie jest płatnikiem VAT'
+  vat: 'Cena brutto w PLN, zawiera 8% VAT'
   full: 'Zobacz pełny cennik w Fitssey'
   passes:
     - {name: 'Welcome Pass', tag: 'Mata · na start', price: '39', desc: 'Próbne wejście na dowolne zajęcia grupowe na macie (Pilates, Barre, Joga i in.).'}
@@ -120,6 +120,7 @@ pricing:
     lead: 'Indywidualny trening dopasowany do Twoich celów i&nbsp;potrzeb.'
     points: ['Plan treningowy', 'Indywidualne podejście']
     price: 'Zapytaj o cenę'
+    vat: 'Ceny treningów indywidualnych zawierają 23% VAT'
     cta: 'Zapytaj o ofertę'
   legal1: 'Podmiotem świadczącym obsługę płatności online w zakresie płatności kartami jest <strong>Autopay S.A.</strong> Obsługa płatności: Paynow (mBank S.A.). Waluta: PLN.'
   legal2: 'Karnet aktywowany jest automatycznie po zaksięgowaniu płatności. Rezerwacja zajęć odbywa się przez system'

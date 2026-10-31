@@ -278,6 +278,7 @@
           {{ range .points }}<li class="flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-wine"></span>{{ . }}</li>{{ end }}
         </ul>
         <p class="mt-6 font-display text-2xl italic text-wine">{{ .price }}</p>
+        {{ with .vat }}<p class="mt-2 text-xs text-ink/40">{{ . }}</p>{{ end }}
         <a href="#lista-oczekujacych" class="mt-6 inline-block px-8 py-3.5 bg-blush text-ink font-semibold rounded-full hover:bg-ink hover:text-cream transition-colors">{{ .cta }}</a>
       </div>
     </div>
