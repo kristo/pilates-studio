@@ -122,7 +122,7 @@ pricing:
     price: 'Zapytaj o cenę'
     vat: 'Ceny treningów indywidualnych zawierają 23% VAT'
     cta: 'Zapytaj o ofertę'
-  legal1: 'Podmiotem świadczącym obsługę płatności online w zakresie płatności kartami jest <strong>Autopay S.A.</strong> Obsługa płatności: Paynow (mBank S.A.). Waluta: PLN.'
+  legal1: 'Podmiotem świadczącym obsługę płatności online jest <strong>mBank S.A.</strong> (Paynow). Waluta: PLN.'
   legal2: 'Karnet aktywowany jest automatycznie po zaksięgowaniu płatności. Rezerwacja zajęć odbywa się przez system'
   payment_alt: 'Akceptowane metody płatności: Visa, Visa Electron, Mastercard, MasterCard Electronic, Maestro'
 
@@ -231,7 +231,7 @@ footer:
   privacy: 'Polityka prywatności'
   booking: 'Rezerwacja przez Fitssey'
   rights: '© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. Wszelkie prawa zastrzeżone.'
-  payments: 'Płatności online obsługiwane przez Autopay S.A. / Paynow (mBank S.A.). Waluta: PLN.'
+  payments: 'Płatności online obsługiwane przez Paynow (mBank S.A.). Waluta: PLN.'
 
 mobile:
   book: 'Zarezerwuj'

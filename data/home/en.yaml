@@ -122,7 +122,7 @@ pricing:
     price: 'Ask for a quote'
     vat: 'One-to-one training prices include 23% VAT'
     cta: 'Get in touch'
-  legal1: 'Online card payments are processed by <strong>Autopay S.A.</strong> Payment handling: Paynow (mBank S.A.). Currency: PLN.'
+  legal1: 'Online payments are processed by <strong>mBank S.A.</strong> (Paynow). Currency: PLN.'
   legal2: 'Your pass is activated automatically once the payment is received. Classes are booked through'
   payment_alt: 'Accepted payment methods: Visa, Visa Electron, Mastercard, MasterCard Electronic, Maestro'
 
@@ -231,7 +231,7 @@ footer:
   privacy: 'Privacy policy (PL)'
   booking: 'Book on Fitssey'
   rights: '© 2026 Pure Shape Studio Małgorzata Pilińska-Babula. All rights reserved.'
-  payments: 'Online payments by Autopay S.A. / Paynow (mBank S.A.). Currency: PLN.'
+  payments: 'Online payments by Paynow (mBank S.A.). Currency: PLN.'
 
 mobile:
   book: 'Book now'
