@@ -44,3 +44,12 @@
   .marquee-track { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
 }
+
+/* Print / PDF (regulamin-fitssey.pdf is printed from /regulamin/) */
+@media print {
+  @page { size: A4; margin: 16mm 18mm; }
+  body { background: #fff !important; }
+  .logo-mark { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  article h2 { break-after: avoid; }
+  article li { break-inside: avoid; }
+}
