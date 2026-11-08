@@ -11,6 +11,7 @@ nav:
   pricing: 'Cennik'
   about: 'O nas'
   more: 'Więcej'
+  voucher: 'Voucher podarunkowy'
   socks: 'Skarpetki do Pilatesu'
   personal: 'Trening personalny'
   contact: 'Kontakt'
@@ -186,6 +187,20 @@ socks:
   text: 'Antypoślizgowe skarpetki, w&nbsp;których pewnie stoisz na reformerze i&nbsp;macie.'
   price: '55'
   currency: 'zł'
+
+voucher:
+  alt: 'Voucher podarunkowy Pure Shape Studio'
+  eyebrow: 'Pomysł na prezent'
+  title: 'Podaruj <em class="italic">voucher</em>'
+  text: 'Elegancki voucher podarunkowy na zajęcia w&nbsp;Pure Shape Studio. Wybierz karnet lub kwotę, a&nbsp;my przygotujemy voucher z&nbsp;imieniem obdarowanej osoby.'
+  points:
+    - 'Na dowolny karnet z&nbsp;cennika lub wybraną kwotę'
+    - 'Na reformer, matę lub trening personalny'
+    - 'Do odbioru w&nbsp;studiu, w&nbsp;ozdobnej formie'
+  cta: 'Zamów przez WhatsApp'
+  call: 'Zadzwoń'
+  whatsapp_text: 'Dzie%C5%84%20dobry%2C%20chc%C4%99%20zam%C3%B3wi%C4%87%20voucher%20podarunkowy.'
+  note: 'Voucher możesz też kupić na miejscu w&nbsp;recepcji studia.'
 
 personal:
   eyebrow: '1 na 1'

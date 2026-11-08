@@ -11,6 +11,7 @@ nav:
   pricing: 'Pricing'
   about: 'About us'
   more: 'More'
+  voucher: 'Gift voucher'
   socks: 'Pilates socks'
   personal: 'Personal training'
   contact: 'Contact'
@@ -186,6 +187,20 @@ socks:
   text: 'Non-slip socks that keep you steady on the reformer and the mat.'
   price: '55'
   currency: 'PLN'
+
+voucher:
+  alt: 'Pure Shape Studio gift voucher'
+  eyebrow: 'Gift idea'
+  title: 'Give a <em class="italic">voucher</em>'
+  text: 'An elegant gift voucher for classes at Pure Shape Studio. Choose a pass or an amount and we will prepare a voucher with the recipient&rsquo;s name.'
+  points:
+    - 'For any pass from our price list or a chosen amount'
+    - 'Reformer, mat or personal training'
+    - 'Pick it up at the studio, beautifully presented'
+  cta: 'Order via WhatsApp'
+  call: 'Call us'
+  whatsapp_text: 'Hello%2C%20I%20would%20like%20to%20order%20a%20gift%20voucher.'
+  note: 'You can also buy a voucher at the studio reception.'
 
 personal:
   eyebrow: 'One-to-one'
