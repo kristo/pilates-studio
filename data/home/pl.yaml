@@ -13,6 +13,7 @@ nav:
   more: 'Więcej'
   voucher: 'Voucher podarunkowy'
   socks: 'Skarpetki do Pilatesu'
+  physio: 'Fizjoterapia i masaże'
   personal: 'Trening personalny'
   contact: 'Kontakt'
   terms: 'Regulamin'
@@ -175,10 +176,35 @@ team:
       role: 'Instruktorka pilatesu · certyfikacja Balanced Body'
       bio: 'Prowadzi energetyczne, dynamiczne treningi, a także zajęcia z klasycznymi zasadami pilatesu — pełne precyzji i kontroli.'
       more: 'W trakcie kompletnej certyfikacji Balanced Body, łączy klasyczne fundamenty metody z nowoczesnym podejściem do treningu. Stale rozwija swoje umiejętności, szukając nowych inspiracji — jej zajęcia wzmacniają ciało, poprawiają sprawność i sprawiają, że czujesz się lepiej.'
+    - id: asia
+      name: 'Asia Suchecka'
+      role: 'Fizjoterapeutka · trenerka gimnastyki · masaże'
+      bio: 'Prowadzi zajęcia Stretch &amp; Mobility oraz gimnastykę ogólnorozwojową dla dzieci. Przyjmuje też na wizyty fizjoterapeutyczne i&nbsp;masaże.'
+      more: 'Łączy wiedzę fizjoterapeutki z&nbsp;doświadczeniem trenerki gimnastyki — dba o&nbsp;zakres ruchu, prawidłową postawę i&nbsp;bezpieczną technikę, zarówno u&nbsp;dorosłych, jak i&nbsp;u&nbsp;najmłodszych.'
+      link: '#fizjoterapia'
+      link_label: 'Umów wizytę'
     - id: zuza
       name: 'Zuza'
       role: 'Recepcja'
       bio: 'Przywita Cię w studiu, pomoże z rezerwacją, karnetem i odpowie na pytania.'
+
+physio:
+  eyebrow: 'Fizjoterapia i masaże'
+  title: 'Umów wizytę <em class="italic">z&nbsp;Asią</em>'
+  text: 'Asia jest fizjoterapeutką i&nbsp;trenerką gimnastyki. Oprócz zajęć w&nbsp;grafiku przyjmuje w&nbsp;studiu na indywidualne wizyty — napisz lub zadzwoń, a&nbsp;dobierzemy dogodny termin.'
+  points:
+    - 'Konsultacja i&nbsp;terapia fizjoterapeutyczna'
+    - 'Masaż — relaksacyjny i&nbsp;leczniczy'
+    - 'Praca nad mobilnością, postawą i&nbsp;bólem pleców'
+  classes_title: 'Zajęcia Asi w grafiku'
+  classes:
+    - ['Stretch &amp; Mobility', 'Piątek 20:00']
+    - ['Stretching &amp; Mobility — chłopcy 7–12 lat', 'Wtorek 16:45']
+    - ['Gimnastyka ogólnorozwojowa — dziewczynki 5–7 lat', 'Sobota 12:15']
+  cta: 'Napisz na WhatsApp'
+  call: 'Zadzwoń'
+  whatsapp_text: 'Dzie%C5%84%20dobry%2C%20chc%C4%99%20um%C3%B3wi%C4%87%20wizyt%C4%99%20u%20Asi%20(fizjoterapia%20%2F%20masa%C5%BC).'
+  note: 'Aktualne godziny zajęć sprawdzisz w&nbsp;grafiku Fitssey.'
 
 socks:
   alt: 'Skarpetki do pilatesu Elliosa na reformerze'

@@ -13,6 +13,7 @@ nav:
   more: 'More'
   voucher: 'Gift voucher'
   socks: 'Pilates socks'
+  physio: 'Physiotherapy & massage'
   personal: 'Personal training'
   contact: 'Contact'
   terms: 'Terms (PL)'
@@ -175,10 +176,35 @@ team:
       role: 'Pilates instructor · Balanced Body certification'
       bio: 'Leads energetic, dynamic workouts as well as classes built on classical pilates principles — full of precision and control.'
       more: 'Currently completing her full Balanced Body certification, she combines the classical foundations of the method with a modern approach to training. Always looking for new inspiration — her classes strengthen the body, improve fitness and simply make you feel better.'
+    - id: asia
+      name: 'Asia Suchecka'
+      role: 'Physiotherapist · gymnastics coach · massage'
+      bio: 'Teaches Stretch &amp; Mobility and general gymnastics classes for children. She also offers physiotherapy appointments and massage.'
+      more: 'She combines a physiotherapist’s knowledge with a gymnastics coach’s experience — focusing on range of motion, good posture and safe technique, for adults and kids alike.'
+      link: '#fizjoterapia'
+      link_label: 'Book a visit'
     - id: zuza
       name: 'Zuza'
       role: 'Front desk'
       bio: 'She’ll welcome you to the studio and help with bookings, passes and any questions.'
+
+physio:
+  eyebrow: 'Physiotherapy & massage'
+  title: 'Book a visit <em class="italic">with Asia</em>'
+  text: 'Asia is a physiotherapist and gymnastics coach. Besides her scheduled classes, she sees clients for individual appointments at the studio — message or call us and we will find a time that suits you.'
+  points:
+    - 'Physiotherapy consultation and treatment'
+    - 'Massage — relaxing and therapeutic'
+    - 'Work on mobility, posture and back pain'
+  classes_title: 'Asia’s classes'
+  classes:
+    - ['Stretch &amp; Mobility', 'Friday 8:00 pm']
+    - ['Stretching &amp; Mobility — boys 7–12', 'Tuesday 4:45 pm']
+    - ['General gymnastics — girls 5–7', 'Saturday 12:15 pm']
+  cta: 'Message on WhatsApp'
+  call: 'Call us'
+  whatsapp_text: 'Hello%2C%20I%20would%20like%20to%20book%20a%20visit%20with%20Asia%20(physiotherapy%20%2F%20massage).'
+  note: 'Check the current class times in the Fitssey schedule.'
 
 socks:
   alt: 'Elliosa pilates socks on a reformer'
